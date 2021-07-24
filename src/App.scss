@@ -1,3 +1,8 @@
+@import 'scss/variables.scss';
+@import 'containers/Home/home.scss';
+@import 'containers/Register/register.scss';
+@import 'containers/Login/login.scss';
+
 .App {
   text-align: center;
 }
