@@ -14,11 +14,12 @@ const Register = () => {
     let history = useHistory();
 
     // Hooks
-    const [credentials, setCredentials] = useState({nick:'',name:'',surname:'',email:'',password:'',age:'', gender:'', country:'',city:'', cp:'',isAdmin:'false',isPremium:'false',isActive:'true'});
+    const [credentials, setCredentials] = useState({nick:'',name:'',surname:'',email:'',password:'',age:'',gender:'',country:'',city:'', cp:'',urlpic:'',isAdmin:'false',isPremium:'false',isActive:'true'});
 
-    const [errors, setErrors] = useState({eNick:'', eName: '',eSurname: '',eEmail: '',ePassword:'',eAge:'', eGender:'', eCountry:'',eCity:'', eCP:'', ePhone:''});
+    const [errors, setErrors] = useState({eNick:'',eName:'',eSurname:'',eEmail:'',ePassword:'',eAge:'',eGender:'',eCountry:'',eCity:'', eCP:'',eUrlpic:'',ePhone:''});
 
     const[sexuality, setSexuality] = useState('heterosexual');
+    const[gender, setGender] = useState('');
 
     // Handler
     const updateCredentials = (e) => {
@@ -29,6 +30,9 @@ const Register = () => {
         setSexuality(e.target.value);
     }
     
+    const updateGender = (e) => {
+        setGender(e.target.value);
+    }
 
     // FUNCTION ERROR CHECK
     const checkError = (arg) => {
@@ -46,7 +50,7 @@ const Register = () => {
                     } else if (arg==='csurname'){
                         setErrors({...errors, eCLastName: 'Not a validate surname'});
                     }
-                }else{
+                } else {
                     setErrors({...errors, eName: ''});
                     setErrors({...errors, eCName: ''});
                     setErrors({...errors, eSurname: ''});
@@ -57,7 +61,7 @@ const Register = () => {
             case 'email':
                 if (! /[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?/g.test(credentials.email)){
                     setErrors({...errors, eEmail: 'Not a validate email'});
-                }else{
+                } else {
                     setErrors({...errors, eEmail: ''});
                 }
                 
@@ -66,7 +70,7 @@ const Register = () => {
             case 'password':
                 if (! /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$/gm.test(credentials.password)){
                     setErrors({...errors, ePassword: 'Must contain at least 8 characters: 1 uppercase letter, 1 lowercase letter, and 1 number. Can contain special characters'});
-                }else{
+                } else {
                     setErrors({...errors, ePassword: ''});
                 }
             break;
@@ -74,8 +78,16 @@ const Register = () => {
             case 'phone':
                 if ((! /^\s*(?:\+?(\d{1,3}))?([-. (]*(\d{3})[-. )]*)?((\d{3})[-. ]*(\d{2,4})(?:[-.x ]*(\d+))?)\s*$/gm.test(credentials.phone))||(credentials.phone.length > 16)){
                     setErrors({...errors, ePhone: 'Wrong phone number'});
-                }else{
+                } else {
                     setErrors({...errors, ePhone: ''});
+                }
+            break;
+
+            case 'age':
+                if (credentials.age<18) {
+                    setErrors({...errors, eAge: "You need be older than 18 to access here"});
+                } else {
+                    setErrors({...errors, eAge: ''});
                 }
             break;
 
@@ -87,7 +99,7 @@ const Register = () => {
 
     const sexualOptions = [
         {
-            label: "CHOOSE",
+            label: "ORIENTATION",
             value: ""
         },
         {
@@ -104,9 +116,24 @@ const Register = () => {
         },
     ];
 
+    const genderOptions = [
+        {
+            label: "SEX",
+            value: ""
+        },
+        {
+            label: "MALE",
+            value: "male"
+        },
+        {
+            label: "FEMALE",
+            value: "female"
+        },
+    ];
+
     const Registration = async () => {
 
-        //A continuación genearmos el body de datos
+        //A continuación generamos el body de datos
         let body = {
             nick: credentials.nick,
             name: credentials.name,
@@ -118,7 +145,8 @@ const Register = () => {
             country: credentials.country,
             city: credentials.city,
             cp: credentials.cp,
-            gender: credentials.gender,
+            urlpic: credentials.urlpic,
+            gender: gender,
             sexuality: sexuality,
             isAdmin: credentials.isAdmin,
             isPremium: credentials.isPremium,
@@ -145,13 +173,36 @@ const Register = () => {
     return (
 
         <div className="containerRegister">
+            
+            <div className="titleSection">REGISTER</div>
+
             <div className="boxRegister">
-                <div className="personalInfo">
-                    <div className="titleSection">PERSONAL INFO</div>
+
+                <div className="regData">
 
                     <label className="labelsRegister" for="nick">NICK</label>
                     <input require="true" className="inputsRegister" type="text" name="nick" onChange={updateCredentials} onBlur={()=>checkError("nick")} placeholder="Nick"/>
                     <div className="validateError">{errors.eNick}</div>
+
+                    <label className="labelsRegister" for="phone">PHONE</label>
+                    <input require="true" className="inputsRegister" type="number" name="phone" onChange={updateCredentials} onBlur={()=>checkError("phone")} placeholder="Phone"/>
+                    <div className="validateError">{errors.ePhone}</div>
+
+                    <label className="labelsRegister" for="email">EMAIL</label>
+                    <input require="true" className="inputsRegister" type="email" name="email" onChange={updateCredentials} onBlur={()=>checkError("email")} placeholder="Email"/>
+                    <div className="validateError">{errors.eEmail}</div>
+
+                    <label className="labelsRegister" for="password">PASSWORD</label>
+                    <input require="true" className="inputsRegister" type="password" name="password" onChange={updateCredentials} onBlur={()=>checkError("password")} placeholder="Password"/>
+                    <div className="validateError">{errors.ePassword}</div>
+
+                    <label className="labelsRegister" for="urlpic">PHOTO</label>
+                    <input className="inputsRegister" type="text" name="urlpic" onChange={updateCredentials} onBlur={()=>checkError("urlpic")} placeholder="Photo"/>
+                    <div className="validateError">{errors.eUrlpic}</div>
+                
+                </div>
+
+                <div className="regData">
 
                     <label className="labelsRegister" for="name">NAME</label>
                     <input require="true" className="inputsRegister" type="text" name="name" onChange={updateCredentials} onBlur={()=>checkError("name")} placeholder="Name"/>
@@ -161,32 +212,27 @@ const Register = () => {
                     <input require="true" className="inputsRegister" type="text" name="surname" onChange={updateCredentials} onBlur={()=>checkError("surname")} placeholder="Surname"/>
                     <div className="validateError">{errors.eSurname}</div>
 
-                    <label className="labelsRegister" for="email">EMAIL</label>
-                    <input require="true" className="inputsRegister" type="email" name="email" onChange={updateCredentials} onBlur={()=>checkError("email")} placeholder="Email"/>
-                    <div className="validateError">{errors.eEmail}</div>
-
-                    <label className="labelsRegister" for="phone">PHONE</label>
-                    <input require="true" className="inputsRegister" type="number" name="phone" onChange={updateCredentials} onBlur={()=>checkError("phone")} placeholder="Phone"/>
-                    <div className="validateError">{errors.ePhone}</div>
-
-                    <label className="labelsRegister" for="password">PASSWORD</label>
-                    <input require="true" className="inputsRegister" type="password" name="password" onChange={updateCredentials} onBlur={()=>checkError("password")} placeholder="Password"/>
-                    <div className="validateError">{errors.ePassword}</div>
-
                     <label className="labelsRegister" for="age">AGE</label>
                     <input className="inputsRegister" type="number" name="age" onChange={updateCredentials} onBlur={()=>checkError("age")} placeholder="Age"/>
                     <div className="validateError">{errors.eAge}</div>
 
                     <label className="labelsRegister" for="gender">GENDER</label>
-                    <input className="inputsRegister" type="text" name="gender" onChange={updateCredentials} onBlur={()=>checkError("gender")} placeholder="Gender"/>
-                    <div className="validateError">{errors.eGender}</div>
-
-                    <label className="labelsRegister" for="sexualOrientation">SEXUAL ORIENTATION</label>
-                    <select value="" onChange={updateSexuality}>
-                        {sexualOptions.map((option)=>(
+                    <select onChange={updateGender}>
+                        {genderOptions.map((option)=>(
                             <option value={option.value}>{option.label}</option>
                         ))}
                     </select>   
+
+                    <label className="labelsRegister" for="sexualOrientation">SEXUAL ORIENTATION</label>
+                    <select onChange={updateSexuality}>
+                        {sexualOptions.map((option)=>(
+                            <option value={option.value}>{option.label}</option>
+                        ))}
+                    </select>
+                
+                </div>
+
+                <div className="regData">
 
                     <label className="labelsRegister" for="country">COUNTRY</label>
                     <input className="inputsRegister" type="text" name="country" onChange={updateCredentials} onBlur={()=>checkError("country")} placeholder="Country"/>
@@ -199,13 +245,14 @@ const Register = () => {
                     <label className="labelsRegister" for="cp">CP</label>
                     <input className="inputsRegister" type="text" name="cp" onChange={updateCredentials} onBlur={()=>checkError("cp")} placeholder="C.P."/>
                     <div className="validateError">{errors.eCP}</div>
+
+                    
                 </div>
-
-    
-                
-
-                <div className="sendButton" onClick={()=>Registration()}><FontAwesomeIcon className="faLogin" icon={faPaperPlane}/></div>
+            
             </div>
+
+            <div className="sendButton" onClick={()=>Registration()}><FontAwesomeIcon className="faLogin" icon={faPaperPlane}/></div>
+
         </div>
     )
 
