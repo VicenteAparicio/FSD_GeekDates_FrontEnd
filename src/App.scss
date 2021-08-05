@@ -2,11 +2,12 @@
 @import 'containers/Home/home.scss';
 @import 'containers/Register/register.scss';
 @import 'containers/Login/login.scss';
-@import 'components/Button_A/button_a.scss';
+@import 'components/ButtonLog/buttonLog.scss';
+@import 'components/Nav/nav.scss';
 
 .App {
   text-align: center;
-  background-color: $favorito2;
+  background-color: $bg1;
 }
 
 .App-logo {

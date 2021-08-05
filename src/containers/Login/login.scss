@@ -1,0 +1,26 @@
+.containerLogin {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    
+    .boxLogin{
+        display: flex;
+        flex-direction: column;
+    }
+
+    .labelsLogin {
+        display: none;
+    }
+
+    .inputsLogin {
+        all: unset;
+        padding: 1em;
+        border-radius: 1em;
+        border: .05em solid grey;
+        background-color: white;
+        margin-bottom: 1em;
+        color: grey;
+    }
+}

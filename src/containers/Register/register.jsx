@@ -2,6 +2,8 @@
 import React, {useState} from 'react';
 import { useHistory } from 'react-router-dom';
 import axios from 'axios';
+// IMPORT COMPONENTS
+import Nav from '../../components/Nav/nav';
 // IMPORT ICONS
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPaperPlane } from '@fortawesome/free-regular-svg-icons';
@@ -145,7 +147,7 @@ const Register = () => {
             country: credentials.country,
             city: credentials.city,
             cp: credentials.cp,
-            urlpic: credentials.urlpic,
+            // urlpic: credentials.urlpic,
             gender: gender,
             sexuality: sexuality,
             isAdmin: credentials.isAdmin,
@@ -158,8 +160,8 @@ const Register = () => {
             .post(`${connection}/register`, body)
             .then((res)=>{
                 if(res){
-                    alert("Gracias por registrarte con nosotros")
-                    history.push('/login')
+                    alert("Gracias por registrarte con nosotros");
+                    history.push('/login');
                 }
             })
             .catch((error)=>{
@@ -173,7 +175,7 @@ const Register = () => {
     return (
 
         <div className="containerRegister">
-            
+            <Nav/>
             <div className="titleSection">REGISTER</div>
 
             <div className="boxRegister">
@@ -195,10 +197,10 @@ const Register = () => {
                     <label className="labelsRegister" for="password">PASSWORD</label>
                     <input require="true" className="inputsRegister" type="password" name="password" onChange={updateCredentials} onBlur={()=>checkError("password")} placeholder="Password"/>
                     <div className="validateError">{errors.ePassword}</div>
-
+{/* 
                     <label className="labelsRegister" for="urlpic">PHOTO</label>
                     <input className="inputsRegister" type="text" name="urlpic" onChange={updateCredentials} onBlur={()=>checkError("urlpic")} placeholder="Photo"/>
-                    <div className="validateError">{errors.eUrlpic}</div>
+                    <div className="validateError">{errors.eUrlpic}</div> */}
                 
                 </div>
 

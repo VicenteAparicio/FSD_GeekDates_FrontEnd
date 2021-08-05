@@ -12,7 +12,7 @@
     input{
         all:unset;
         margin: .5em 0;
-        border-bottom: .15em dotted $favorito;
+        border-bottom: .1em solid $shadow;
     }
 }
 
@@ -33,10 +33,15 @@
     flex-direction: column;
     color: white;
     margin: 2em;
-
-
 }
 
 .sendButton {
     color: white;
+    :hover{
+        color:greenyellow;
+    }
+}
+
+.validateError{
+    color:red;
 }

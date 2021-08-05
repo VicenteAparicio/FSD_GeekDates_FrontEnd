@@ -4,6 +4,7 @@ import {useHistory} from 'react-router-dom';
 import {connect} from 'react-redux';
 import axios from 'axios';
 // IMPORT COMPONENTS
+import ButtonLog from '../../components/ButtonLog/buttonLog';
 // IMPORT ACTIONS
 import {LOGIN} from '../../redux/types';
 // IMPORT ICONS
@@ -12,7 +13,7 @@ import { faPaperPlane } from '@fortawesome/free-regular-svg-icons';
 
 const Login = (props) => {
 
-    let connection = "http://localhost:3005";
+    let connection = "http://127.0.0.1:8000/api";
     // let connection = "https://killfilmsbackend.herokuapp.com";
 
     let history = useHistory();
@@ -30,7 +31,7 @@ const Login = (props) => {
 
         // A continuación genearmos el body de datos
         let body = {
-            email: credentials.email.toLocaleLowerCase(),
+            email: credentials.email.toLowerCase(),
             password: credentials.password,
         }
         
