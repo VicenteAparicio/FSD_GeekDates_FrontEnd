@@ -2,12 +2,17 @@
 @import 'containers/Home/home.scss';
 @import 'containers/Register/register.scss';
 @import 'containers/Login/login.scss';
+@import 'containers/Profile/profile.scss';
 @import 'components/ButtonLog/buttonLog.scss';
 @import 'components/Nav/nav.scss';
 
-.App {
-  text-align: center;
+body{
   background-color: $bg1;
+  height: 100%;
+}
+
+.App {
+  height: 100%;
 }
 
 .App-logo {

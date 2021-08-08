@@ -60,9 +60,9 @@ const Home = (props) => {
             <div className="boxOptions">
                 <div className="boxLogin">
                     
-                    <input className="inputsLogin" type="email" name="email" onChange={updateCredentials} placeholder="Email"></input>
+                    <input className="inputs" type="email" name="email" onChange={updateCredentials} placeholder="Email"></input>
                     
-                    <input className="inputsLogin" type="password" name="password" onChange={updateCredentials} placeholder="Password"></input>
+                    <input className="inputs" type="password" name="password" onChange={updateCredentials} placeholder="Password"></input>
 
                     <div className="loginIcon" onClick={()=>SignIn()}><FontAwesomeIcon className="faLogin" icon={faPaperPlane}/></div>
                 </div>

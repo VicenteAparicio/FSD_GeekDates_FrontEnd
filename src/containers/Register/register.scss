@@ -3,21 +3,33 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    height: 100vh;
-
+    width: 100vw;
+    height: 40em;
+    
     select {
-        margin-bottom: .5em;
-        
+        margin-bottom: .5em;   
     }
-    input{
-        all:unset;
-        margin: .5em 0;
-        border-bottom: .1em solid $shadow;
+    .labelsRegister{
+        display: none;
     }
 }
 
+
+
 .titleSection{
     color: white;
+}
+
+.containerBox {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 4em 0;
+    width: 90vw;
+    max-width: 60em;
+    border-radius: 2em 2em;
+    background-color: $cards;
+    box-shadow: .5em .5em 1em 0em $darkShadow;
 }
 
 .boxRegister{
@@ -25,8 +37,8 @@
     flex-direction: row;
     justify-content: center;
     flex-wrap: wrap;
+    
 }
-
 
 .regData{
     display: flex;
@@ -44,4 +56,8 @@
 
 .validateError{
     color:red;
+}
+
+.radioInputs{
+    margin-bottom: 1em;
 }

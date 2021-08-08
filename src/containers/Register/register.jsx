@@ -28,7 +28,7 @@ const Register = () => {
         setCredentials({...credentials, [e.target.name]: e.target.value});
     }
 
-    const updateSexuality = (e) => {
+    const updateOrientation = (e) => {
         setSexuality(e.target.value);
     }
     
@@ -99,11 +99,7 @@ const Register = () => {
         }
     }
 
-    const sexualOptions = [
-        {
-            label: "ORIENTATION",
-            value: ""
-        },
+    const sexualOrientation = [
         {
             label: "HETEROSEXUAL",
             value: "heterosexual"
@@ -119,10 +115,6 @@ const Register = () => {
     ];
 
     const genderOptions = [
-        {
-            label: "SEX",
-            value: ""
-        },
         {
             label: "MALE",
             value: "male"
@@ -178,82 +170,102 @@ const Register = () => {
             <Nav/>
             <div className="titleSection">REGISTER</div>
 
-            <div className="boxRegister">
-
-                <div className="regData">
-
-                    <label className="labelsRegister" for="nick">NICK</label>
-                    <input require="true" className="inputsRegister" type="text" name="nick" onChange={updateCredentials} onBlur={()=>checkError("nick")} placeholder="Nick"/>
-                    <div className="validateError">{errors.eNick}</div>
-
-                    <label className="labelsRegister" for="phone">PHONE</label>
-                    <input require="true" className="inputsRegister" type="number" name="phone" onChange={updateCredentials} onBlur={()=>checkError("phone")} placeholder="Phone"/>
-                    <div className="validateError">{errors.ePhone}</div>
-
-                    <label className="labelsRegister" for="email">EMAIL</label>
-                    <input require="true" className="inputsRegister" type="email" name="email" onChange={updateCredentials} onBlur={()=>checkError("email")} placeholder="Email"/>
-                    <div className="validateError">{errors.eEmail}</div>
-
-                    <label className="labelsRegister" for="password">PASSWORD</label>
-                    <input require="true" className="inputsRegister" type="password" name="password" onChange={updateCredentials} onBlur={()=>checkError("password")} placeholder="Password"/>
-                    <div className="validateError">{errors.ePassword}</div>
-{/* 
-                    <label className="labelsRegister" for="urlpic">PHOTO</label>
-                    <input className="inputsRegister" type="text" name="urlpic" onChange={updateCredentials} onBlur={()=>checkError("urlpic")} placeholder="Photo"/>
-                    <div className="validateError">{errors.eUrlpic}</div> */}
+            <div className="containerBox">
                 
-                </div>
+                <form className="boxRegister">
 
-                <div className="regData">
+                    <div className="regData">
 
-                    <label className="labelsRegister" for="name">NAME</label>
-                    <input require="true" className="inputsRegister" type="text" name="name" onChange={updateCredentials} onBlur={()=>checkError("name")} placeholder="Name"/>
-                    <div className="validateError">{errors.eName}</div>
+                        <label className="labelsRegister" for="nick">NICK</label>
+                        <input require="true" className="inputs" type="text" name="nick" onChange={updateCredentials} onBlur={()=>checkError("nick")} placeholder="Nick"/>
+                        <div className="validateError">{errors.eNick}</div>
 
-                    <label className="labelsRegister" for="surname">SURNAME</label>
-                    <input require="true" className="inputsRegister" type="text" name="surname" onChange={updateCredentials} onBlur={()=>checkError("surname")} placeholder="Surname"/>
-                    <div className="validateError">{errors.eSurname}</div>
+                        <label className="labelsRegister" for="phone">PHONE</label>
+                        <input require="true" className="inputs" type="number" name="phone" onChange={updateCredentials} onBlur={()=>checkError("phone")} placeholder="Phone"/>
+                        <div className="validateError">{errors.ePhone}</div>
 
-                    <label className="labelsRegister" for="age">AGE</label>
-                    <input className="inputsRegister" type="number" name="age" onChange={updateCredentials} onBlur={()=>checkError("age")} placeholder="Age"/>
-                    <div className="validateError">{errors.eAge}</div>
+                        <label className="labelsRegister" for="email">EMAIL</label>
+                        <input require="true" className="inputs" type="email" name="email" onChange={updateCredentials} onBlur={()=>checkError("email")} placeholder="Email"/>
+                        <div className="validateError">{errors.eEmail}</div>
 
-                    <label className="labelsRegister" for="gender">GENDER</label>
-                    <select onChange={updateGender}>
+                        <label className="labelsRegister" for="password">PASSWORD</label>
+                        <input require="true" className="inputs" type="password" name="password" onChange={updateCredentials} onBlur={()=>checkError("password")} placeholder="Password"/>
+                        <div className="validateError">{errors.ePassword}</div>
+                            {/* 
+                        <label className="labelsRegister" for="urlpic">PHOTO</label>
+                        <input className="inputs" type="text" name="urlpic" onChange={updateCredentials} onBlur={()=>checkError("urlpic")} placeholder="Photo"/>
+                        <div className="validateError">{errors.eUrlpic}</div> */}
+
+                    </div>
+
+                    <div className="regData">
+
+                        <label className="labelsRegister" for="name">NAME</label>
+                        <input require="true" className="inputs" type="text" name="name" onChange={updateCredentials} onBlur={()=>checkError("name")} placeholder="Name"/>
+                        <div className="validateError">{errors.eName}</div>
+
+                        <label className="labelsRegister" for="surname">SURNAME</label>
+                        <input require="true" className="inputs" type="text" name="surname" onChange={updateCredentials} onBlur={()=>checkError("surname")} placeholder="Surname"/>
+                        <div className="validateError">{errors.eSurname}</div>
+
+                        <label className="labelsRegister" for="age">AGE</label>
+                        <input className="inputs" type="number" name="age" onChange={updateCredentials} onBlur={()=>checkError("age")} placeholder="Age"/>
+                        <div className="validateError">{errors.eAge}</div>
+
+                        {/*
+                        <label className="labelsRegister" for="gender">GENDER</label>
+                         <select onChange={updateGender}>
+                            {genderOptions.map((option)=>(
+                                <option value={option.value}>{option.label}</option>
+                            ))}
+                        </select>
+                        
+                        <label className="labelsRegister" for="sexualOrientation">SEXUAL ORIENTATION</label>
+                        <select onChange={updateSexuality}>
+                            {sexualOptions.map((option)=>(
+                                <option value={option.value}>{option.label}</option>
+                            ))}
+                        </select>
+                        */}
+
+
                         {genderOptions.map((option)=>(
-                            <option value={option.value}>{option.label}</option>
+                            <div>
+                                <input className="radioInputs" type="radio" name="gender" value={option.value} onChange={updateGender}/><label for={option.value}>{option.label}</label>
+                            </div>
                         ))}
-                    </select>   
 
-                    <label className="labelsRegister" for="sexualOrientation">SEXUAL ORIENTATION</label>
-                    <select onChange={updateSexuality}>
-                        {sexualOptions.map((option)=>(
-                            <option value={option.value}>{option.label}</option>
+                        {sexualOrientation.map((option)=>(
+                            <div>
+                                <input className="radioInputs" type="radio" name="orientation" value={option.value} onChange={updateOrientation}/><label for={option.value}>{option.label}</label>
+                            </div>
                         ))}
-                    </select>
-                
-                </div>
 
-                <div className="regData">
+                        
+                            
+                    </div>
 
-                    <label className="labelsRegister" for="country">COUNTRY</label>
-                    <input className="inputsRegister" type="text" name="country" onChange={updateCredentials} onBlur={()=>checkError("country")} placeholder="Country"/>
-                    <div className="validateError">{errors.eCountry}</div>
-
-                    <label className="labelsRegister" for="city">CITY</label>
-                    <input className="inputsRegister" type="text" name="city" onChange={updateCredentials} onBlur={()=>checkError("city")} placeholder="City"/>
-                    <div className="validateError">{errors.eCity}</div>
-
-                    <label className="labelsRegister" for="cp">CP</label>
-                    <input className="inputsRegister" type="text" name="cp" onChange={updateCredentials} onBlur={()=>checkError("cp")} placeholder="C.P."/>
-                    <div className="validateError">{errors.eCP}</div>
-
-                    
-                </div>
-            
+                    <div className="regData">
+                            
+                        <label className="labelsRegister" for="country">COUNTRY</label>
+                        <input className="inputs" type="text" name="country" onChange={updateCredentials} onBlur={()=>checkError("country")} placeholder="Country"/>
+                        <div className="validateError">{errors.eCountry}</div>
+                            
+                        <label className="labelsRegister" for="city">CITY</label>
+                        <input className="inputs" type="text" name="city" onChange={updateCredentials} onBlur={()=>checkError("city")} placeholder="City"/>
+                        <div className="validateError">{errors.eCity}</div>
+                            
+                        <label className="labelsRegister" for="cp">CP</label>
+                        <input className="inputs" type="text" name="cp" onChange={updateCredentials} onBlur={()=>checkError("cp")} placeholder="C.P."/>
+                        <div className="validateError">{errors.eCP}</div>
+                            
+                    </div>
+                </form>
+                <div className="sendButton" onClick={()=>Registration()}><FontAwesomeIcon className="faLogin" icon={faPaperPlane}/></div>
             </div>
 
-            <div className="sendButton" onClick={()=>Registration()}><FontAwesomeIcon className="faLogin" icon={faPaperPlane}/></div>
+            
+            
 
         </div>
     )
