@@ -20,8 +20,9 @@ const Register = () => {
 
     const [errors, setErrors] = useState({eNick:'',eName:'',eSurname:'',eEmail:'',ePassword:'',eAge:'',eGender:'',eCountry:'',eCity:'', eCP:'',eUrlpic:'',ePhone:''});
 
-    const[sexuality, setSexuality] = useState('heterosexual');
-    const[gender, setGender] = useState('');
+    const [sexuality, setSexuality] = useState('heterosexual');
+    const [gender, setGender] = useState('');
+    const [lookingFor, setLookingFor] = useState('');
 
     // Handler
     const updateCredentials = (e) => {
@@ -35,6 +36,9 @@ const Register = () => {
     const updateGender = (e) => {
         setGender(e.target.value);
     }
+    const updateLookingFor = (e) => {
+        setLookingFor(e.target.value);
+    }
 
     // FUNCTION ERROR CHECK
     const checkError = (arg) => {
@@ -45,13 +49,16 @@ const Register = () => {
                 if ((credentials.name.length < 2)||(! /^[a-z ,.'-]+$/i.test(credentials.name))||(credentials.name.length > 20)){
                     if (arg==='name'){
                         setErrors({...errors, eName: 'Not a validate name'});
-                    } else if (arg==='cname'){
-                        setErrors({...errors, eCName: 'Not a validate name'});
-                    } else if (arg==='surname'){
+                    } 
+                    // else if (arg==='cname'){
+                    //     setErrors({...errors, eCName: 'Not a validate name'});
+                    // } 
+                    else if (arg==='surname'){
                         setErrors({...errors, eLastName: 'Not a validate surname'});
-                    } else if (arg==='csurname'){
-                        setErrors({...errors, eCLastName: 'Not a validate surname'});
                     }
+                    // else if (arg==='csurname'){
+                    //     setErrors({...errors, eCLastName: 'Not a validate surname'});
+                    // }
                 } else {
                     setErrors({...errors, eName: ''});
                     setErrors({...errors, eCName: ''});
@@ -101,27 +108,42 @@ const Register = () => {
 
     const sexualOrientation = [
         {
-            label: "HETEROSEXUAL",
+            label: "Heterosexual",
             value: "heterosexual"
         },
         {
-            label: "GAY",
+            label: "Gay",
             value: "gay"
         },
         {
-            label: "BISEXUAL",
+            label: "Bisexual",
             value: "bisexual"
         },
     ];
 
     const genderOptions = [
         {
-            label: "MALE",
+            label: "Male",
             value: "male"
         },
         {
-            label: "FEMALE",
+            label: "Female",
             value: "female"
+        },
+    ];
+
+    const lookForOptions = [
+        {
+            label: "Male",
+            value: "male"
+        },
+        {
+            label: "Female",
+            value: "female"
+        },
+        {
+            label: "Both",
+            value: "both"
         },
     ];
 
@@ -142,6 +164,7 @@ const Register = () => {
             // urlpic: credentials.urlpic,
             gender: gender,
             sexuality: sexuality,
+            lookingFor: lookingFor,
             isAdmin: credentials.isAdmin,
             isPremium: credentials.isPremium,
             isActive: credentials.isActive
@@ -168,11 +191,14 @@ const Register = () => {
 
         <div className="containerRegister">
             <Nav/>
-            <div className="titleSection">REGISTER</div>
+            
 
             <div className="containerBox">
-                
-                <form className="boxRegister">
+
+                <div className="titleSection">DATA INFO</div>
+
+                <div className="boxRegister">
+                    
 
                     <div className="regData">
 
@@ -228,23 +254,8 @@ const Register = () => {
                         </select>
                         */}
 
-
-                        {genderOptions.map((option)=>(
-                            <div>
-                                <input className="radioInputs" type="radio" name="gender" value={option.value} onChange={updateGender}/><label for={option.value}>{option.label}</label>
-                            </div>
-                        ))}
-
-                        {sexualOrientation.map((option)=>(
-                            <div>
-                                <input className="radioInputs" type="radio" name="orientation" value={option.value} onChange={updateOrientation}/><label for={option.value}>{option.label}</label>
-                            </div>
-                        ))}
-
-                        
-                            
                     </div>
-
+                
                     <div className="regData">
                             
                         <label className="labelsRegister" for="country">COUNTRY</label>
@@ -260,16 +271,66 @@ const Register = () => {
                         <div className="validateError">{errors.eCP}</div>
                             
                     </div>
-                </form>
+
+                </div>
+                
+                <div className="titleSection">PERSONAL INFO</div>
+                
+                <div className="boxRegister">
+                    
+
+                    <div className="regData">
+
+                        <div className="checkerBox">
+                            <div className="preferenceLabels">SEX</div>
+                        
+                            
+                            {genderOptions.map((option)=>(
+                                <div class="checkOpt">
+                                    <input className="radioInputs" type="radio" name="gender" value={option.value} onChange={updateGender}/>
+                                    <label for={option.value}>{option.label}</label>
+                                </div>
+                            ))}
+                        </div>
+
+                    </div>
+                    
+                    <div className="regData">
+
+                        <div className="checkerBox"> 
+                            <div className="preferenceLabels">ORIENTATION</div> 
+                             
+                            {sexualOrientation.map((option)=>(
+                                <div class="checkOpt">
+                                    <input className="radioInputs" type="radio" name="orientation" value={option.value} onClick={updateOrientation}/>
+                                    <label for={option.value}>{option.label}</label>
+                                </div>
+                            ))}
+                        </div>
+
+                    </div>
+
+                    <div className="regData">
+
+                        <div className="checkerBox">
+                            <div className="preferenceLabels">LOOK FOR</div> 
+                        
+                            {lookForOptions.map((option)=>(
+                                <div class="checkOpt">
+                                    <input className="radioInputs" type="radio" name="lookingFor" value={option.value} onClick={updateLookingFor}/>
+                                    <label for={option.value}>{option.label}</label>
+                                </div>
+                            ))}
+                        </div>
+                    
+                    </div>
+                    
+                </div>
                 <div className="sendButton" onClick={()=>Registration()}><FontAwesomeIcon className="faLogin" icon={faPaperPlane}/></div>
             </div>
 
-            
-            
-
         </div>
     )
-
 }
 
 export default Register;

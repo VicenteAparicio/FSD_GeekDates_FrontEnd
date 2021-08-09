@@ -4,7 +4,7 @@
     justify-content: center;
     align-items: center;
     width: 100vw;
-    height: 40em;
+    padding: 2em 0;
     
     select {
         margin-bottom: .5em;   
@@ -18,6 +18,7 @@
 
 .titleSection{
     color: white;
+    font-size: 1.2em;
 }
 
 .containerBox {
@@ -50,7 +51,7 @@
 .sendButton {
     color: white;
     :hover{
-        color:greenyellow;
+        color:$darkShadow;
     }
 }
 
@@ -58,6 +59,50 @@
     color:red;
 }
 
-.radioInputs{
+.checkerBox{
+    display: flex;
+    flex-direction: column;
+    width: 12em;
+    padding: 1em;
     margin-bottom: 1em;
+    color: $shadow;
+    box-shadow: inset .15em .15em .5em 0 $darkShadow;
+    background-color: white;
+    border-radius: 1em 1em;
+
+    .preferenceLabels{
+        align-self: center;
+        text-align: center;
+        font-size: 1.2em;
+        border-bottom: .3em dotted $darkShadow;
+        width: 80%;
+        padding-bottom: .7em;
+        margin-bottom: 1em;
+        color: $cards;
+    }
+
+    .radioInputs{
+        all:unset;
+        width: 2em;
+        height: 2em;
+        margin: .2em .5em 0 0;
+        border-radius: 50%;
+        background-color: $cards;
+        transition: .5s cubic-bezier(0.165, 0.84, 0.44, 1);
+        &:hover{
+            background-color: $darkShadow;
+            transition: .5s cubic-bezier(0.165, 0.84, 0.44, 1);
+        }
+        &:checked{
+            background-color: $darkShadow;
+        }
+    }
+
+    .checkOpt{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        margin-bottom: .1em;
+    }
+    
 }
