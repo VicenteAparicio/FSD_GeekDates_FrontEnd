@@ -151,23 +151,23 @@ const Register = () => {
 
         //A continuación generamos el body de datos
         let body = {
-            nick: credentials.nick,
-            name: credentials.name,
-            surname: credentials.surname,
             email: credentials.email,
             password: credentials.password,
-            age: credentials.age,            
+            nick: credentials.nick,
             phone: credentials.phone,
-            country: credentials.country,
-            city: credentials.city,
-            cp: credentials.cp,
-            // urlpic: credentials.urlpic,
-            gender: gender,
-            sexuality: sexuality,
-            lookingFor: lookingFor,
-            isAdmin: credentials.isAdmin,
-            isPremium: credentials.isPremium,
-            isActive: credentials.isActive
+            // name: credentials.name,
+            // surname: credentials.surname,
+            // age: credentials.age,            
+            // country: credentials.country,
+            // city: credentials.city,
+            // cp: credentials.cp,
+            // // urlpic: credentials.urlpic,
+            // gender: gender,
+            // sexuality: sexuality,
+            // lookingFor: lookingFor,
+            // isAdmin: credentials.isAdmin,
+            // isPremium: credentials.isPremium,
+            // isActive: credentials.isActive
         }
 
         console.log(body)
@@ -198,7 +198,6 @@ const Register = () => {
                 <div className="titleSection">DATA INFO</div>
 
                 <div className="boxRegister">
-                    
 
                     <div className="regData">
 

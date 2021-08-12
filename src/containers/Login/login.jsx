@@ -41,10 +41,11 @@ const Login = (props) => {
                 //Guardo en RDX
                 props.dispatch({type:LOGIN,payload:res.data});
                 alert("Gracias por loguearte")
-                if(!res.data.user.isAdmin){
-                    history.push('/')
+                console.log(res)
+                if(!res.data.token){
+                    history.push('/register')
                 } else {
-                    history.push('/')                
+                    history.push('/profile')                
                 }
             })
             .catch((error)=>{
