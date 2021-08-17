@@ -44,8 +44,8 @@ const Login = (props) => {
                 console.log(res)
                 if(!res.data.token){
                     history.push('/register')
-                } else {
-                    history.push('/profile')                
+                } else if (!res.data.name) {
+                    history.push('/updateinfo')                
                 }
             })
             .catch((error)=>{

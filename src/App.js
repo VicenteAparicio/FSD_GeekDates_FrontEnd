@@ -4,6 +4,8 @@ import {BrowserRouter, Route, Switch} from 'react-router-dom';
 import Home from './containers/Home/home';
 import Register from './containers/Register/register';
 import Login from './containers/Login/login';
+import UpdateInfo from './containers/UpdateInfo/updateInfo';
+import UpdateSexualInfo from './containers/UpdateSexualInfo/updateSexualInfo';
 
 
 import './App.scss';
@@ -17,6 +19,8 @@ function App() {
           <Route path="/" exact component={Home}/>
           <Route path="/login" exact component={Login}/>
           <Route path="/register" exact component={Register}/>
+          <Route path="/updateinfo" exact component={UpdateInfo}/>
+          <Route path="/updatesexualinfo" exact component={UpdateSexualInfo}/>
         </Switch>
 
       </BrowserRouter>

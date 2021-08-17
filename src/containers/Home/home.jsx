@@ -42,11 +42,13 @@ const Home = (props) => {
                 //Guardo en RDX
                 props.dispatch({type:LOGIN,payload:res.data});
                 alert("Gracias por loguearte")
-                if(!res.data.user.isAdmin){
-                    history.push('/')
-                } else {
-                    history.push('/')                
-                }
+                if(res.data.user.isAdmin) {
+                    history.push('/admin');
+                } else if (!res.data.token) { 
+                    history.push('/register');
+                } else if (!res.data.user.name) {
+                history.push('/updateinfo');             
+            }
             })
             .catch((error)=>{
                 alert(error)
@@ -77,4 +79,4 @@ const Home = (props) => {
     )
 }
 
-export default Home;
+export default connect()(Home);

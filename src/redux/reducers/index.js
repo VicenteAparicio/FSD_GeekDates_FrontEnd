@@ -3,7 +3,7 @@ import credentials from './credentials-reducer.js';
 
 
 const rootReducer = combineReducers({
-    credentials, 
+    credentials,
 });
 
 export default rootReducer;
