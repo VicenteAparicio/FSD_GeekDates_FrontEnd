@@ -117,19 +117,19 @@ const UpdateSexualInfo = (props) => {
 
                 <div className="boxRegister">
                     
-
                     <div className="regData">
 
                         <div className="checkerBox">
-                            <div className="preferenceLabels">SEX</div>
+
+                            <div className="preferenceLabels">YOU ARE</div>
                         
-                            
                             {genderOptions.map((option)=>(
                                 <div class="checkOpt">
                                     <input className="radioInputs" type="radio" name="gender" value={option.value} onChange={updateGender}/>
                                     <label for={option.value}>{option.label}</label>
                                 </div>
                             ))}
+
                         </div>
 
                     </div>
@@ -137,7 +137,8 @@ const UpdateSexualInfo = (props) => {
                     <div className="regData">
 
                         <div className="checkerBox"> 
-                            <div className="preferenceLabels">ORIENTATION</div> 
+
+                            <div className="preferenceLabels">HOW YOU FEEL</div> 
                              
                             {sexualOrientation.map((option)=>(
                                 <div className="checkOpt">
@@ -145,6 +146,7 @@ const UpdateSexualInfo = (props) => {
                                     <label for={option.value}>{option.label}</label>
                                 </div>
                             ))}
+
                         </div>
 
                     </div>
@@ -152,6 +154,7 @@ const UpdateSexualInfo = (props) => {
                     <div className="regData">
 
                         <div className="checkerBox">
+
                             <div className="preferenceLabels">LOOK FOR</div> 
                         
                             {lookForOptions.map((option)=>(
@@ -160,6 +163,7 @@ const UpdateSexualInfo = (props) => {
                                     <label for={option.value}>{option.label}</label>
                                 </div>
                             ))}
+
                         </div>
                     
                     </div>

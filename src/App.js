@@ -6,9 +6,12 @@ import Register from './containers/Register/register';
 import Login from './containers/Login/login';
 import UpdateInfo from './containers/UpdateInfo/updateInfo';
 import UpdateSexualInfo from './containers/UpdateSexualInfo/updateSexualInfo';
+import Profile from './containers/Profile/profile';
+import Hobbies from './containers/Hobbies/hobbies';
 
 
 import './App.scss';
+
 
 function App() {
   return (
@@ -21,6 +24,8 @@ function App() {
           <Route path="/register" exact component={Register}/>
           <Route path="/updateinfo" exact component={UpdateInfo}/>
           <Route path="/updatesexualinfo" exact component={UpdateSexualInfo}/>
+          <Route path="/profile" exact component={Profile}/>
+          <Route path="/hobbies" exact component={Hobbies}/>
         </Switch>
 
       </BrowserRouter>

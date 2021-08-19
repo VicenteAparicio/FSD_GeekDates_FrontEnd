@@ -2,59 +2,33 @@
 import React from 'react';
 import {connect} from 'react-redux';
 import {useHistory} from 'react-router-dom';
+import axios from 'axios';
 // IMPORT COMPONENTS
-import Visual from '../../components/Visual/visual';
-// IMPORT STYLES
-import '../../Global.css'
-import { ADMINACTION } from '../../redux/types';
+import Visual from '../../components/Visual/visual'
+import Nav from '../../components/Nav/nav'
+// IMPORT ACTIONS
+import { ACTION } from '../../redux/types';
 // IMPORT ICONS
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faFileVideo, faFilm, faReceipt, faUsers } from '@fortawesome/free-solid-svg-icons';
 
-const Admin = (props) => {
+
+const Profile = (props) => {
 
     let history = useHistory();
 
-    const adminFn = (arg) => {
-        switch (arg) {
-            case "allmovies":
-                props.dispatch({type:ADMINACTION,payload:"allmovies"})
-                break;
-            case "allusers":
-                props.dispatch({type:ADMINACTION,payload:"allusers"})
-                break;
-            case "allorders":
-                props.dispatch({type:ADMINACTION,payload:"allorders"})
-                break;
-            case "createmovies":
-                props.dispatch({type:ADMINACTION,payload:"createmovies"})
-                break;
-            default:
-                break;
+    if (props.logData.token){
+        return (
+            <div className="profileContainer">
 
-        }
-    }
-
-if (props.logData.user?.isAdmin){
-    return (
-        <div className="adminContainer">
-            <div className="adminBox">
-
-                <div className="adminActions" onClick={()=>adminFn("allmovies")}><FontAwesomeIcon className="faIcons" icon={faFilm}/></div>
-                <div className="adminActions" onClick={()=>adminFn("allusers")}><FontAwesomeIcon className="faIcons" icon={faUsers}/></div>
-                <div className="adminActions" onClick={()=>adminFn("allorders")}><FontAwesomeIcon className="faIcons" icon={faReceipt}/></div>
-                <div className="adminActions" onClick={()=>adminFn("createmovies")}><FontAwesomeIcon className="faIcons" icon={faFileVideo}/></div>
+                <Nav/>
+                <Visual/>                
             </div>
-
-            <Visual/>                
-        </div>
     )
     } else {
         setTimeout(()=>{
             history.push('/')
         }, 1000)
         return (
-            <div className="adminContainer">Not allowed</div>
+            <div className="profileContainer">Not allowed</div>
         )
     }
 }

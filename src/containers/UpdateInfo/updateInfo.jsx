@@ -145,4 +145,4 @@ const UpdateInfo = (props) => {
 
 export default connect((state)=>(
     {logData:state.credentials}
-))(UpdateInfo);;
+))(UpdateInfo);
