@@ -10,7 +10,7 @@ import axios from 'axios';
 
 const Visual = (props) => {
 
-    switch (props.adminAction) {
+    switch (props.action) {
         case "allmovies":
             return (
                 <div className="visualContainer">

@@ -1,0 +1,16 @@
+.containerSearch{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.playerCard {
+    display: flex;
+    flex-direction: column;
+    padding: 1em;
+    border-radius: 1em 1em;
+    background-color: $cards;
+    box-shadow: .15em .15em .5em 0 $darkShadow;
+}

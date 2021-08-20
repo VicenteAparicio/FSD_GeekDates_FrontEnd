@@ -4,23 +4,36 @@
     justify-content: center;
     align-items: center;
     height: 100vh;
-    
-    .boxLogin{
+}
+
+.profileBox{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    .profileCard{
         display: flex;
         flex-direction: column;
+        align-items: center;
+        padding: 4em 0;
+        width: 90vw;
+        max-width: 60em;
+        border-radius: 2em 2em;
+        background-color: $cards;
+        box-shadow: .5em .5em 1em 0em $darkShadow;
     }
 
-    .labelsLogin {
-        display: none;
-    }
+    .boxButton{
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        margin-top: 2em;
 
-    .inputsLogin {
-        all: unset;
-        padding: 1em;
-        border-radius: 1em;
-        border: .05em solid grey;
-        background-color: white;
-        margin-bottom: 1em;
-        color: grey;
+        .buttonProfile{
+            margin-right: 1em;
+            &:last-child{
+                margin-right: 0;
+            }
+        }
     }
 }

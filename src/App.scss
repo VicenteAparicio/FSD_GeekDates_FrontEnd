@@ -4,9 +4,12 @@
 @import 'containers/Login/login.scss';
 @import 'containers/Profile/profile.scss';
 @import 'components/ButtonLog/buttonLog.scss';
+@import 'components/ButtonOpt/buttonOpt.scss';
 @import 'containers/UpdateInfo/updateInfo.scss';
 @import 'components/Nav/nav.scss';
 @import 'components/Visual/visual.scss';
+@import 'containers/Hobbies/hobbies.scss';
+@import 'containers/Search/search.scss';
 
 body{
   background-color: $bg1;

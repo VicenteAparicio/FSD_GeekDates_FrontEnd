@@ -94,7 +94,7 @@ const UpdateSexualInfo = (props) => {
             .then((res)=>{
                 if(res.data){
                     alert("Gracias por completar tu registro");
-                    history.push('/profile');
+                    history.push('/hobbies');
                 }
             })
             .catch((error)=>{

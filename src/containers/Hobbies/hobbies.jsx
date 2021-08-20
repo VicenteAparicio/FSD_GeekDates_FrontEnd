@@ -4,7 +4,6 @@ import { useHistory } from 'react-router-dom';
 import {connect} from 'react-redux';
 import axios from 'axios';
 // IMPORT COMPONENTS
-import Nav from '../../components/Nav/nav';
 // IMPORT ICONS
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPaperPlane } from '@fortawesome/free-regular-svg-icons';
@@ -24,8 +23,6 @@ const Hobbies = (props) => {
         setHobbies({...hobbies, [e.target.name]: e.target.value});
     }
 
-
-
     const hobbieFill = async () => {
 
         //A continuación generamos el body de datos
@@ -38,13 +35,12 @@ const Hobbies = (props) => {
             anime: hobbies.anime
         }
 
-        console.log(body)
-
         axios
             .post(`${connection}/fillhobbies`, body, {headers: {'Authorization': `Bearer ${props.logData.token}`}})
             .then((res)=>{
                 if(res){
                     alert("Rellenaste tus hobbies");
+                    history.push('/profile')
                 }
             })
             .catch((error)=>{
@@ -67,13 +63,22 @@ const Hobbies = (props) => {
 
                     <div className="regData">
 
-                        {hobbieOptions.map((option)=>(
-                            <div class="checkOpt">
-                                <input className="radioInputs" type="radio" name={option} value="1" onChange={updateHobbies}/>
-                                <label for={option}>{option}</label>
+                        <div className="checkerBox">
+                            <div className="radioOpt">
+                            <span>YES</span>
+                            <span>NO</span>
                             </div>
-                        ))}
 
+                            {hobbieOptions.map((option)=>(
+                                <div class="checkOptHobbies">
+                                    <input className="radioInputs" type="radio" name={option} value="1" onChange={updateHobbies}/>
+                                    <label for={option}>{option}</label>
+                                    <input className="radioInputs" type="radio" name={option} value="0" onChange={updateHobbies}/>
+                                    
+                                </div>
+                            ))}
+
+                        </div>
                     </div>
 
                 </div>

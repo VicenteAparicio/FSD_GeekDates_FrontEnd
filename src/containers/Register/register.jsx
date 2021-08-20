@@ -98,7 +98,7 @@ const Register = (props) => {
             .then((res)=>{
                 if(res){
                     alert("Gracias por registrarte con nosotros");
-                    history.push('/login');
+                    history.push('/');
                 }
             })
             .catch((error)=>{

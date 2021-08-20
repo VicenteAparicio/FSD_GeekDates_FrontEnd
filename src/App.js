@@ -8,6 +8,8 @@ import UpdateInfo from './containers/UpdateInfo/updateInfo';
 import UpdateSexualInfo from './containers/UpdateSexualInfo/updateSexualInfo';
 import Profile from './containers/Profile/profile';
 import Hobbies from './containers/Hobbies/hobbies';
+import Search from './containers/Search/search';
+import Nav from './components/Nav/nav.jsx';
 
 
 import './App.scss';
@@ -17,6 +19,7 @@ function App() {
   return (
     <div className="App">
       <BrowserRouter>
+        <Nav/>
         
         <Switch>
           <Route path="/" exact component={Home}/>
@@ -26,6 +29,7 @@ function App() {
           <Route path="/updatesexualinfo" exact component={UpdateSexualInfo}/>
           <Route path="/profile" exact component={Profile}/>
           <Route path="/hobbies" exact component={Hobbies}/>
+          <Route path="/search" exact component={Search}/>
         </Switch>
 
       </BrowserRouter>

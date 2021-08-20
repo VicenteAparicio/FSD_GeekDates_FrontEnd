@@ -41,7 +41,6 @@ const Login = (props) => {
                 //Guardo en RDX
                 props.dispatch({type:LOGIN,payload:res.data});
                 alert("Gracias por loguearte")
-
                 if(!res.data.token){
                     history.push('/register')
                 } else if (!res.data.user.name) {
