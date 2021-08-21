@@ -4,7 +4,7 @@ import {connect} from 'react-redux';
 import {useHistory} from 'react-router-dom';
 import axios from 'axios';
 // IMPORT ACTIONS
-import {USERINFO} from '../../redux/types';
+import {GETINFO} from '../../redux/types';
 // IMPORT ICONS
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faMinusSquare, faPen, faSave, faTimesCircle } from '@fortawesome/free-solid-svg-icons';
@@ -52,7 +52,8 @@ const Profile = (props) => {
         .post(`${connection}/updateinfo`, body, {headers: {'Authorization': `Bearer ${props.logData.token}`}})
         .then((res)=>{
             if (res){
-                console.log(res.data.user)
+                props.dispatch({type:GETINFO,payload:res.data.user});
+
             }
         })
         .catch((error)=>{

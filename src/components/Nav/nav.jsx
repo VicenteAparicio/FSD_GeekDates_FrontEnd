@@ -1,9 +1,9 @@
 // IMPORT MOTORS
 import React from 'react';
 import {connect} from 'react-redux';
-import {NavLink, useHistory} from 'react-router-dom';
+import {NavLink} from 'react-router-dom';
 // IMPORT ACTIONS
-import { ACTION, LOGOUT } from '../../redux/types';
+import { LOGOUT } from '../../redux/types';
 // IMPORT ICONS
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSquare, faCircle, faTimes, faUser } from '@fortawesome/free-solid-svg-icons';
@@ -11,8 +11,6 @@ import { faSquare, faCircle, faTimes, faUser } from '@fortawesome/free-solid-svg
 
 
 const Nav = (props) => {
-
-    let history = useHistory();
 
     const logOut = () =>{
         props.dispatch({type:LOGOUT})

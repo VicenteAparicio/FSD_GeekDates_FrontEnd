@@ -1,6 +1,6 @@
 // IMPORT MOTORS
 import React from 'react';
-import {NavLink, useHistory} from 'react-router-dom';
+import {NavLink} from 'react-router-dom';
 import {connect} from 'react-redux';
 import Logo from '../../assets/img/logo.png'
 

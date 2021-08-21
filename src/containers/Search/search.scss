@@ -54,3 +54,39 @@
     }
     
 }
+
+.ageFilter {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    background-color: $cards;
+    padding: 2em;
+    border-radius: 1em 1em;
+    box-shadow: .15em .15em 1em 0 $darkShadow;
+    margin-bottom: 2em;
+
+    .ageRange{
+        all: unset;
+        padding: 1em;
+        border-radius: 1em;
+        margin-right:  1em;
+        width: 3em;
+        background-color: white;
+        color: $shadow;
+        box-shadow: inset .15em .15em .5em 0 $darkShadow;
+        &:last-child {
+            margin: 0;
+        }
+
+    }
+    .buttonAge{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 1em;
+        background-color: black;
+        color: white;
+        cursor: pointer;
+    }
+
+}

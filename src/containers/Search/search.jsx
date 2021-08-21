@@ -15,30 +15,44 @@ const Search = (props) => {
     
     let history = useHistory();
 
+    // Hooks
     const [players, setPlayers] = useState([]);
+    const [age, setAge] = useState({from:18, to:99});
     const [filtPlayers, setFiltPlayers] = useState([]);
 
-    const updateLookFor = () => {
-        setFiltPlayers(
-            players.filter((player)=>
-                player.gender.toLowerCase().includes(props.getInfo.lookingfor)
-            )
-        );
+    // Handler
+    const ageRange = (e) => {
+        setAge({...age, [e.target.name]: e.target.value});
     }
 
     useEffect(()=>{
         defaultPlayers();
+        filtered();
     }, []);
 
-    useEffect(()=>{
 
-    });
 
+    const updateAge = () => {
+        setFiltPlayers(
+            players.filter((player)=>
+                player.age>=age.from && player.age<=age.to
+            )
+        );
+    }
+
+    const filtered = () => {
+        setFiltPlayers(
+            players.filter((player)=>
+                player
+            )
+        );
+    }    
 
     // DEFAULT SEARCH BASED ON USER PREFERENCES
     const defaultPlayers = async () => {
 
         let body = {
+            "user_id": props.logData.user.id,
             "lookingfor":props.getInfo.lookingfor,
             "gender":props.getInfo.gender,
         }
@@ -59,11 +73,16 @@ const Search = (props) => {
         return (
 
             <div className="containerSearch">
+
+                <div className="ageFilter">
+                    <input className="ageRange" defaultValue="18" type="number" name="from" placeholder="from" onChange={ageRange}></input>
+                    <input className="ageRange" defaultValue="99" type="number" name="to" placeholder="to" onChange={ageRange}></input>
+                    <div className="buttonAge" onClick={()=>updateAge()}>AGE</div>
+                </div>
                 <div className="boxSearch">
-                    {players.map((player, index)=>(
-                        <div className="cardBox">
-                            {console.log(player)}
-                            <div className="playerCard" key={index}>
+                    {filtPlayers.map((player, index)=>(
+                        
+                            <div className="playerCard" key={index} >
                                 <div className="cardInfo">{player.nick}</div>
                                 <div className="cardInfo">{player.age} años</div>
                                 <div className="cardInfo">{player.city}</div>
@@ -72,8 +91,7 @@ const Search = (props) => {
                                     <div className="cardButtons"><FontAwesomeIcon className="faIcons" icon={faHeart}/></div>
                                 </div>
                             </div>
-                            
-                        </div>
+                        
                     ))}
                 </div>
             </div>
