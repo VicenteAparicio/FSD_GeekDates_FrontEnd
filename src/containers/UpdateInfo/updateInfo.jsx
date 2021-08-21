@@ -85,6 +85,8 @@ const UpdateInfo = (props) => {
             .post(`${connection}/updateinfo`, body, {headers: {'Authorization': `Bearer ${props.logData.token}`}})
             .then((res)=>{
                 if(res){
+                    console.log(res.data.user)
+                    
                     alert("Datos guardados");
                     history.push('/updatesexualinfo');
                 }

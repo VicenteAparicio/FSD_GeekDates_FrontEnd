@@ -17,12 +17,12 @@ const Profile = (props) => {
     let history = useHistory();
 
     // HOOKS
-    const [userEdit, setUserEdit] = useState({name:props.logData.user?.name, surname:props?.logData.user?.surname,age:props?.logData.user.age,email:props.logData.user?.email,country:props.logData.user?.country,city:props.logData.user?.city,cp:props.logData.user?.cp});
+    const [userEdit, setUserEdit] = useState({nick:props.getInfo.nick,name:props.getInfo.name, surname:props.getInfo.surname,age:props.getInfo.age,email:props.getInfo.email,country:props.getInfo.country,city:props.getInfo.city,cp:props.getInfo.cp});
     // const [userEdit, setUserEdit] = useState({name:'', surname:'',age:'',email:'',country:'',city:'',cp:''});
     const [allowEdit, setAllowEdit] = useState(false);
 
     useEffect(()=>{
-        userProfile();
+        
     },[])
     // HANDLER
     const updateUser = (e) => {
@@ -36,23 +36,6 @@ const Profile = (props) => {
         setAllowEdit(false)
     }
 
-    const userProfile = async () => {
-        let body = {
-            "user_id": props.logData.user.id,
-        }
-        console.log(body.user_id)
-        axios
-            .post(`${connection}/userbyid`, body, {headers: {'Authorization': `Bearer ${props.logData.token}`}})
-            .then((res)=>{
-                if(res){
-                    console.log(res.data.data)
-                    // props.dispatch({type:LOGIN,payload:res.data.data});
-                }
-            })
-            .catch((error)=>{
-                console.log(error);
-            });
-    }
 
     const saveEdit = async () => {
         let body = {
@@ -104,6 +87,7 @@ const Profile = (props) => {
                         
                 <div className="profileBox">
                     <div className="profileCard">
+                        <div className="profileInfo">NICK: {userEdit.nick}</div>
                         <div className="profileInfo">NAME: {userEdit.name}</div>
                         <div className="profileInfo">SURNAME: {userEdit.surname}</div>
                         <div className="profileInfo">AGE: {userEdit.age}</div>
@@ -129,6 +113,7 @@ const Profile = (props) => {
                 <div className="profileBox">
                     <div className="profileCard">
                         <div className="titleSection">EDIT ACCOUNT</div>
+                        <input className="upDataInfo" onChange={updateUser} type="text" name="nick" placeholder={userEdit.nick}></input>
                         <input className="upDataInfo" onChange={updateUser} type="text" name="name" placeholder={userEdit.name}></input>
                         <input className="upDataInfo" onChange={updateUser} type="text" name="surname" placeholder={userEdit.surname}></input>
                         <input className="upDataInfo" onChange={updateUser} type="text" name="email" placeholder={userEdit.email}></input>
@@ -156,5 +141,6 @@ const Profile = (props) => {
 }
 
 export default connect((state)=>(
-    {logData:state.credentials}
+    {logData:state.credentials,
+    getInfo:state.getinfo}
 ))(Profile);

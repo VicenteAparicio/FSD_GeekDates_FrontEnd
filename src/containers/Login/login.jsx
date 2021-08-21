@@ -6,7 +6,7 @@ import axios from 'axios';
 // IMPORT COMPONENTS
 import ButtonLog from '../../components/ButtonLog/buttonLog';
 // IMPORT ACTIONS
-import {LOGIN} from '../../redux/types';
+import {LOGIN, GETINFO} from '../../redux/types';
 // IMPORT ICONS
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPaperPlane } from '@fortawesome/free-regular-svg-icons';
@@ -41,6 +41,7 @@ const Login = (props) => {
         .then((res)=>{
             //Guardo en RDX
             props.dispatch({type:LOGIN,payload:res.data});
+            props.dispatch({type:GETINFO,payload:res.data.user});
             alert("Gracias por loguearte")
 
             if(!res.data.token){

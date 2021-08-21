@@ -83,7 +83,10 @@ const Register = (props) => {
             password: credentials.password,
             nick: credentials.nick,
             phone: credentials.phone,
-            age: credentials.age
+            age: credentials.age,
+            isAdmin: credentials.isAdmin,
+            isPremium: credentials.isPremium,
+            isActive: credentials.isActive
         }
 
         axios

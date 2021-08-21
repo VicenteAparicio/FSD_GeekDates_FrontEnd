@@ -3,9 +3,12 @@ import React, {useState} from 'react';
 import { useHistory } from 'react-router-dom';
 import {connect} from 'react-redux';
 import axios from 'axios';
+// IMPORT ACTIONS
+import {GETINFO} from '../../redux/types';
 // IMPORT ICONS
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPaperPlane } from '@fortawesome/free-regular-svg-icons';
+import { useEffect } from 'react';
 
 const UpdateSexualInfo = (props) => {
 
@@ -14,9 +17,15 @@ const UpdateSexualInfo = (props) => {
     
     let history = useHistory();
 
+    
+    useEffect(()=>{
+
+    }, [])
+    useEffect(()=>{
+        console.log(props.getInfo)
+    })
+
     // Hooks
-
-
     const [sexuality, setSexuality] = useState('heterosexual');
     const [gender, setGender] = useState('');
     const [lookingFor, setLookingFor] = useState('');
@@ -86,11 +95,11 @@ const UpdateSexualInfo = (props) => {
             lookingfor: lookingFor
         }
 
-        console.log(props.logData.token)
         axios
             .post(`${connection}/updateinfo`, body, {headers: {'Authorization': `Bearer ${props.logData.token}`}})
             .then((res)=>{
                 if(res.data){
+                    props.dispatch({type:GETINFO,payload:res.data.user});
                     alert("Gracias por completar tu registro");
                     history.push('/hobbies');
                 }
