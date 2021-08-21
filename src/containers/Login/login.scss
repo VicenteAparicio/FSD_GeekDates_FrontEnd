@@ -1,26 +1,68 @@
-.containerLogin {
+.containerLogin  {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     height: 100vh;
+}
+
+.boxOptions{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 90vw;
+    height: 80vh;
+    max-height: 70em;
+    max-width: 24em;
+    border-radius: 2em 2em;
+    background-color: $cards;
+    box-shadow: .5em .5em 1em 0em $darkShadow;
+}
+
+
+.boxLogin{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.inputs {
+    all: unset;
+    padding: 1em;
+    border-radius: 1em;
+    margin-bottom: 1em;
+    width: 12em;
+    background-color: white;
+    color: $shadow;
+    box-shadow: inset .15em .15em .5em 0 $darkShadow;
+    &:last-child {
+        margin-bottom: 0;
+    }
+}
+
+.loginIcon{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    height: 2em;
+    cursor: pointer;
+   
+    .faLogin{
+        font-size: 1em;
+        &:hover{
+            color: $shadow;
+            font-size: 1.5em;
+        }
+    }
     
-    .boxLogin{
-        display: flex;
-        flex-direction: column;
-    }
+}
 
-    .labelsLogin {
-        display: none;
-    }
-
-    .inputsLogin {
-        all: unset;
-        padding: 1em;
-        border-radius: 1em;
-        border: .05em solid grey;
-        background-color: white;
-        margin-bottom: 1em;
-        color: grey;
-    }
+.barra {
+    display: flex;
+    align-self: center;
+    border-bottom: .4em dotted $darkShadow;
+    width: 12em;
+    margin: 2em 0;
 }

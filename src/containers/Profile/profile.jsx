@@ -1,17 +1,11 @@
 // IMPORT MOTORS
-import React, {useState, useEffect} from 'react';
+import React, {useState} from 'react';
 import {connect} from 'react-redux';
 import {useHistory} from 'react-router-dom';
 import axios from 'axios';
-// IMPORT COMPONENTS
-import Visual from '../../components/Visual/visual'
-import Nav from '../../components/Nav/nav'
-// IMPORT ACTIONS
-import { LOGIN, ACTION } from '../../redux/types';
 // IMPORT ICONS
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faMinusSquare, faPen, faSave, faTimesCircle } from '@fortawesome/free-solid-svg-icons';
-
 
 const Profile = (props) => {
 
@@ -95,9 +89,9 @@ const Profile = (props) => {
                         <div className="profileInfo">C.P.: {userEdit.cp}</div>
                         
                         <div className="boxButton">
-                        <div className="buttonProfile" onClick={()=>edit()}><FontAwesomeIcon className="faIcons" icon={faPen}/></div>
-                        <div className="buttonProfile" onClick={()=>deleteUser(props.logData.user.id)}><FontAwesomeIcon className="faIcons" icon={faMinusSquare}/></div>
-                    </div>
+                            <div className="buttonProfile" onClick={()=>edit()}><FontAwesomeIcon className="faIcons" icon={faPen}/></div>
+                            <div className="buttonProfile" onClick={()=>deleteUser(props.logData.user.id)}><FontAwesomeIcon className="faIcons" icon={faMinusSquare}/></div>
+                        </div>
                     </div>
                 
                     
@@ -132,7 +126,7 @@ const Profile = (props) => {
             history.push('/')
         }, 1000)
         return (
-            <div className="profileContainer">Not allowed</div>
+            <div></div>
         )
     }
 }

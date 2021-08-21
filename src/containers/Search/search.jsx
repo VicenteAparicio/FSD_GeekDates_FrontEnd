@@ -3,8 +3,6 @@ import React, {useState, useEffect} from 'react';
 import { useHistory } from 'react-router-dom';
 import {connect} from 'react-redux';
 import axios from 'axios';
-// IMPORT COMPONENTS
-import Nav from '../../components/Nav/nav';
 // IMPORT ICONS
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPaperPlane } from '@fortawesome/free-regular-svg-icons';
@@ -22,18 +20,19 @@ const Search = (props) => {
 
     useEffect(()=>{
         allPlayers();
-    }, [])
+    }, []);
+
+    useEffect(()=>{
+    });
 
     const allPlayers = async () => {
         try{
             let res = await axios.get(`${connection}/allplayers`, {headers: {'Authorization': `Bearer ${props.logData.token}`}});
             setPlayers(res.data.data);
-            console.log(res)
         } catch (err) {
             console.log({message: err.message})
         }
     }
-    allPlayers();
 
 
     if (props.logData.token) {
@@ -41,20 +40,15 @@ const Search = (props) => {
         return (
 
             <div className="containerSearch">
-                
-                
-
-                {players.map((player, index)=>(
-                    <div className="playerCard">
-                        <div className="cardInfo">{player.nick}</div>
-                        <div className="cardInfo">{player.age} años</div>
-                        <div className="cardInfo">{player.city}</div>
-                    </div>
-
-                ))}
-                
-
-
+                <div className="boxSearch">
+                    {players.map((player, index)=>(
+                        <div className="playerCard" key={index}>
+                            <div className="cardInfo">{player.nick}</div>
+                            <div className="cardInfo">{player.age} años</div>
+                            <div className="cardInfo">{player.city}</div>
+                        </div>
+                    ))}
+                </div>
             </div>
         )
     } else {
@@ -62,7 +56,7 @@ const Search = (props) => {
             history.push('/')
         }, 1000)
         return (
-            <div className="profileSearch">Not allowed</div>
+            <div></div>
         )
     }
 }

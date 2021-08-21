@@ -56,7 +56,11 @@
 }
 
 .validateError{
-    color:red;
+    display: flex;
+    justify-content: center;
+    max-width: 14em;
+    color: white;
+    margin-bottom: 1em;
 }
 
 .checkerBox{

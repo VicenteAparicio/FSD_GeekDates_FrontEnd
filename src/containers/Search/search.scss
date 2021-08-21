@@ -1,14 +1,25 @@
 .containerSearch{
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
-    height: 100vh;
+    padding: 2em;
+}
+
+.boxSearch{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    width: 90%;
 }
 
 .playerCard {
     display: flex;
     flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 12em;
+    height: 12em;
     padding: 1em;
     border-radius: 1em 1em;
     background-color: $cards;

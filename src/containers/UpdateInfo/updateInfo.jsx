@@ -3,8 +3,6 @@ import React, {useState} from 'react';
 import { useHistory } from 'react-router-dom';
 import {connect} from 'react-redux';
 import axios from 'axios';
-// IMPORT COMPONENTS
-import Nav from '../../components/Nav/nav';
 // IMPORT ICONS
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPaperPlane } from '@fortawesome/free-regular-svg-icons';

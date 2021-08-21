@@ -3,8 +3,6 @@ import React, {useState} from 'react';
 import { useHistory } from 'react-router-dom';
 import {connect} from 'react-redux';
 import axios from 'axios';
-// IMPORT COMPONENTS
-import Nav from '../../components/Nav/nav';
 // IMPORT ICONS
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPaperPlane } from '@fortawesome/free-regular-svg-icons';
@@ -12,7 +10,6 @@ import { faPaperPlane } from '@fortawesome/free-regular-svg-icons';
 const Register = (props) => {
 
     let connection = "http://127.0.0.1:8000/api";
-    // let connection = "https://killfilmsbackend.herokuapp.com";
     
     let history = useHistory();
 
@@ -25,7 +22,6 @@ const Register = (props) => {
     const updateCredentials = (e) => {
         setCredentials({...credentials, [e.target.name]: e.target.value});
     }
-
 
     // FUNCTION ERROR CHECK
     const checkError = (arg) => {
@@ -97,8 +93,9 @@ const Register = (props) => {
             .post(`${connection}/register`, body)
             .then((res)=>{
                 if(res){
+                    console.log(res)
                     alert("Gracias por registrarte con nosotros");
-                    history.push('/');
+                    history.push('/login');
                 }
             })
             .catch((error)=>{

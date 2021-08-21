@@ -14,8 +14,6 @@ const Nav = (props) => {
 
     let history = useHistory();
 
-
-
     const logOut = () =>{
         props.dispatch({type:LOGOUT})
     }
@@ -36,11 +34,11 @@ const Nav = (props) => {
             </div>
         )
     } else {
-        setTimeout(()=>{
-            history.push('/');
-        }, 1000)
+        // setTimeout(()=>{
+        //     history.push('/');
+        // }, 1000)
         return (
-            <div className="adminContainer">Not allowed</div>
+            <div></div>
         )
     }
 }
