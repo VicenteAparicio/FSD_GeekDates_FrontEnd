@@ -1,11 +1,14 @@
 // IMPORT MOTORS
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import {connect} from 'react-redux';
 import {useHistory} from 'react-router-dom';
 import axios from 'axios';
+// IMPORT ACTIONS
+import {USERINFO} from '../../redux/types';
 // IMPORT ICONS
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faMinusSquare, faPen, faSave, faTimesCircle } from '@fortawesome/free-solid-svg-icons';
+
 
 const Profile = (props) => {
 
@@ -18,6 +21,9 @@ const Profile = (props) => {
     // const [userEdit, setUserEdit] = useState({name:'', surname:'',age:'',email:'',country:'',city:'',cp:''});
     const [allowEdit, setAllowEdit] = useState(false);
 
+    useEffect(()=>{
+        userProfile();
+    },[])
     // HANDLER
     const updateUser = (e) => {
         setUserEdit({...userEdit, [e.target.name]: e.target.value});
@@ -28,6 +34,24 @@ const Profile = (props) => {
     }
     const cancelEdit = () => {
         setAllowEdit(false)
+    }
+
+    const userProfile = async () => {
+        let body = {
+            "user_id": props.logData.user.id,
+        }
+        console.log(body.user_id)
+        axios
+            .post(`${connection}/userbyid`, body, {headers: {'Authorization': `Bearer ${props.logData.token}`}})
+            .then((res)=>{
+                if(res){
+                    console.log(res.data.data)
+                    // props.dispatch({type:LOGIN,payload:res.data.data});
+                }
+            })
+            .catch((error)=>{
+                console.log(error);
+            });
     }
 
     const saveEdit = async () => {
