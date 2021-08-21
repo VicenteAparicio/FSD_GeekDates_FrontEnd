@@ -5,7 +5,8 @@ import {connect} from 'react-redux';
 import axios from 'axios';
 // IMPORT ICONS
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faPaperPlane } from '@fortawesome/free-regular-svg-icons';
+import { faHeart, faPaperPlane } from '@fortawesome/free-regular-svg-icons';
+import { faTimes } from '@fortawesome/free-solid-svg-icons';
 
 const Search = (props) => {
 
@@ -15,24 +16,42 @@ const Search = (props) => {
     let history = useHistory();
 
     const [players, setPlayers] = useState([]);
+    const [filtPlayers, setFiltPlayers] = useState([]);
 
-
+    const updateLookFor = () => {
+        setFiltPlayers(
+            players.filter((player)=>
+                player.gender.toLowerCase().includes(props.getInfo.lookingfor)
+            )
+        );
+    }
 
     useEffect(()=>{
-        allPlayers();
+        defaultPlayers();
     }, []);
 
     useEffect(()=>{
+
     });
 
-    const allPlayers = async () => {
+
+    // DEFAULT SEARCH BASED ON USER PREFERENCES
+    const defaultPlayers = async () => {
+
+        let body = {
+            "lookingfor":props.getInfo.lookingfor,
+            "gender":props.getInfo.gender,
+        }
         try{
-            let res = await axios.get(`${connection}/allplayers`, {headers: {'Authorization': `Bearer ${props.logData.token}`}});
-            setPlayers(res.data.data);
+            let res = await axios.post(`${connection}/defaultsearch`, body, {headers: {'Authorization': `Bearer ${props.logData.token}`}});
+            if (res) {
+                setPlayers(res.data.data);
+            }
         } catch (err) {
             console.log({message: err.message})
         }
     }
+    
 
 
     if (props.logData.token) {
@@ -42,10 +61,18 @@ const Search = (props) => {
             <div className="containerSearch">
                 <div className="boxSearch">
                     {players.map((player, index)=>(
-                        <div className="playerCard" key={index}>
-                            <div className="cardInfo">{player.nick}</div>
-                            <div className="cardInfo">{player.age} años</div>
-                            <div className="cardInfo">{player.city}</div>
+                        <div className="cardBox">
+                            {console.log(player)}
+                            <div className="playerCard" key={index}>
+                                <div className="cardInfo">{player.nick}</div>
+                                <div className="cardInfo">{player.age} años</div>
+                                <div className="cardInfo">{player.city}</div>
+                                <div className="boxCardButtons">
+                                    <div className="cardButtons"><FontAwesomeIcon className="faIcons" icon={faTimes}/></div>
+                                    <div className="cardButtons"><FontAwesomeIcon className="faIcons" icon={faHeart}/></div>
+                                </div>
+                            </div>
+                            
                         </div>
                     ))}
                 </div>
@@ -62,5 +89,6 @@ const Search = (props) => {
 }
 
 export default connect((state)=>(
-    {logData:state.credentials}
+    {logData:state.credentials,
+    getInfo:state.getinfo}
 ))(Search);

@@ -29,7 +29,6 @@ const Profile = (props) => {
         setUserEdit({...userEdit, [e.target.name]: e.target.value});
     }
     const edit = () => {
-        console.log("edit")
         setAllowEdit(true)
     }
     const cancelEdit = () => {
@@ -83,8 +82,7 @@ const Profile = (props) => {
     if (props.logData.token && allowEdit === false){
         return (
             <div className="profileContainer">
-                
-                        
+                     
                 <div className="profileBox">
                     <div className="profileCard">
                         <div className="profileInfo">NICK: {userEdit.nick}</div>

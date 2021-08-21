@@ -16,14 +16,41 @@
 .playerCard {
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-end;
     align-items: center;
     width: 12em;
     height: 12em;
     padding: 1em;
     border-radius: 1em 1em;
     background-color: $cards;
-    box-shadow: .15em .15em .5em 0 $darkShadow;
+    
+    box-shadow: .5em .5em .5em 0em $darkShadow;
     margin: 0 1em 1em 0;
+}
 
+.boxCardButtons{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    height: 3em;
+    width: 90%;
+    .cardButtons{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+        color: white;
+        font-size: 1.2em;
+        height: 2em;
+        width: 2em;
+        transition: .5s cubic-bezier(0.165, 0.84, 0.44, 1);
+        &:hover{
+            color: $darkShadow;
+            font-size: 1.6em;
+            transition: .5s cubic-bezier(0.165, 0.84, 0.44, 1);
+        }
+ 
+    }
+    
 }
