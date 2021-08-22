@@ -71,9 +71,9 @@ const Hobbies = (props) => {
 
                             {hobbieOptions.map((option)=>(
                                 <div class="checkOptHobbies">
-                                    <input className="radioInputs" type="radio" name={option} value="1" onChange={updateHobbies}/>
+                                    <input className="radioInputs" type="radio" name={option} value="true" onChange={updateHobbies}/>
                                     <label for={option}>{option}</label>
-                                    <input className="radioInputs" type="radio" name={option} value="0" onChange={updateHobbies}/>
+                                    <input className="radioInputs" type="radio" name={option} value="false" onChange={updateHobbies}/>
                                     
                                 </div>
                             ))}

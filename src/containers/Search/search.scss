@@ -19,7 +19,6 @@
     justify-content: flex-end;
     align-items: center;
     width: 12em;
-    height: 12em;
     padding: 1em;
     border-radius: 1em 1em;
     background-color: $cards;
@@ -55,9 +54,10 @@
     
 }
 
-.ageFilter {
+.filters {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
+    flex-wrap: wrap;
     align-items: center;
     background-color: $cards;
     padding: 2em;
@@ -65,28 +65,54 @@
     box-shadow: .5em .5em .5em 0em $darkShadow;
     margin-bottom: 2em;
 
-    .ageRange{
-        all: unset;
-        padding: 1em;
-        border-radius: 1em;
-        margin-right:  1em;
-        width: 3em;
-        background-color: white;
-        color: $shadow;
-        box-shadow: inset .15em .15em .5em 0 $darkShadow;
-        &:last-child {
-            margin: 0;
-        }
+    .ageFilters{
+        display: flex;
+        flex-direction: row;
+        margin-bottom: 1em;
 
+    
+        .ageRange{
+            all: unset;
+            padding: 1em;
+            border-radius: 1em;
+            margin-right:  1em;
+            width: 3em;
+            background-color: white;
+            color: $shadow;
+            box-shadow: inset .15em .15em .5em 0 $darkShadow;
+            &:last-child {
+                margin: 0;
+            }
+        }
     }
+
+    .hobbieFilters{
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        .label{
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            margin-right: 1em;
+        }
+        .buttonHobbies{
+            margin-right: .5em;
+        }
+    }
+
     .buttonAge{
         display: flex;
         justify-content: center;
         align-items: center;
         padding: 1em;
+        margin-right: 1em;
         background-color: black;
         color: white;
         cursor: pointer;
+        &:last-child{
+            margin-right: 0;
+        }
     }
 
 }
