@@ -41,9 +41,11 @@ const Search = (props) => {
     }
 
     const filtered = () => {
+        console.log(props.getInfo.id)
+        console.log(props.logData.user.id)
         setFiltPlayers(
             players.filter((player)=>
-                player
+                player.user_id!=props.logData.user.id
             )
         );
     }    
@@ -60,12 +62,12 @@ const Search = (props) => {
             let res = await axios.post(`${connection}/defaultsearch`, body, {headers: {'Authorization': `Bearer ${props.logData.token}`}});
             if (res) {
                 setPlayers(res.data.data);
+                console.log(res.data.data)
             }
         } catch (err) {
             console.log({message: err.message})
         }
     }
-    
 
 
     if (props.logData.token) {
@@ -78,11 +80,13 @@ const Search = (props) => {
                     <input className="ageRange" defaultValue="18" type="number" name="from" placeholder="from" onChange={ageRange}></input>
                     <input className="ageRange" defaultValue="99" type="number" name="to" placeholder="to" onChange={ageRange}></input>
                     <div className="buttonAge" onClick={()=>updateAge()}>AGE</div>
+                    <div className="buttonAge" onClick={()=>filtered()}>Filtered</div>
                 </div>
                 <div className="boxSearch">
                     {filtPlayers.map((player, index)=>(
                         
                             <div className="playerCard" key={index} >
+                                <div className="cardInfo">{player.user_id}</div>
                                 <div className="cardInfo">{player.nick}</div>
                                 <div className="cardInfo">{player.age} años</div>
                                 <div className="cardInfo">{player.city}</div>
