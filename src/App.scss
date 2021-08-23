@@ -9,6 +9,14 @@
 @import 'components/Nav/nav.scss';
 @import 'containers/Hobbies/hobbies.scss';
 @import 'containers/Search/search.scss';
+@import 'containers/Matches/matches.scss';
+
+@import url('http://fonts.cdnfonts.com/css/green-screen');
+
+.font{
+  font-family: 'Green Screen', sans-serif;
+  color: white;
+}
 
 body{
   background-color: $bg1;

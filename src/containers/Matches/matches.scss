@@ -1,0 +1,62 @@
+.containerMatches {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    
+}
+
+.leftSide {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 2em;
+    padding: 2em;
+    background-color: $cards;
+    
+    border-radius: 1em 1em;
+    box-shadow: .5em .5em .5em 0 $darkShadow;
+
+
+
+
+    .listMatches{
+        display: flex;
+        flex-direction: column;
+
+
+        .loverCard{
+            display: flex;
+            flex-direction: row;
+            background-color: $darkShadow;
+            width: 10em;
+            padding: 1em;
+            border-radius: 1em 1em;
+            margin-bottom: 1em;
+            
+            box-shadow: .15em .15em .5em 0 $bg1;
+
+            &:last-child{
+                margin-bottom: 0;
+            }
+            .boxLoverButtons{
+                cursor: pointer;
+                margin-right: 1em;
+                
+                &:hover{
+                    color:$bg1;
+                }
+            }
+        }
+    }
+
+
+}
+
+.rightSide{
+    display: flex;
+    flex-direction: column;
+    width: 69%;
+}

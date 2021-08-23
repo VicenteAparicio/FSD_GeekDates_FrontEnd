@@ -5,8 +5,8 @@ import {connect} from 'react-redux';
 import axios from 'axios';
 // IMPORT ICONS
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faHeart, faPaperPlane } from '@fortawesome/free-regular-svg-icons';
-import { faTimes } from '@fortawesome/free-solid-svg-icons';
+import { faHeart} from '@fortawesome/free-regular-svg-icons';
+
 
 const Search = (props) => {
 
@@ -19,7 +19,7 @@ const Search = (props) => {
     const [players, setPlayers] = useState([]);
     const [age, setAge] = useState({from:18, to:99});
     const [filtPlayers, setFiltPlayers] = useState([]);
-    const [hobbie, setHobbie] = useState({tablegames:false, rolegames:false, videogames:false, cosplay:false, anime:false});
+    // const [hobbie, setHobbie] = useState({tablegames:false, rolegames:false, videogames:false, cosplay:false, anime:false});
 
     // Handler
     const ageRange = (e) => {
@@ -30,14 +30,12 @@ const Search = (props) => {
         defaultPlayers();
     }, []);
 
-    useEffect(()=>{
-    });
 
     // SEARCH BASED ON AGE RANGE
     const updateAge = () => {
         setFiltPlayers(
             players.filter((player)=>
-                player.age>=age.from && player.age<=age.to&& player.user_id!==props.logData.user.id
+                player.age>=age.from && player.age<=age.to && player.user_id!==props.logData.user.id
             )
         );
     }
@@ -61,15 +59,20 @@ const Search = (props) => {
         }
     }
 
-    const hobbi123 = () => {
+    const Like = async (id) => {
         let body = {
-            tablegames: hobbie.tablegames,
-            rolegames: hobbie.rolegames,
-            videogames: hobbie.videogames,
-            cosplay: hobbie.cosplay,
-            anime: hobbie.anime,
+            "user_a_id": props.logData.user.id,
+            "user_b_id": id,
         }
-        console.log(body)
+        try{
+            let res = await axios.post(`${connection}/match`, body, {headers: {'Authorization': `Bearer ${props.logData.token}`}});
+            if (res) {
+                console.log(res);
+            }
+        } catch (err) {
+            console.log({message: err.message})
+        }
+
     }
  
     // const updateHoobies = () =>{
@@ -154,7 +157,7 @@ const Search = (props) => {
 
             case "tablegames":
                 setFiltPlayers(
-                    players.filter((player)=>
+                    filtPlayers.filter((player)=>
                     player.tablegames==true&& player.user_id!==props.logData.user.id
                     )
                 );
@@ -162,7 +165,7 @@ const Search = (props) => {
 
             case "rolegames":
                 setFiltPlayers(
-                    players.filter((player)=>
+                    filtPlayers.filter((player)=>
                     player.rolegames==true&& player.user_id!==props.logData.user.id
                     )
                 );
@@ -170,7 +173,7 @@ const Search = (props) => {
 
             case "videogames":
                 setFiltPlayers(
-                    players.filter((player)=>
+                    filtPlayers.filter((player)=>
                     player.videogames==true&& player.user_id!==props.logData.user.id
                     )
                 );
@@ -178,7 +181,7 @@ const Search = (props) => {
 
             case "cosplay":
                 setFiltPlayers(
-                    players.filter((player)=>
+                    filtPlayers.filter((player)=>
                     player.cosplay==true&& player.user_id!==props.logData.user.id
                     )
                 );
@@ -186,7 +189,7 @@ const Search = (props) => {
 
             case "anime":
                 setFiltPlayers(
-                    players.filter((player)=>
+                    filtPlayers.filter((player)=>
                     player.anime==true&& player.user_id!==props.logData.user.id
                     )
                 );
@@ -209,18 +212,18 @@ const Search = (props) => {
 
             <div className="containerSearch">
 
-                <div className="filters">
+                <div className="filters ">
                     <div className="ageFilters">
                         <input className="ageRange" defaultValue="18" type="number" name="from" placeholder="from" onChange={ageRange}></input>
                         <input className="ageRange" defaultValue="99" type="number" name="to" placeholder="to" onChange={ageRange}></input>
                         <div className="buttonAge" onClick={()=>updateAge()}>GO</div>
                     </div>
                     <div className="hobbieFilters">
-                        <input className="buttonHobbies" type="radio" placeholder="option" onChange={()=>hobbieFn("tablegames")} name="hobbies"/><div>TABLEGAMES</div>
-                        <input className="buttonHobbies" type="radio" placeholder="option" onChange={()=>hobbieFn("rolegames")}  name="hobbies" /><div>ROLEGAMES</div>
-                        <input className="buttonHobbies" type="radio" placeholder="option" onChange={()=>hobbieFn("videogames")} name="hobbies"/><div>VIDEOGAMES</div>
-                        <input className="buttonHobbies" type="radio" placeholder="option" onChange={()=>hobbieFn("cosplay")}    name="hobbies"   /><div>COSPLAY</div>
-                        <input className="buttonHobbies" type="radio" placeholder="option" onChange={()=>hobbieFn("anime")}      name="hobbies"     /><div>ANIME</div>
+                        <input className="buttonHobbies" type="radio" placeholder="option" onChange={()=>hobbieFn("tablegames")} name="hobbies"/><label for="tablegames">TABLEGAMES</label>
+                        <input className="buttonHobbies" type="radio" placeholder="option" onChange={()=>hobbieFn("rolegames")}  name="hobbies"/><label for="rolegames">ROLEGAMES</label>
+                        <input className="buttonHobbies" type="radio" placeholder="option" onChange={()=>hobbieFn("videogames")} name="hobbies"/><label for="videogames">VIDEOGAMES</label>
+                        <input className="buttonHobbies" type="radio" placeholder="option" onChange={()=>hobbieFn("cosplay")}    name="hobbies"/><label for="cosplay">COSPLAY</label>
+                        <input className="buttonHobbies" type="radio" placeholder="option" onChange={()=>hobbieFn("anime")}      name="hobbies"/><label for="anime">ANIME</label>
                     </div>
                     
                 </div>
@@ -230,7 +233,7 @@ const Search = (props) => {
                             <div className="playerCard" key={index} >
                                 <div className="cardInfo">{player.user_id}</div>
                                 <div className="cardInfo">{player.nick}</div>
-                                <div className="cardInfo">{player.age} años</div>
+                                <div className="cardInfo">Level {player.age}</div>
                                 <div className="cardInfo">{player.city}</div>
                                 <div className="cardInfo">tablegames {player.tablegames}</div>
                                 <div className="cardInfo">rolegames {player.rolegames}</div>
@@ -238,8 +241,7 @@ const Search = (props) => {
                                 <div className="cardInfo">cosplay {player.cosplay}</div>
                                 <div className="cardInfo">anime {player.anime}</div>
                                 <div className="boxCardButtons">
-                                    <div className="cardButtons"><FontAwesomeIcon className="faIcons" icon={faTimes}/></div>
-                                    <div className="cardButtons"><FontAwesomeIcon className="faIcons" icon={faHeart}/></div>
+                                    <div className="cardButtons"><FontAwesomeIcon className="faIcons" icon={faHeart} onClick={()=>Like(player.user_id)}/></div>
                                 </div>
                             </div>
                         

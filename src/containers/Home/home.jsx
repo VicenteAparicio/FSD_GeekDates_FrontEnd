@@ -6,10 +6,7 @@ import Logo from '../../assets/img/logo.png'
 
 
 
-const Home = (props) => {
-
-
-
+const Home = () => {
 
 
     return (

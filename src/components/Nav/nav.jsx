@@ -2,6 +2,7 @@
 import React from 'react';
 import {connect} from 'react-redux';
 import {NavLink} from 'react-router-dom';
+import {useHistory} from 'react-router-dom';
 // IMPORT ACTIONS
 import { LOGOUT } from '../../redux/types';
 // IMPORT ICONS
@@ -12,7 +13,12 @@ import { faSquare, faCircle, faTimes, faUser } from '@fortawesome/free-solid-svg
 
 const Nav = (props) => {
 
+    let history = useHistory();
+
     const logOut = () =>{
+        setTimeout(()=>{
+            history.push('/');
+        }, 500)
         props.dispatch({type:LOGOUT})
     }
 
@@ -24,7 +30,7 @@ const Nav = (props) => {
                     <div className="navBox">
 
                         <NavLink className="actions" to="/search"><FontAwesomeIcon className="faIcons" icon={faSquare}/></NavLink>
-                        <NavLink className="actions" to="/tools"><FontAwesomeIcon icon={faCircle}/></NavLink>
+                        <NavLink className="actions" to="/matches"><FontAwesomeIcon icon={faCircle}/></NavLink>
                         <NavLink className="actions" to="/profile"><FontAwesomeIcon className="faIcons" icon={faUser}/></NavLink>
                         <div className="actions" onClick={()=>logOut()}><FontAwesomeIcon className="faIcons" icon={faTimes}/></div>
                     </div>
