@@ -51,8 +51,7 @@
             transition: .5s cubic-bezier(0.165, 0.84, 0.44, 1);
         }
  
-    }
-    
+    } 
 }
 
 .filters {
@@ -75,7 +74,7 @@
         .ageRange{
             all: unset;
             padding: 1em;
-            border-radius: 1em;
+            border-radius: 1em 1em;
             margin-right:  1em;
             width: 3em;
             background-color: white;
@@ -96,7 +95,7 @@
             display: flex;
             flex-direction: row;
             align-items: center;
-            margin: 0 .2em 0 1em;
+            margin: 0 .4em 0 1em;
         }
         
     }
@@ -105,11 +104,17 @@
         display: flex;
         justify-content: center;
         align-items: center;
+        border-radius: 1em;
         padding: 1em;
         margin-right: 1em;
-        background-color: black;
+        background-color: $darkShadow;
         color: white;
         cursor: pointer;
+        transition: .5s cubic-bezier(0.165, 0.84, 0.44, 1);
+        &:hover{
+            background-color: $bg1;
+            box-shadow: .15em .15em .5em 0 $darkShadow;
+        }
         &:last-child{
             margin-right: 0;
         }

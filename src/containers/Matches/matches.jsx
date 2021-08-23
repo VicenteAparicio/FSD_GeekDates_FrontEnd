@@ -36,23 +36,22 @@ const Matches = (props) => {
             let res = await axios.post(`${connection}/lovermatches`, body, {headers: {'Authorization': `Bearer ${props.logData.token}`}});
             if (res) {
                 setLovers(res.data.data);
-                console.log('me repito')
-                console.log(res.data)
             }
         } catch (err) {
             console.log({message: err.message})
         }
     }
 
+    // DESTROY LOVER ROW 
     const Unmatch = async (a_id, b_id) => {
         let body = {
-            "user_a_id": b_id,
-            "user_b_id": a_id,
+            "user_a_id": a_id,
+            "user_b_id": b_id,
         }
         try{
             let res = await axios.post(`${connection}/unmatch`, body, {headers: {'Authorization': `Bearer ${props.logData.token}`}});
             if (res) {
-                console.log(res.data.message);
+                alert(res.data.message);
             }
         } catch (err) {
             console.log({message: err.message})
@@ -82,6 +81,10 @@ const Matches = (props) => {
                     </div>
                 </div>
                 <div className="rightSide">
+                    
+                    <div className="containerMessages">
+
+                    </div>
 
                 </div>
                 
@@ -89,7 +92,7 @@ const Matches = (props) => {
         )
     } else {
         setTimeout(()=>{
-            history.push('/login');
+            history.push('/');
         }, 500)
     }
 }

@@ -19,7 +19,6 @@ const Search = (props) => {
     const [players, setPlayers] = useState([]);
     const [age, setAge] = useState({from:18, to:99});
     const [filtPlayers, setFiltPlayers] = useState([]);
-    // const [hobbie, setHobbie] = useState({tablegames:false, rolegames:false, videogames:false, cosplay:false, anime:false});
 
     // Handler
     const ageRange = (e) => {
@@ -49,6 +48,7 @@ const Search = (props) => {
             "gender":props.getInfo.gender,
             "sexuality":props.getInfo.sexuality,
         }
+
         try{
             let res = await axios.post(`${connection}/defaultsearch`, body, {headers: {'Authorization': `Bearer ${props.logData.token}`}});
             if (res) {
@@ -59,106 +59,33 @@ const Search = (props) => {
         }
     }
 
+    // CREATE LOVER ROW AND WAIT FOR CONFIRMATION OR CONFIRM THE MATCH
     const Like = async (id) => {
+
         let body = {
             "user_a_id": props.logData.user.id,
             "user_b_id": id,
         }
+
         try{
             let res = await axios.post(`${connection}/match`, body, {headers: {'Authorization': `Bearer ${props.logData.token}`}});
             if (res) {
-                console.log(res);
+                alert(res.data.message);
             }
         } catch (err) {
             console.log({message: err.message})
         }
-
     }
- 
-    // const updateHoobies = () =>{
-    //     setFiltPlayers(
-    //         filtPlayers.filter((player)=>
-    //         (player.rolegames==hobbie.rolegames||player.tablegames==1||player.videogames==hobbie.videogames||player.cosplay==hobbie.cosplay||player.anime==hobbie.anime)&& player.user_id!==props.logData.user.id
-    //         )
-    //     );
-    // }
-
-    // const hobbieFn = (arg) =>{
-    //     switch(arg){
-
-    //         case "tablegames":
-
-    //             if(hobbie.tablegames == false){
-    //                 setHobbie({...hobbie, [arg]: true});
-    //                 setFiltPlayers(
-    //                     players.filter((player)=>
-    //                     player.tablegames==true&& player.user_id!==props.logData.user.id
-    //                     )
-    //                 );
-    //             } else {
-    //                 setHobbie({...hobbie, [arg]: false});
-    //                 setFiltPlayers(
-    //                     players.filter((player)=>
-    //                     player.tablegames==false&& player.user_id!==props.logData.user.id
-    //                     )
-    //                 );
-    //             }
-    //             break;
-
-    //         case "rolegames":
-
-    //             if(hobbie.rolegames == 0){
-    //                 setHobbie({...hobbie, [arg]: true});
-    //                 setFiltPlayers(
-    //                     players.filter((player)=>
-    //                     player.rolegames==true&& player.user_id!==props.logData.user.id
-    //                     )
-    //                 );
-    //             } else {
-    //                 setHobbie({...hobbie, [arg]: false});
-    //                 setFiltPlayers(
-    //                     players.filter((player)=>
-    //                     player.rolegames==false && player.user_id!==props.logData.user.id
-    //                     )
-    //                 );
-    //             }
-    //             break;
-
-    //         case "videogames":
-    //             if(hobbie.videogames === false){
-    //                 setHobbie({...hobbie, [arg]: true});
-    //             } else {
-    //                 setHobbie({...hobbie, [arg]: false});
-    //             }
-    //             break;
-    //         case "cosplay":
-    //             if(hobbie.cosplay === false){
-    //                 setHobbie({...hobbie, [arg]: true});
-    //             } else {
-    //                 setHobbie({...hobbie, [arg]: false});
-    //             }
-    //             break;
-    //         case "anime":
-    //             if(hobbie.anime === false){
-    //                 setHobbie({...hobbie, [arg]: true});
-    //             } else {
-    //                 setHobbie({...hobbie, [arg]: false});
-    //             }
-    //             break;
-    //         default:
-    //             break;
-    //     }
-       
-        
-    // }
-
+    
+    // EACH TIME USER CLICK ON FILTER THIS ADDS TO THE MAIN FILTER 
     const hobbieFn = (arg) =>{
+
         switch(arg){
 
             case "tablegames":
                 setFiltPlayers(
                     filtPlayers.filter((player)=>
-                    player.tablegames==true&& player.user_id!==props.logData.user.id
+                    player.tablegames==true && player.user_id!==props.logData.user.id
                     )
                 );
                 break;
@@ -166,7 +93,7 @@ const Search = (props) => {
             case "rolegames":
                 setFiltPlayers(
                     filtPlayers.filter((player)=>
-                    player.rolegames==true&& player.user_id!==props.logData.user.id
+                    player.rolegames==true && player.user_id!==props.logData.user.id
                     )
                 );
                 break;
@@ -174,7 +101,7 @@ const Search = (props) => {
             case "videogames":
                 setFiltPlayers(
                     filtPlayers.filter((player)=>
-                    player.videogames==true&& player.user_id!==props.logData.user.id
+                    player.videogames==true && player.user_id!==props.logData.user.id
                     )
                 );
                 break;
@@ -182,7 +109,7 @@ const Search = (props) => {
             case "cosplay":
                 setFiltPlayers(
                     filtPlayers.filter((player)=>
-                    player.cosplay==true&& player.user_id!==props.logData.user.id
+                    player.cosplay==true && player.user_id!==props.logData.user.id
                     )
                 );
                 break;
@@ -190,21 +117,16 @@ const Search = (props) => {
             case "anime":
                 setFiltPlayers(
                     filtPlayers.filter((player)=>
-                    player.anime==true&& player.user_id!==props.logData.user.id
+                    player.anime==true && player.user_id!==props.logData.user.id
                     )
                 );
                 break;
 
             default:
                 break;
+
         }
-       
-        
     }
-
-
-    
-
 
     if (props.logData.token) {
 
@@ -216,7 +138,7 @@ const Search = (props) => {
                     <div className="ageFilters">
                         <input className="ageRange" defaultValue="18" type="number" name="from" placeholder="from" onChange={ageRange}></input>
                         <input className="ageRange" defaultValue="99" type="number" name="to" placeholder="to" onChange={ageRange}></input>
-                        <div className="buttonAge" onClick={()=>updateAge()}>GO</div>
+                        <div className="buttonAge" onClick={()=>updateAge()}>SEARCH</div>
                     </div>
                     <div className="hobbieFilters">
                         <input className="buttonHobbies" type="radio" placeholder="option" onChange={()=>hobbieFn("tablegames")} name="hobbies"/><label for="tablegames">TABLEGAMES</label>
@@ -249,13 +171,11 @@ const Search = (props) => {
                 </div>
             </div>
         )
+
     } else {
         setTimeout(()=>{
             history.push('/')
         }, 1000)
-        return (
-            <div></div>
-        )
     }
 }
 

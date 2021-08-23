@@ -17,10 +17,6 @@ const UpdateSexualInfo = (props) => {
     
     let history = useHistory();
 
-    
-    useEffect(()=>{
-
-    }, [])
     useEffect(()=>{
         console.log(props.getInfo)
     })
@@ -31,7 +27,6 @@ const UpdateSexualInfo = (props) => {
     const [lookingFor, setLookingFor] = useState('');
 
     // Handler
-
     const updateOrientation = (e) => {
         setSexuality(e.target.value);
     }
@@ -43,7 +38,7 @@ const UpdateSexualInfo = (props) => {
         setLookingFor(e.target.value);
     }
 
-
+    // OBJECTS TO MAP 
     const sexualOrientation = [
         {
             label: "Heterosexual",
@@ -85,6 +80,7 @@ const UpdateSexualInfo = (props) => {
         },
     ];
 
+    // UPDATE USER INFO
     const updateSexInfo = async () => {
 
         //A continuación generamos el body de datos

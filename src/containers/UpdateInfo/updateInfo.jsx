@@ -69,9 +69,9 @@ const UpdateInfo = (props) => {
         }
     }
 
+    // UPDATE USER INFO
     const UpInfo = async () => {
 
-        //A continuación generamos el body de datos
         let body = {
             user_id: props.logData.user.id,
             name: credentials.name,
