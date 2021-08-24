@@ -17,10 +17,6 @@ const UpdateSexualInfo = (props) => {
     
     let history = useHistory();
 
-    useEffect(()=>{
-        console.log(props.getInfo)
-    })
-
     // Hooks
     const [sexuality, setSexuality] = useState('heterosexual');
     const [gender, setGender] = useState('');
