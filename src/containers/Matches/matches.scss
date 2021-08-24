@@ -1,0 +1,143 @@
+.containerMatches {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: flex-start;
+    width: 100%;
+    
+}
+
+.leftSide {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 2em 2em 0 0;
+    padding: 2em;
+    background-color: $cards;
+    
+    border-radius: 1em 1em;
+    box-shadow: .5em .5em .5em 0 $darkShadow;
+
+
+
+
+    .listMatches{
+        display: flex;
+        flex-direction: column;
+
+
+        .loverCard{
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            background-color: $darkShadow;
+            width: 10em;
+            padding: 1em;
+            border-radius: 1em 1em;
+            margin-bottom: 1em;
+            
+            box-shadow: .15em .15em .5em 0 $bg1;
+
+            &:last-child{
+                margin-bottom: 0;
+            }
+            .unmatch{
+                cursor: pointer;
+                margin-right: 1em;
+                
+                &:hover{
+                    color:$bg1;
+                }
+            }
+
+            .message {
+                cursor: pointer;
+                margin-left: 1em;
+                
+                &:hover{
+                    color:$bg1;
+                }
+            }
+            
+        }
+    }
+
+
+}
+
+.rightSide{
+    display: flex;
+    flex-direction: column;
+
+    .containerMessages{
+        display: flex;
+        flex-direction: column;
+        background-color: $cards;
+        margin-top: 2em;
+        padding:2em;
+        border-radius: 1em 1em;
+        box-shadow: .5em .5em .5em 0 $darkShadow;
+    }
+
+    .messageText{
+        all: unset;
+        margin-top: 1em;
+        padding: 1em;
+        margin-bottom: 1em;
+        color: $shadow;
+        box-shadow: inset .15em .15em .5em 0 $darkShadow;
+        background-color: white;
+        border-radius: 1em 1em;
+    }
+
+    .buttonMessage {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+        background-color: $darkShadow;
+        
+        
+        padding: 1em;
+        border-radius: 1em 1em;
+        &:hover{
+            background-color: $bg1;
+            box-shadow: .5em .5em .5em 0 $darkShadow;
+        }
+    }
+
+    .messageBox{
+        background-color: white;
+        padding: 2em 2em 4em 2em;
+        border-radius: 1em;
+        box-shadow: inset .15em .15em .5em 0 $darkShadow;
+        
+        .messageCard{
+            display: flex;
+            justify-content: center;
+            width: 100%;
+            margin-bottom: .8em;
+            font-family:Verdana, Geneva, Tahoma, sans-serif;
+
+            .to {
+                
+                display: flex;
+                flex-direction: row;
+                justify-content: flex-end;
+                width: 90%;
+                color:$darkShadow;
+                
+            }
+            .from {
+                display: flex;
+                flex-direction: row;
+                justify-content: flex-start;
+                width: 90%;
+                color:$cards;
+            }
+        }
+    }
+    
+
+}

@@ -7,15 +7,13 @@ const initialState = {
 
 const credentialsReducer = (state = initialState, action) => {
     switch(action.type){
-        //Ejemplo de añadido de datos
+        // AD USER LOG
         case LOGIN :
             return action.payload;
 
-        //Ejemplo de reestablecimiento o borrado de datos
+        // CLEAN USER LOG
         case LOGOUT : 
             return initialState;
-
-        //Ejemplo de modificacion de datos
 
         default : 
             return state

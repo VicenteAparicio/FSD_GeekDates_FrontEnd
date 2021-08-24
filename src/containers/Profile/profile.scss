@@ -1,0 +1,46 @@
+.profileContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 90vh;
+}
+
+.profileBox{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    .profileCard{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 4em 0;
+        width: 90vw;
+        max-width: 60em;
+        border-radius: 2em 2em;
+        background-color: $cards;
+        box-shadow: .5em .5em 1em 0em $darkShadow;
+        color: white;
+    }
+
+    .boxButton{
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        height: 2em;
+        margin-top: 2em;
+
+        .buttonProfile{
+            margin-right: 1em;
+            cursor: pointer;
+            &:hover{
+                font-size: 1.4em;
+                color: $darkShadow;
+            }
+            &:last-child{
+                margin-right: 0;
+            }
+        }
+    }
+}

@@ -1,0 +1,36 @@
+.containerNav {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 2.5em;
+    background-color:$cards;
+    box-shadow: .5em .5em 1em 0em $darkShadow;
+
+    nav {
+        
+        display: flex;
+        justify-content: center;
+        color: white;
+        width: 100%;
+
+        .navBox{
+            display: flex;
+            flex-direction: row;
+            justify-content: space-around;
+            width: 50%;
+            max-width: 20em;
+        
+            .actions{
+                all:unset;
+                cursor: pointer;
+                transition: 1s cubic-bezier(0.075, 0.82, 0.165, 1);
+                &:hover{
+                    transform: scale(120%);
+                    color: $darkShadow;
+                    transition: 1s cubic-bezier(0.075, 0.82, 0.165, 1);
+                }
+            }
+        }
+    }
+}

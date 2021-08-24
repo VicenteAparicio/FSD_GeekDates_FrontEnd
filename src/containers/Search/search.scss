@@ -1,0 +1,123 @@
+.containerSearch{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 2em;
+}
+
+.boxSearch{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    flex-wrap: wrap;
+    width: 90%;
+}
+
+.playerCard {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+    width: 12em;
+    padding: 1em;
+    border-radius: 1em 1em;
+    background-color: $cards;
+    
+    box-shadow: .5em .5em .5em 0em $darkShadow;
+    margin: 0 1em 1em 0;
+
+}
+
+.boxCardButtons{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    height: 3em;
+    width: 90%;
+    .cardButtons{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+        color: white;
+        font-size: 1.2em;
+        height: 2em;
+        width: 2em;
+        transition: .5s cubic-bezier(0.165, 0.84, 0.44, 1);
+        &:hover{
+            color: $darkShadow;
+            font-size: 1.6em;
+            transition: .5s cubic-bezier(0.165, 0.84, 0.44, 1);
+        }
+ 
+    } 
+}
+
+.filters {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-items: center;
+    background-color: $cards;
+    padding: 2em;
+    border-radius: 1em 1em;
+    box-shadow: .5em .5em .5em 0em $darkShadow;
+    margin-bottom: 2em;
+
+    .ageFilters{
+        display: flex;
+        flex-direction: row;
+        margin-bottom: 1em;
+
+    
+        .ageRange{
+            all: unset;
+            padding: 1em;
+            border-radius: 1em 1em;
+            margin-right:  1em;
+            width: 3em;
+            background-color: white;
+            color: $shadow;
+            box-shadow: inset .15em .15em .5em 0 $darkShadow;
+            &:last-child {
+                margin: 0;
+            }
+        }
+    }
+
+    .hobbieFilters{
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        
+        .buttonHobbies{
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            margin: 0 .4em 0 1em;
+        }
+        
+    }
+
+    .buttonAge{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 1em;
+        padding: 1em;
+        margin-right: 1em;
+        background-color: $darkShadow;
+        color: white;
+        cursor: pointer;
+        transition: .5s cubic-bezier(0.165, 0.84, 0.44, 1);
+        &:hover{
+            background-color: $bg1;
+            box-shadow: .15em .15em .5em 0 $darkShadow;
+        }
+        &:last-child{
+            margin-right: 0;
+        }
+    }
+
+}

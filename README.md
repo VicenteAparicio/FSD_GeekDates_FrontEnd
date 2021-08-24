@@ -1,70 +1,143 @@
-# Getting Started with Create React App
+# GEEKS DATE FRONT END
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Project details
 
-## Available Scripts
+### This is a React + Laravel PHP project from Fullstack Developer Bootcamp at <a href="https://geekshubsacademy.com/">GeeksHubs Academy</a> 2021.
+<br>
 
-In the project directory, you can run:
+### About
+Every project is an oportunity to learn a new way to work. On this case I wanted to do my first REACT + PHP LARAVEL WEB APP ever.
 
-### `npm start`
+Geeks Date is an webapp like tinder or adoptauntio but focused on freak people. There is a lot of webapps, android apps and iphone apps to meet your perfect partner. Sometimes that kind of apps are focused on user pics rather than their hobbies. There are a big competition out there where people who looks for more interesting partners are not welcome. There are people who wants to share their freak hobbies like watch anime, play tablegames with some friends, play videogames from the couch, do some cosplay or enjoy a nice rolegame event. This is a webapp for them. 
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+<br>
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+- Start date: 20 July 2021
+- Delivery date: 23 August 2021
+- Dedicated time: > 60 hours 
 
-### `npm test`
+<br>
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## TECHNOLOGY
 
-### `npm run build`
+- REACT<br>
+- PHP LARAVEL<br>
+- SEQUELIZE<br>
+- REDUX<br>
+- AXIOS<br>
+- GIT FLOW<br>
+- SCSS<br
+- POSTMAN<br>
+- DBeaver<br>
+- FONT-AWESOME<br>
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+<br>
+<br>
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Access to Heroku deploy
+https://geeksdatefront.herokuapp.com/
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+<br>
+<br>
 
-### `npm run eject`
+## FROM THE BEGINING
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+- 1 Clone this repository <br>
+- 2 Install dependencies <code> npm i </code> and execute app <code> npm start </code>
+- 3 Get this <a href="https://github.com/VicenteAparicio/FSD_GeekDates_BackEnd">BACKEND</a>
+- 4 Execute <code> php artisan serve </code>
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+<br>
+<br>
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+## REGISTER
+<br>
+Minimalism design for a good responsive app
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+<img src="./src/assets/readmeImg/img08.png" style="width: 100%"><br><br>
 
-## Learn More
+Your basic data will be register and saved on this page
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+<br>
+<br>
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## FILL YOUR PERSONAL INFO
+<br>
 
-### Code Splitting
+<img src="./src/assets/readmeImg/img09.png" style="width: 100%"><br><br>
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+You need to fill this to complete your personal info on the database
+<br>
+<br>
 
-### Analyzing the Bundle Size
+## FILL YOUR SEXUAL INFO AND PREFERENCES
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+<br>
 
-### Making a Progressive Web App
+<img src="./src/assets/readmeImg/img11.png" style="width: 100%"><br><br>
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+You need to fill this to complete your sexual info on the database
+<br>
+<br>
 
-### Advanced Configuration
+## FILL YOUR HOBBIES 
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+<br>
 
-### Deployment
+<img src="./src/assets/readmeImg/img12.png" style="width: 100%"><br><br>
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+You need to fill this to complete your hobbies info on the database, without hobbies the users can't not see you on their searchs.
+<br><br>
 
-### `npm run build` fails to minify
+## START YOUR SEARCH!!
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+<br>
+
+<img src="./src/assets/readmeImg/img03.png" style="width: 100%"><br><br>
+
+Once you have complete the search process you can go to the EYE on the NAV bar on the top of the screen and look for people with the filters you have there. Filters like range of age or hobbies. 
+<br><br>
+
+## LOVE IS IN THE CHAT
+
+<br>
+
+<img src="./src/assets/readmeImg/img01.png" style="width: 100%"><br><br>
+
+When you get some matches you can go to the HEART on the NAV bar and go to Matches/Lovers section. On this section you will have a view of all your MATCHES. If you click over the little arrow at the right of the name, you will see your conversation whith that partner.
+<br><br>
+
+In case you don't want to talk with someone anymore you can click on the X (at the left of the name) to do UNMATCH. 
+
+<br><br>
+
+## CONCLUSION
+
+<br>
+Geeks Dates have been one of the hardest projects on my learning. First time I had to work with REACT and PHP LARAVEL in a full project. I had to learn a lot about PHP LARAVEL, the querys and how to extract information from another tables with relations between them. I have to be very patient looking for the errors and how to fix them (very easy when you work with NODE JS).
+
+From the begining I felt like the concept of my database and front-end was not good to this complex app. I wasn't able to see the right way to work with the tables and their relations. I spent weeks to figure out how to manage the data to get all the info I needed for the front-end area. Days with no commits fighting with the code and the big information google could provide me. Days burning my brain and my confidence about the skills I am getting over this months. 
+
+Was a nice ride, hard but nice. I learned a lot of new stuff and thousand of ways of how not do something.
+
+<br><br>
+
+## THINGS I LEFT TO DO... FOR NOW
+
+<br>
+1.- Good landing page<br>
+2.- Good logo on landing page<br>
+3.- Redesign chat<br>
+4.- Add an upload image section<br>
+5.- Improve the edition of the user and hobbies<br>
+6.- Redesign a lot of buttons<br>
+7.- Redesign chat distribution for mobile view version<br>
+8.- Improve hobbie filters<br>
+9.- Add city filter<br>
+10.- Add country filter<br>
+
+
+
+
+
+
