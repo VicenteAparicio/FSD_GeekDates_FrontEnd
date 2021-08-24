@@ -13,8 +13,8 @@ import { faPaperPlane } from '@fortawesome/free-regular-svg-icons';
 
 const Upload = (props) => {
 
-    let connection = "http://127.0.0.1:8000/api";
-    // let connection = "https://killfilmsbackend.herokuapp.com";
+    // let connection = "http://127.0.0.1:8000/api";
+    let connection = "https://geeksdatebackend.herokuapp.com/";
 
     let history = useHistory();
 
