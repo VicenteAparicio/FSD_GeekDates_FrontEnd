@@ -41,21 +41,24 @@
     }
 }
 
-.loginIcon{
+.loginButton{
     display: flex;
     justify-content: center;
     align-items: center;
     color: white;
-    height: 2em;
+    padding: 1em;
+    background-color: $darkShadow;
     cursor: pointer;
+    width: 12em;
+    border-radius: 1em;
    
-    .faLogin{
-        font-size: 1em;
+
         &:hover{
-            color: $shadow;
-            font-size: 1.5em;
+            background-color: $bg1;
+            
+    box-shadow: .15em .15em .5em 0 $darkShadow;
+
         }
-    }
     
 }
 

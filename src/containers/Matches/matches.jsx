@@ -18,21 +18,18 @@ const Matches = (props) => {
     
     const [lovers, setLovers] = useState([]);
     const [matchId, setMatchId] = useState('');
-    const [args1, setArgs1] = useState(['']);
     const [argsTotal, setArgsTotal] = useState(['']);
-    const [args2, setArgs2] = useState(['']);
     const [textM, setTextM] = useState(' ');
+    const [otherId, setOtherId] = useState(' ');
 
     useEffect(()=>{
         Lovers();
     }, []);
 
-    useEffect(()=>{
-        
-    });
     
-     // DEFAULT SEARCH BASED ON USER PREFERENCES
-     const Lovers = async () => {
+    
+    // DEFAULT SEARCH BASED ON USER PREFERENCES
+    const Lovers = async () => {
 
         let body = {
             "user_id": props.logData.user.id,
@@ -65,24 +62,34 @@ const Matches = (props) => {
     }
 
     // SET MATCH ID AND CHECK FOR MESSAGES
-    const setMatch = async (value) => {
+    const setMatch = async (value, aId, bId) => {
+        
+        if (aId == props.logData.user.id){
+            setOtherId(bId)
+        } else {
+            setOtherId(aId)
+        }
+            
+
+        // CLEAN MESSAGES
         setArgsTotal([]);
+        
+        // SAVE LOVER ROW ID VALUE TO LOOK FOR THE CONVERSATION
         setMatchId(value);
+
         let body = {
             "match_id": value,
         }
-        console.log(value)
+
         try{
             let res = await axios.post(`${connection}/checkmessage`, body, {headers: {'Authorization': `Bearer ${props.logData.token}`}});
             if (res) {
 
-                // setArgs1(res.data.data)
-                // console.log(res.data.data)
-                // alert(res.data.message);
+                // TRANSFORM OBJECT TO A ARRAY OF OBJECTS
                 let array1 = [];
                 array1 = Object.values(res.data.data);
-                console.log(array1)
                 
+                // GIVE ATRIBUTE CLASSES DEPENDS ON USER_FROM_ID
                 for (let i=0; i<array1.length; i++){
                     if (array1[i].user_from_id==props.logData.user.id){
                         array1[i].classes = "from";
@@ -91,21 +98,21 @@ const Matches = (props) => {
                         array1[i].classes = "to";
                     }
                     
-                    // let concate = args1.concat(args2);
-                    // console.log(concate)
-                    // argsTotal.push(concate);
-                    // setArgsTotal(argsTotal)
                 }
-                setArgsTotal(array1)
-            }
 
+                // SAVE CONVERSATION TO PRINT 
+                setArgsTotal(array1);
+            }
 
         } catch (err) {
             console.log({message: err.message})
         }
     }
 
-    
+    // SAVE NEW MESSAGE TEXT
+    const getText = (e) => {
+        setTextM(e.target.value);
+    }
 
 
 
@@ -113,7 +120,7 @@ const Matches = (props) => {
     const newmessage = async () =>{
         let body = {
             "user_from_id": props.logData.user.id,
-            "user_to_id": 4,
+            "user_to_id": otherId,
             "match_id": matchId,
             "text": textM
         }
@@ -129,10 +136,7 @@ const Matches = (props) => {
     }
 
 
-    const getText = (e) => {
-        setTextM(e.target.value);
-        
-    }
+    
     
 
     if (props.logData.token){
@@ -152,7 +156,7 @@ const Matches = (props) => {
                                 <div className="loverInfo">{lover.name}</div>
 
                                 <div className="message"><FontAwesomeIcon className="faIcons" icon={faArrowAltCircleRight}
-                                    onClick={()=>setMatch(lover.id)}/></div>
+                                    onClick={()=>setMatch(lover.id, lover.user_a_id, lover.user_b_id)}/></div>
                                 
                             </div>
                         

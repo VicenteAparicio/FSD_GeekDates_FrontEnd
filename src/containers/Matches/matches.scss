@@ -109,7 +109,7 @@
 
     .messageBox{
         background-color: white;
-        padding: 2em;
+        padding: 2em 2em 4em 2em;
         border-radius: 1em;
         box-shadow: inset .15em .15em .5em 0 $darkShadow;
         
@@ -117,9 +117,11 @@
             display: flex;
             justify-content: center;
             width: 100%;
-            margin-bottom: .5em;
+            margin-bottom: .8em;
+            font-family:Verdana, Geneva, Tahoma, sans-serif;
 
-            .from {
+            .to {
+                
                 display: flex;
                 flex-direction: row;
                 justify-content: flex-end;
@@ -127,7 +129,7 @@
                 color:$darkShadow;
                 
             }
-            .to {
+            .from {
                 display: flex;
                 flex-direction: row;
                 justify-content: flex-start;

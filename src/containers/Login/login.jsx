@@ -70,7 +70,8 @@ const Login = (props) => {
                     
                     <input className="inputs" type="password" name="password" onChange={updateCredentials} placeholder="Password"></input>
 
-                    <div className="loginIcon" onClick={()=>SignIn()}><FontAwesomeIcon className="faLogin" icon={faPaperPlane}/></div>
+                    <div className="loginButton" onClick={()=>SignIn()}>PLAY</div>
+                    
                 </div>
 
             <div className="barra"></div>

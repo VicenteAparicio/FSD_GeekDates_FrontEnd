@@ -3,16 +3,23 @@ import React from 'react';
 import {NavLink} from 'react-router-dom';
 import {connect} from 'react-redux';
 import Logo from '../../assets/img/logo.png'
-
+import { useHistory } from 'react-router-dom';
 
 
 const Home = () => {
 
+    let history = useHistory();
 
+    // setTimeout(()=>{
+    //     history.push('/login');
+    // }, 5000)
+    
     return (
         <div className="containerHome">
-
-            <NavLink to="/login"><img className="logo" alt="Logo" title="Logo de la app" src={Logo}/></NavLink>
+            <div className="title">Geek Dates</div>
+            <div className="title2">Geek Dates</div>
+            {/* <NavLink to="/login"><img className="logo" alt="Logo" title="Logo de la app" src={Logo}/></NavLink> */}
+            <NavLink to="/login" className="startButton">start</NavLink>
             
         </div>
     )

@@ -15,8 +15,8 @@
     }
 
     &:hover{
-        background-color: $shadow;
-        box-shadow: .15em .15em .5em 0 $shadow;
+        background-color: $darkShadow;
+        box-shadow: .15em .15em .5em 0 $darkShadow;
         color: $cards;
         transition: 1s cubic-bezier(0.075, 0.82, 0.165, 1);
         cursor: pointer;

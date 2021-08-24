@@ -7,7 +7,7 @@ import {useHistory} from 'react-router-dom';
 import { LOGOUT } from '../../redux/types';
 // IMPORT ICONS
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faSquare, faCircle, faTimes, faUser } from '@fortawesome/free-solid-svg-icons';
+import {  faUser, faHeart, faEye, faExternalLinkSquareAlt } from '@fortawesome/free-solid-svg-icons';
 
 
 
@@ -29,18 +29,18 @@ const Nav = (props) => {
                 <nav className="nav">
                     <div className="navBox">
 
-                        <NavLink className="actions" to="/search"><FontAwesomeIcon className="faIcons" icon={faSquare}/></NavLink>
-                        <NavLink className="actions" to="/matches"><FontAwesomeIcon icon={faCircle}/></NavLink>
+                        <NavLink className="actions" to="/search"><FontAwesomeIcon className="faIcons" icon={faEye}/></NavLink>
+                        <NavLink className="actions" to="/matches"><FontAwesomeIcon icon={faHeart}/></NavLink>
                         <NavLink className="actions" to="/profile"><FontAwesomeIcon className="faIcons" icon={faUser}/></NavLink>
-                        <div className="actions" onClick={()=>logOut()}><FontAwesomeIcon className="faIcons" icon={faTimes}/></div>
+                        <div className="actions" onClick={()=>logOut()}><FontAwesomeIcon className="faIcons" icon={faExternalLinkSquareAlt}/></div>
                     </div>
                 </nav>
             </div>
         )
     } else {
-        // setTimeout(()=>{
-        //     history.push('/');
-        // }, 1000)
+        setTimeout(()=>{
+            history.push('/');
+        }, 1000)
         return (
             <div></div>
         )
