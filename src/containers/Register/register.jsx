@@ -10,7 +10,7 @@ import { faPaperPlane } from '@fortawesome/free-regular-svg-icons';
 const Register = (props) => {
 
     // let connection = "http://127.0.0.1:8000/api";
-    let connection = "https://geeksdatebackend.herokuapp.com/api";
+    let connection = "https://geeksdateback.herokuapp.com/api";
     
     let history = useHistory();
 
@@ -78,30 +78,28 @@ const Register = (props) => {
 
     const Registration = async () => {
 
-        //A continuación generamos el body de datos
-        let body = {
-            email: credentials.email,
-            password: credentials.password,
-            nick: credentials.nick,
-            phone: credentials.phone,
-            age: credentials.age,
-            isAdmin: credentials.isAdmin,
-            isPremium: credentials.isPremium,
-            isActive: credentials.isActive
+        try {
+            //A continuación generamos el body de datos
+            let body = {
+                email: credentials.email,
+                password: credentials.password,
+                nick: credentials.nick,
+                phone: credentials.phone,
+                age: credentials.age,
+                isAdmin: credentials.isAdmin,
+                isPremium: credentials.isPremium,
+                isActive: credentials.isActive
+            }
+            let res = await axios.post(`${connection}/register`, body)
+            if(res){
+                console.log(res);
+                alert("Gracias por registrarte con nosotros");
+                history.push('/login');
+            }
         }
-
-        axios
-            .post(`${connection}/register`, body)
-            .then((res)=>{
-                if(res){
-                    console.log(res)
-                    alert("Gracias por registrarte con nosotros");
-                    history.push('/login');
-                }
-            })
-            .catch((error)=>{
+        catch (error) {
                 console.log(error);
-            });   
+        }   
     }
     
 

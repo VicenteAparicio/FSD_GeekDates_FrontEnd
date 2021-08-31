@@ -10,7 +10,7 @@ import { faPaperPlane } from '@fortawesome/free-regular-svg-icons';
 const UpdateInfo = (props) => {
 
     // let connection = "http://127.0.0.1:8000/api";
-    let connection = "https://geeksdatebackend.herokuapp.com";
+    let connection = "https://geeksdateback.herokuapp.com/api";
     
     let history = useHistory();
 
@@ -71,29 +71,26 @@ const UpdateInfo = (props) => {
 
     // UPDATE USER INFO
     const UpInfo = async () => {
+        try {
 
-        let body = {
-            user_id: props.logData.user.id,
-            name: credentials.name,
-            surname: credentials.surname,           
-            country: credentials.country,
-            city: credentials.city,
-            cp: credentials.cp
-        }
-
-        axios
-            .post(`${connection}/updateinfo`, body, {headers: {'Authorization': `Bearer ${props.logData.token}`}})
-            .then((res)=>{
-                if(res){
-                    console.log(res.data.user)
-                    
-                    alert("Datos guardados");
-                    history.push('/updatesexualinfo');
-                }
-            })
-            .catch((error)=>{
-                console.log(error);
-            });   
+            let body = {
+                user_id: props.logData.user.id,
+                name: credentials.name,
+                surname: credentials.surname,           
+                country: credentials.country,
+                city: credentials.city,
+                cp: credentials.cp
+            }
+            let res = await axios.post(`${connection}/updateinfo`, body, {headers: {'Authorization': `Bearer ${props.logData.token}`}})
+            if(res){
+                console.log(res.data.user)
+                
+                alert("Datos guardados");
+                history.push('/updatesexualinfo');
+            }
+        } catch (error) {
+            console.log(error);
+        };   
     }
     
 

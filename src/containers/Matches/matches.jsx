@@ -12,7 +12,7 @@ import { faArrowAltCircleRight } from '@fortawesome/free-regular-svg-icons';
 const Matches = (props) => {
 
     // let connection = "http://127.0.0.1:8000/api";
-    let connection = "https://geeksdatebackend.herokuapp.com";
+    let connection = "https://geeksdateback.herokuapp.com/api";
 
 
     let history = useHistory();
@@ -70,7 +70,6 @@ const Matches = (props) => {
         } else {
             setOtherId(aId)
         }
-            
 
         // CLEAN MESSAGES
         setArgsTotal([]);
@@ -78,11 +77,10 @@ const Matches = (props) => {
         // SAVE LOVER ROW ID VALUE TO LOOK FOR THE CONVERSATION
         setMatchId(value);
 
-        let body = {
-            "match_id": value,
-        }
-
         try{
+            let body = {
+                "match_id": value,
+            }
             let res = await axios.post(`${connection}/checkmessage`, body, {headers: {'Authorization': `Bearer ${props.logData.token}`}});
             if (res) {
 
