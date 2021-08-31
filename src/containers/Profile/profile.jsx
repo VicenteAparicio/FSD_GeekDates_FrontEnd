@@ -12,7 +12,8 @@ import { faMinusSquare, faPen, faSave, faTimesCircle } from '@fortawesome/free-s
 
 const Profile = (props) => {
 
-    let connection = "http://127.0.0.1:8000/api";
+    // let connection = "http://127.0.0.1:8000/api";
+    let connection = "https://geeksdatebackend.herokuapp.com";
 
     let history = useHistory();
 
