@@ -16,8 +16,8 @@ const Home = () => {
     
     return (
         <div className="containerHome">
-            <div className="title">Geek Dates</div>
-            <div className="title2">Geek Dates</div>
+            <div className="title topTitle">Geek</div>
+            <div className="title">Dates</div>
             {/* <NavLink to="/login"><img className="logo" alt="Logo" title="Logo de la app" src={Logo}/></NavLink> */}
             <NavLink to="/login" className="startButton">start</NavLink>
             

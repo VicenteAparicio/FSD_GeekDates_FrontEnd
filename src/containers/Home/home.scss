@@ -6,31 +6,33 @@
     height: 100vh;
 }
 
-.logo{
-    height: 20em;
-}
+// .logo{
+//     height: 20em;
+// }
 
-.title{
-    font-size: 8vw;
-    z-index: 2;
-}
-.title2{
-    z-index: 1;
-    font-size: 8vw;
-    margin: -.9em 0  0 .3em;
-
-    color: $darkShadow;
-}
 
 .startButton {
     all: unset;
-    margin-top: 1em;
+    margin-top: 2em;
     color: white;
     font-size: 1.5em;
+    font-family: $subtible;
     cursor: pointer;
-
+    transition: .5s cubic-bezier(0.075, 0.82, 0.165, 1);
     &:hover{
-        color: $cards;  
-        box-shadow: .15em .15em .5em 0 $darkShadow;
+        transform: scale(110%);
+        color: $cards;
     }
+}
+
+.title{
+    // font: clamp(80px, 10vw, 180px) 'DotGothic16', sans-serif;
+    font-family: $title;
+    font-size: 10em;
+    line-height: 90%;
+    text-shadow: 5px 5px 0px rgb(235, 110, 225);
+}
+
+.topTitle {
+    margin-left: -.82em;    
 }
