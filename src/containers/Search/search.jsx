@@ -11,7 +11,7 @@ import { faHeart} from '@fortawesome/free-regular-svg-icons';
 const Search = (props) => {
 
     // let connection = "http://127.0.0.1:8000/api";
-    let connection = "https://geeksdatebackend.herokuapp.com";
+    let connection = "https://geeksdateback.herokuapp.com/api";
     
     let history = useHistory();
 
