@@ -38,29 +38,25 @@ const Profile = (props) => {
 
 
     const saveEdit = async () => {
-        let body = {
-            "user_id": props.logData.user.id,
-            "name": userEdit.name,
-            "surname": userEdit.surname,
-            // "password": userEdit.password,
-            "email": userEdit.email,
-            "country": userEdit.country,
-            "city": userEdit.city,
-            "cp": userEdit.cp
-        }
-
-        axios
-        .post(`${connection}/updateinfo`, body, {headers: {'Authorization': `Bearer ${props.logData.token}`}})
-        .then((res)=>{
+        
+        try {
+            let body = {
+                "user_id": props.logData.user.id,
+                "name": userEdit.name,
+                "surname": userEdit.surname,
+                // "password": userEdit.password,
+                "email": userEdit.email,
+                "country": userEdit.country,
+                "city": userEdit.city,
+                "cp": userEdit.cp
+            }
+            let res = await axios.post(`${connection}/updateinfo`, body, {headers: {'Authorization': `Bearer ${props.logData.token}`}})
             if (res){
                 props.dispatch({type:GETINFO,payload:res.data.user});
-
             }
-        })
-        .catch((error)=>{
+        } catch (error) {
             console.log(error);
-        });
-
+        }
         setAllowEdit(false);
     }
 

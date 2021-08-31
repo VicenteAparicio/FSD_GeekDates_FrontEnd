@@ -23,31 +23,29 @@ const Hobbies = (props) => {
     }
 
     const hobbieFill = async () => {
-
-        // A continuación generamos el body de datos
-        let body = {
-            user_id: props.logData.user.id,
-            tablegames: hobbies.tablegames,
-            rolegames: hobbies.rolegames,
-            videogames: hobbies.videogames,
-            cosplay: hobbies.cosplay,
-            anime: hobbies.anime
-        }
-        axios
-            .post(`${connection}/hobbies`, body, {headers: {'Authorization': `Bearer ${props.logData.token}`}})
-            .then((res)=>{
-                if(res){
-                    alert("Rellenaste tus hobbies");
-                    history.push('/profile');
-                }
-            })
-            .catch((error)=>{
-                console.log(error);
-            }); 
+        
+        try {
+            
+            // A continuación generamos el body de datos
+            let body = {
+                user_id: props.logData.user.id,
+                tablegames: hobbies.tablegames,
+                rolegames: hobbies.rolegames,
+                videogames: hobbies.videogames,
+                cosplay: hobbies.cosplay,
+                anime: hobbies.anime
+            }
+            let res = await axios.post(`${connection}/hobbies`, body, {headers: {'Authorization': `Bearer ${props.logData.token}`}})
+            if (res) {
+                alert("Rellenaste tus hobbies");
+                history.push('/profile');
+            }
+        } catch (error) {
+            console.log(error);
+        }; 
     }
     
     const hobbieOptions = ["tablegames","rolegames","videogames","cosplay","anime"]
-   
 
     return (
 

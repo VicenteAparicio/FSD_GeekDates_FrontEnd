@@ -30,15 +30,16 @@ const Login = (props) => {
    // FUNCION LOGUEAR
    const SignIn = async () => {
 
-    // A continuación genearmos el body de datos
-    let body = {
-        email: credentials.email.toLowerCase(),
-        password: credentials.password,
-    }
     
-    axios
-        .post(`${connection}/login`, body)
-        .then((res)=>{
+    try {
+        // A continuación genearmos el body de datos
+        let body = {
+            email: credentials.email.toLowerCase(),
+            password: credentials.password,
+        }
+
+        let res = await axios.post(`${connection}/login`, body)
+        if (res) {
             //Guardo en RDX
             props.dispatch({type:LOGIN,payload:res.data});
             props.dispatch({type:GETINFO,payload:res.data.user});
@@ -53,10 +54,10 @@ const Login = (props) => {
             } else {
                 history.push('/profile')
             }
-        })
-        .catch((error)=>{
-            alert(error)
-        });  
+        }
+    } catch (error) {
+        alert(error)
+    }  
 }
 
 
