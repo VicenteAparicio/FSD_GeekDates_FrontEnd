@@ -29,15 +29,15 @@ const Upload = (props) => {
     // FUNCION LOGUEAR
     const SignIn = async () => {
 
+        try {
         // A continuación genearmos el body de datos
-        let body = {
-            email: credentials.email.toLowerCase(),
-            password: credentials.password,
-        }
+            let body = {
+                email: credentials.email.toLowerCase(),
+                password: credentials.password,
+            }
         
-        axios
-            .post(`${connection}/login`, body)
-            .then((res)=>{
+        let res = await axios.post(`${connection}/login`, body)
+            if (res) {
                 //Guardo en RDX
                 props.dispatch({type:LOGIN,payload:res.data});
                 alert("Gracias por loguearte")
@@ -48,10 +48,10 @@ const Upload = (props) => {
                 } else if (!res.data.user.gender) {
                     history.push('/updatesexualinfo')                
                 }
-            })
-            .catch((error)=>{
-                alert(error)
-            });  
+            }
+        } catch (error) {
+            alert(error)
+        };  
     }
 
     return (

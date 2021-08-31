@@ -78,31 +78,24 @@ const UpdateSexualInfo = (props) => {
 
     // UPDATE USER INFO
     const updateSexInfo = async () => {
-
-        //A continuación generamos el body de datos
-        let body = {
-            user_id: props.logData.user.id,
-            gender: gender,
-            sexuality: sexuality,
-            lookingfor: lookingFor
-        }
-
-        axios
-            .post(`${connection}/updateinfo`, body, {headers: {'Authorization': `Bearer ${props.logData.token}`}})
-            .then((res)=>{
-                if(res.data){
-                    props.dispatch({type:GETINFO,payload:res.data.user});
-                    alert("Gracias por completar tu registro");
-                    history.push('/hobbies');
-                }
-            })
-            .catch((error)=>{
-                console.log(error);
-            });   
+        try {
+            //A continuación generamos el body de datos
+            let body = {
+                user_id: props.logData.user.id,
+                gender: gender,
+                sexuality: sexuality,
+                lookingfor: lookingFor
+            }
+            let res = await axios.post(`${connection}/updateinfo`, body, {headers: {'Authorization': `Bearer ${props.logData.token}`}})
+            if(res.data){
+                props.dispatch({type:GETINFO,payload:res.data.user});
+                alert("Gracias por completar tu registro");
+                history.push('/hobbies');
+            }
+        } catch (error) {
+            console.log(error);
+        };   
     }
-    
-
-    
 
     return (
 
