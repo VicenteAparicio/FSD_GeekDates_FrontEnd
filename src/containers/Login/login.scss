@@ -11,13 +11,37 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    // border-radius: .5em;
     width: 90vw;
-    height: 80vh;
+    height: 60vh;
     max-height: 70em;
     max-width: 24em;
     background-color: $cards;
-    box-shadow: .5em .5em 1em 0em $darkShadow;
+    border-right: .35em solid $details;
+    border-bottom: .35em solid $details;
+    box-shadow: -.3em -.3em 0em 0 cyan;
+    
+    transition: .5s cubic-bezier(0.075, 0.82, 0.165, 1);
+
+    &:hover{
+        border: .2em solid cyan;
+        border-radius: 1em;
+        box-shadow: 0 0 1em .2em $details;
+        animation: Breath infinite 1.5s cubic-bezier(0.9, 0.1, 0.1, .9);
+        animation-direction: alternate-reverse;
+        
+    }
+    @keyframes Breath {
+        from {
+            box-shadow: 0 0 .5em .2em $details;;
+        }
+        to {
+            box-shadow: 0 0 3em .2em $details;;
+        }
+      }
 }
+
+
 
 
 .boxLogin{
@@ -28,41 +52,54 @@
 
 .inputs {
     all: unset;
-    padding: 1em;
-    border-radius: 1em;
+    padding: .7em;
     margin-bottom: 1em;
     width: 12em;
-    background-color: white;
-    color: $shadow;
-    box-shadow: inset .15em .15em .5em 0 $darkShadow;
+    background-color: cyan;
+    color: white;
+    transition: .5s cubic-bezier(0.1, 0.5, 0.75, .9);
+
+    &:hover{
+        background-color: $cards;
+        border-right: .35em solid $details;
+        border-bottom: .35em solid $details;
+        box-shadow: -.3em -.3em 0em 0 cyan;
+    }
     &:last-child {
         margin-bottom: 0;
     }
 }
 
-.loginButton{
+.button{
     display: flex;
+    text-decoration: none;
     justify-content: center;
     align-items: center;
-    color: white;
-    padding: 1em;
-    background-color: $darkShadow;
+    color: $darkShadow;
+    padding: .7em .7em .5em .7em;
+    // border-radius: .5em;
+    background-color: white;
     cursor: pointer;
     width: 12em;
-    border-radius: 1em;
-   
-
-        &:hover{
-            background-color: $bg1;  
-            box-shadow: .15em .15em .5em 0 $darkShadow;
-        }
-    
+    font-family: $subtitle;
+    transition: .5s cubic-bezier(0.075, 0.82, 0.165, 1);
+    &:hover{
+        background-color: cyan; 
+        color: $cards; 
+        box-shadow: .3em .3em 0 0 $details;
+    }
+    &:active{
+        background-color: $cards;
+        border: .3em solid $details;
+        box-shadow: none;
+        color: white;
+    }
 }
 
 .barra {
     display: flex;
     align-self: center;
-    border-bottom: .4em dotted $darkShadow;
+    border-bottom: .3em dotted $details;
     width: 12em;
-    margin: 2em 0;
+    margin: 1.5em 0;
 }

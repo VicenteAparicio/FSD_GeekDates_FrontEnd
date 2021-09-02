@@ -1,15 +1,16 @@
 // IMPORT MOTORS
 import React, {useState} from 'react';
-import {useHistory} from 'react-router-dom';
+import {NavLink, useHistory} from 'react-router-dom';
 import {connect} from 'react-redux';
 import axios from 'axios';
 // IMPORT COMPONENTS
-import ButtonLog from '../../components/ButtonLog/buttonLog';
+// import BtLink from '../../components/BtLink/btlink';
 // IMPORT ACTIONS
 import {LOGIN, GETINFO} from '../../redux/types';
 // IMPORT ICONS
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPaperPlane } from '@fortawesome/free-regular-svg-icons';
+
 
 
 const Login = (props) => {
@@ -71,13 +72,13 @@ const Login = (props) => {
                     
                     <input className="inputs" type="password" name="password" onChange={updateCredentials} placeholder="Password"></input>
 
-                    <div className="loginButton" onClick={()=>SignIn()}>PLAY</div>
+                    <div className="button" onClick={()=>SignIn()}>PLAY</div>
                     
                 </div>
 
             <div className="barra"></div>
 
-            <ButtonLog name="register"></ButtonLog>
+            <NavLink className="button" to="/register">NEW GAME</NavLink>
 
             </div>
             

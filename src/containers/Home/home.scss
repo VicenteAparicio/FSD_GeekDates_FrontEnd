@@ -6,17 +6,12 @@
     height: 100vh;
 }
 
-// .logo{
-//     height: 20em;
-// }
-
-
 .startButton {
     all: unset;
     margin-top: 2em;
     color: white;
     font-size: 1.5em;
-    font-family: $subtible;
+    font-family: $subtitle;
     cursor: pointer;
     transition: .5s cubic-bezier(0.075, 0.82, 0.165, 1);
     &:hover{
@@ -26,11 +21,10 @@
 }
 
 .title{
-    // font: clamp(80px, 10vw, 180px) 'DotGothic16', sans-serif;
     font-family: $title;
     font-size: 10em;
     line-height: 90%;
-    text-shadow: 5px 5px 0px rgb(235, 110, 225);
+    text-shadow: 5px 5px 0px #eb6ee1;
 }
 
 .topTitle {

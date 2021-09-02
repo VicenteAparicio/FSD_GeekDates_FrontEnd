@@ -3,11 +3,26 @@
 // $shadows : #70403d;
 
 
-$bg1 : #a3106e;
-$cards : #f3009b;
-$details : #ca00f0;
-$darkShadow : #170044;
+// $bg1 : #a3106e;
+// $cards : #f3009b;
+
+// $details : #ca00f0;
+// $darkShadow : #170044;
+// $shadow: #770cf0;
+
+
+
+$bg1 : teal;
+$details : #ff00ff;
+$darkShadow : #373737;
 $shadow: #770cf0;
+$cards : #000126;
+
+
+
+$base : #170044;
+$lightbase: #320096;
+$bright: #00ff00;
 
 
 @font-face {
@@ -32,6 +47,6 @@ $shadow: #770cf0;
 
 
 $title : pixel1;
-$subtible : minecraft;
+$subtitle : minecraft;
 $font03 : pixeloid;
 $font04 : arcadeclassic;
