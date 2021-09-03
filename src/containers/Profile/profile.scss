@@ -14,16 +14,28 @@
     .profileCard{
         display: flex;
         flex-direction: column;
-        align-items: center;
-        padding: 4em 0;
-        width: 90vw;
+        padding: 4em;
         max-width: 60em;
-        border-radius: 2em 2em;
-        background-color: $cards;
-        box-shadow: .5em .5em 1em 0em $darkShadow;
+        border-radius: .15em;
+        border-right: .35em solid $color2;
+        border-bottom: .35em solid $color2;
+        box-shadow: -.3em -.3em 0em 0 $color1;
         color: white;
     }
 
+    .profileInfo{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+
+        .info{
+            margin: .4em .4em 0 0;
+            font-family: $subtitle;
+        }
+    
+    }
+
+    
     .boxButton{
         display: flex;
         flex-direction: row;

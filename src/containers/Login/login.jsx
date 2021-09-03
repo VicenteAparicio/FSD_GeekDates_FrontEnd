@@ -7,9 +7,6 @@ import axios from 'axios';
 // import BtLink from '../../components/BtLink/btlink';
 // IMPORT ACTIONS
 import {LOGIN, GETINFO} from '../../redux/types';
-// IMPORT ICONS
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faPaperPlane } from '@fortawesome/free-regular-svg-icons';
 
 
 
@@ -64,7 +61,7 @@ const Login = (props) => {
 
 
     return (
-        <div className="containerLogin">
+        <div className="container">
             <div className="boxOptions">
                 <div className="boxLogin">
                     

@@ -3,9 +3,6 @@ import React, {useState} from 'react';
 import { useHistory } from 'react-router-dom';
 import {connect} from 'react-redux';
 import axios from 'axios';
-// IMPORT ICONS
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faPaperPlane } from '@fortawesome/free-regular-svg-icons';
 
 const Hobbies = (props) => {
 
@@ -49,37 +46,33 @@ const Hobbies = (props) => {
 
     return (
 
-        <div className="containerRegister">     
+        <div className="container">     
 
-            <div className="containerBox">
+            <div className="boxOptions">
 
-                <div className="titleSection">Hobbies</div>
+                <div className="titleSection">HOBBIES</div>
 
-                <div className="boxRegister">
+                    <div className="checkerBox">
 
-                    <div className="regData">
-
-                        <div className="checkerBox">
-                            <div className="radioOpt">
+                        <div className="radioOpt">
                             <span>YES</span>
                             <span>NO</span>
+                        </div>
+
+                        {hobbieOptions.map((option)=>(
+
+                            <div class="checkOptHobbies">
+                                <input className="radioInputs" type="radio" name={option} value="1" onChange={updateHobbies}/>
+                                <label for={option}>{option}</label>
+                                <input className="radioInputs" type="radio" name={option} value="0" onChange={updateHobbies}/>
                             </div>
 
-                            {hobbieOptions.map((option)=>(
-                                <div class="checkOptHobbies">
-                                    <input className="radioInputs" type="radio" name={option} value="1" onChange={updateHobbies}/>
-                                    <label for={option}>{option}</label>
-                                    <input className="radioInputs" type="radio" name={option} value="0" onChange={updateHobbies}/>
-                                    
-                                </div>
-                            ))}
+                        ))}
 
-                        </div>
                     </div>
-
-                </div>
                 
-                <div className="sendButton" onClick={()=>hobbieFill()}><FontAwesomeIcon className="faLogin" icon={faPaperPlane}/></div>
+                <div className="button" onClick={()=>hobbieFill()}>FINISH</div>
+            
             </div>
 
         </div>

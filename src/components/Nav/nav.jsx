@@ -21,7 +21,7 @@ const Nav = (props) => {
         props.dispatch({type:LOGOUT})
     }
 
-    if (props.logData.token){
+    if (props.logData.token && props.logData.user.name && props.logData.user.sexuality){
 
         return (
             <div className="containerNav">
@@ -37,9 +37,6 @@ const Nav = (props) => {
             </div>
         )
     } else {
-        setTimeout(()=>{
-            history.push('/');
-        }, 500)
         return (
             <div></div>
         )

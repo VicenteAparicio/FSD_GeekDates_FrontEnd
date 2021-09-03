@@ -4,7 +4,7 @@
     justify-content: center;
     align-items: center;
     height: 2.5em;
-    background-color:$cards;
+    background-color:$base;
     box-shadow: .5em .5em 1em 0em $darkShadow;
 
     nav {
@@ -27,7 +27,7 @@
                 transition: 1s cubic-bezier(0.075, 0.82, 0.165, 1);
                 &:hover{
                     transform: scale(120%);
-                    color: $darkShadow;
+                    color: $color2;
                     transition: 1s cubic-bezier(0.075, 0.82, 0.165, 1);
                 }
             }

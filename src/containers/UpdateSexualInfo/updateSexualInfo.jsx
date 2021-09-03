@@ -5,10 +5,6 @@ import {connect} from 'react-redux';
 import axios from 'axios';
 // IMPORT ACTIONS
 import {GETINFO} from '../../redux/types';
-// IMPORT ICONS
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faPaperPlane } from '@fortawesome/free-regular-svg-icons';
-import { useEffect } from 'react';
 
 const UpdateSexualInfo = (props) => {
 
@@ -99,15 +95,13 @@ const UpdateSexualInfo = (props) => {
 
     return (
 
-        <div className="containerRegister">
+        <div className="container">
 
-            <div className="containerBox">
+            <div className="boxOptions">
 
-                <div className="titleSection">DATA INFO</div>
+                {/* <div className="titleSection">DATA INFO</div> */}
 
-                <div className="boxRegister">
-                    
-                    <div className="regData">
+                    {/* <div className="regData"> */}
 
                         <div className="checkerBox">
 
@@ -122,9 +116,9 @@ const UpdateSexualInfo = (props) => {
 
                         </div>
 
-                    </div>
+                    {/* </div> */}
                     
-                    <div className="regData">
+                    {/* <div className="regData"> */}
 
                         <div className="checkerBox"> 
 
@@ -139,9 +133,9 @@ const UpdateSexualInfo = (props) => {
 
                         </div>
 
-                    </div>
+                    {/* </div> */}
 
-                    <div className="regData">
+                    {/* <div className="regData"> */}
 
                         <div className="checkerBox">
 
@@ -156,13 +150,13 @@ const UpdateSexualInfo = (props) => {
 
                         </div>
                     
-                    </div>
-                    
+                    {/* </div> */}
+                    <div className="button" onClick={()=>updateSexInfo()}>CONTINUE</div>
                 </div>
-                <div className="sendButton" onClick={()=>updateSexInfo()}><FontAwesomeIcon className="faLogin" icon={faPaperPlane}/></div>
+                
             </div>
 
-        </div>
+    
     )
 }
 

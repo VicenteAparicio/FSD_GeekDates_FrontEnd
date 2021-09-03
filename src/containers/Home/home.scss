@@ -16,7 +16,7 @@
     transition: .5s cubic-bezier(0.075, 0.82, 0.165, 1);
     &:hover{
         transform: scale(110%);
-        color: $cards;
+        color: $base;
     }
 }
 
@@ -24,7 +24,7 @@
     font-family: $title;
     font-size: 10em;
     line-height: 90%;
-    text-shadow: 5px 5px 0px #eb6ee1;
+    text-shadow: 5px 5px 0px $color2;
 }
 
 .topTitle {

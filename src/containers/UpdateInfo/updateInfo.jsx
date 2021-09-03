@@ -3,9 +3,6 @@ import React, {useState} from 'react';
 import { useHistory } from 'react-router-dom';
 import {connect} from 'react-redux';
 import axios from 'axios';
-// IMPORT ICONS
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faPaperPlane } from '@fortawesome/free-regular-svg-icons';
 
 const UpdateInfo = (props) => {
 
@@ -93,47 +90,31 @@ const UpdateInfo = (props) => {
         };   
     }
     
-
-    
-
     return (
 
-        <div className="containerRegister">
+        <div className="container">
 
-            <div className="containerBox">
+                <div className="boxOptions">
 
                 <div className="titleSection">PERSONAL INFO</div>
-
-                <div className="boxRegister">
+                 
+                <input require="true" className="inputs" type="text" name="name" onChange={updateCredentials} onBlur={()=>checkError("name")} placeholder="Name"/>
+                <div className="validateError">{errors.eName}</div>
                 
-                    <div className="regData">
-
-                        <label className="labelsRegister" for="name">NAME</label>
-                        <input require="true" className="inputs" type="text" name="name" onChange={updateCredentials} onBlur={()=>checkError("name")} placeholder="Name"/>
-                        <div className="validateError">{errors.eName}</div>
-
-                        <label className="labelsRegister" for="surname">SURNAME</label>
-                        <input require="true" className="inputs" type="text" name="surname" onChange={updateCredentials} onBlur={()=>checkError("surname")} placeholder="Surname"/>
-                        <div className="validateError">{errors.eSurname}</div>
-                            
-                        <label className="labelsRegister" for="country">COUNTRY</label>
-                        <input className="inputs" type="text" name="country" onChange={updateCredentials} onBlur={()=>checkError("country")} placeholder="Country"/>
-                        <div className="validateError">{errors.eCountry}</div>
-                            
-                        <label className="labelsRegister" for="city">CITY</label>
-                        <input className="inputs" type="text" name="city" onChange={updateCredentials} onBlur={()=>checkError("city")} placeholder="City"/>
-                        <div className="validateError">{errors.eCity}</div>
-                            
-                        <label className="labelsRegister" for="cp">CP</label>
-                        <input className="inputs" type="text" name="cp" onChange={updateCredentials} onBlur={()=>checkError("cp")} placeholder="C.P."/>
-                        <div className="validateError">{errors.eCP}</div>
-                            
-                    </div>
-
-                </div>
+                <input require="true" className="inputs" type="text" name="surname" onChange={updateCredentials} onBlur={()=>checkError("surname")} placeholder="Surname"/>
+                <div className="validateError">{errors.eSurname}</div>
                 
-    
-                <div className="sendButton" onClick={()=>UpInfo()}><FontAwesomeIcon className="faLogin" icon={faPaperPlane}/></div>
+                <input className="inputs" type="text" name="country" onChange={updateCredentials} onBlur={()=>checkError("country")} placeholder="Country"/>
+                <div className="validateError">{errors.eCountry}</div>
+                
+                <input className="inputs" type="text" name="city" onChange={updateCredentials} onBlur={()=>checkError("city")} placeholder="City"/>
+                <div className="validateError">{errors.eCity}</div>
+                
+                <input className="inputs" type="text" name="cp" onChange={updateCredentials} onBlur={()=>checkError("cp")} placeholder="C.P."/>
+                <div className="validateError">{errors.eCP}</div>
+
+                <div className="button" onClick={()=>UpInfo()}>CONTINUE</div>
+                            
             </div>
 
         </div>

@@ -6,6 +6,7 @@
 @import 'components/BtLink/btlink.scss';
 @import 'components/ButtonOpt/buttonOpt.scss';
 @import 'containers/UpdateInfo/updateInfo.scss';
+@import 'containers/UpdateSexualInfo/updateSexualInfo.scss';
 @import 'components/Nav/nav.scss';
 @import 'containers/Hobbies/hobbies.scss';
 @import 'containers/Search/search.scss';
@@ -20,7 +21,7 @@
 }
 
 body{
-  background-color: $cards;
+  background-color: $base;
   height: 100%;
 }
 

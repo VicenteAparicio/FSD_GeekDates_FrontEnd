@@ -1,0 +1,47 @@
+.checkerBox{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 12em;
+    padding: 1em;
+    margin-bottom: 1em;
+    color: white;
+    border-radius: .1em;
+
+    .preferenceLabels{
+        // align-self: center;
+        text-align: center;
+        font-size: 1.2em;
+        font-family: $subtitle;
+        border-bottom: .3em dotted white;
+        width: 80%;
+        padding-bottom: .7em;
+        margin-bottom: 1em;
+        color: white;
+    }
+
+    .radioInputs{
+        all:unset;
+        width: 2em;
+        height: 2em;
+        margin: .2em .5em 0 0;
+        border-radius: .1em;
+        background-color: $color2;
+        transition: .5s cubic-bezier(0.165, 0.84, 0.44, 1);
+        &:hover{
+            background-color: $color1;
+        }
+        &:checked{
+            background-color: $color1;
+        }
+    }
+
+    .checkOpt{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        width: 10em;
+        margin-bottom: .3em;
+    }
+    
+}

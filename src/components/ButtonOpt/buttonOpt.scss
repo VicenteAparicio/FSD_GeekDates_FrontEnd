@@ -7,22 +7,22 @@
     border-radius: 1em;
     background-color: white;
     margin-bottom: 1em;
-    color: $shadow;
-    box-shadow: inset .15em .15em .5em 0 $shadow;
+    color: $darkShadow;
+    box-shadow: inset .15em .15em .5em 0 $base;
 
     &:last-child{
         margin-bottom: 0;
     }
 
     &:hover{
-        background-color: $shadow;
-        box-shadow: .15em .15em .5em 0 $shadow;
-        color: $cards;
+        background-color: $base;
+        box-shadow: .15em .15em .5em 0 $base;
+        color: $base;
         transition: 1s cubic-bezier(0.075, 0.82, 0.165, 1);
         cursor: pointer;
     }
 }
 .buttonChecked{
-    background-color: $shadow;
+    background-color: $base;
     color: white;
 }

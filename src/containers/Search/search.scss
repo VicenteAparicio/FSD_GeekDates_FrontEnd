@@ -21,7 +21,7 @@
     width: 12em;
     padding: 1em;
     border-radius: 1em 1em;
-    background-color: $cards;
+    background-color: $base;
     
     box-shadow: .5em .5em .5em 0em $darkShadow;
     margin: 0 1em 1em 0;
@@ -59,7 +59,7 @@
     flex-direction: column;
     flex-wrap: wrap;
     align-items: center;
-    background-color: $cards;
+    background-color: $base;
     padding: 2em;
     border-radius: 1em 1em;
     box-shadow: .5em .5em .5em 0em $darkShadow;
@@ -78,7 +78,7 @@
             margin-right:  1em;
             width: 3em;
             background-color: white;
-            color: $shadow;
+            color: $darkShadow;
             box-shadow: inset .15em .15em .5em 0 $darkShadow;
             &:last-child {
                 margin: 0;
@@ -112,7 +112,7 @@
         cursor: pointer;
         transition: .5s cubic-bezier(0.165, 0.84, 0.44, 1);
         &:hover{
-            background-color: $bg1;
+            background-color: $base;
             box-shadow: .15em .15em .5em 0 $darkShadow;
         }
         &:last-child{

@@ -76,7 +76,6 @@ const Hobbies = (props) => {
 
                 <div className="titleSection">Hobbies</div>
 
-                <div className="regData">
                     <div className="checkerBox">
                         {hobbieOptions.map((option, index)=>(
                             // <div class="checkOptHobbies" key={index}>
@@ -84,9 +83,7 @@ const Hobbies = (props) => {
                             // </div>
                         ))}
 
-                    </div>
-                    
-                </div>
+                    </div>                
                 
                 <div className="sendButton" onClick={()=>hobbieFill()}><FontAwesomeIcon className="faLogin" icon={faPaperPlane}/></div>
             </div>

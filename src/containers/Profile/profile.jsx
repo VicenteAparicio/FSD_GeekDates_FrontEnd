@@ -18,8 +18,8 @@ const Profile = (props) => {
     let history = useHistory();
 
     // HOOKS
-    const [userEdit, setUserEdit] = useState({nick:props.getInfo.nick,name:props.getInfo.name, surname:props.getInfo.surname,age:props.getInfo.age,email:props.getInfo.email,country:props.getInfo.country,city:props.getInfo.city,cp:props.getInfo.cp});
-    // const [userEdit, setUserEdit] = useState({name:'', surname:'',age:'',email:'',country:'',city:'',cp:''});
+    const [userEdit, setUserEdit] = useState({nick:props.getInfo.nick,name:props.getInfo.name,surname:props.getInfo.surname,age:props.getInfo.age,email:props.getInfo.email,country:props.getInfo.country,city:props.getInfo.city,cp:props.getInfo.cp});
+    const [passw, setPassw] = useState('');
     const [allowEdit, setAllowEdit] = useState(false);
 
     useEffect(()=>{
@@ -40,20 +40,30 @@ const Profile = (props) => {
     const saveEdit = async () => {
         
         try {
+
             let body = {
                 "user_id": props.logData.user.id,
                 "name": userEdit.name,
                 "surname": userEdit.surname,
-                // "password": userEdit.password,
                 "email": userEdit.email,
                 "country": userEdit.country,
                 "city": userEdit.city,
                 "cp": userEdit.cp
             }
+
+            if (passw !== ''){
+                let newPass = {
+                    password: passw
+                }
+                await axios.post(`${connection}/updatePass`, newPass, {headers: {'Authorization': `Bearer ${props.logData.token}`}})
+            }
+
             let res = await axios.post(`${connection}/updateinfo`, body, {headers: {'Authorization': `Bearer ${props.logData.token}`}})
+
             if (res){
                 props.dispatch({type:GETINFO,payload:res.data.user});
             }
+        
         } catch (error) {
             console.log(error);
         }
@@ -83,14 +93,15 @@ const Profile = (props) => {
                      
                 <div className="profileBox">
                     <div className="profileCard">
-                        <div className="profileInfo">NICK: {userEdit.nick}</div>
-                        <div className="profileInfo">NAME: {userEdit.name}</div>
-                        <div className="profileInfo">SURNAME: {userEdit.surname}</div>
-                        <div className="profileInfo">AGE: {userEdit.age}</div>
-                        <div className="profileInfo">EMAIL: {userEdit.email}</div>
-                        <div className="profileInfo">COUNTRY: {userEdit.country}</div>
-                        <div className="profileInfo">CITY: {userEdit.city}</div>
-                        <div className="profileInfo">C.P.: {userEdit.cp}</div>
+                        
+                        <div className="profileInfo"><div className="info">NICK:</div>{userEdit.nick}</div>
+                        <div className="profileInfo"><div className="info">NAME:</div>{userEdit.name}</div>
+                        <div className="profileInfo"><div className="info">SURNAME:</div>{userEdit.surname}</div>
+                        <div className="profileInfo"><div className="info">AGE:</div>{userEdit.age}</div>
+                        <div className="profileInfo"><div className="info">MAIL:</div> {userEdit.email}</div>
+                        <div className="profileInfo"><div className="info">COUNTRY:</div>{userEdit.country}</div>
+                        <div className="profileInfo"><div className="info">CITY:</div> {userEdit.city}</div>
+                        <div className="profileInfo"><div className="info">C.P.:</div> {userEdit.cp}</div>
                         
                         <div className="boxButton">
                             <div className="buttonProfile" onClick={()=>edit()}><FontAwesomeIcon className="faIcons" icon={faPen}/></div>

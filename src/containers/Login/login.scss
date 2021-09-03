@@ -1,4 +1,4 @@
-.containerLogin  {
+.container  {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -13,35 +13,37 @@
     align-items: center;
     // border-radius: .5em;
     width: 90vw;
-    height: 60vh;
+    padding: 2em 0;
     max-height: 70em;
     max-width: 24em;
-    background-color: $cards;
-    border-right: .35em solid $details;
-    border-bottom: .35em solid $details;
-    box-shadow: -.3em -.3em 0em 0 cyan;
+    background-color: $base;
+    border-right: .35em solid $color2;
+    border-bottom: .35em solid $color2;
+    box-shadow: -.3em -.3em 0em 0 $color1;
     
     transition: .5s cubic-bezier(0.075, 0.82, 0.165, 1);
 
     &:hover{
-        border: .2em solid cyan;
+        border: .2em solid $color1;
         border-radius: 1em;
-        box-shadow: 0 0 1em .2em $details;
+        box-shadow: 0 0 1em .2em $color2;
         animation: Breath infinite 1.5s cubic-bezier(0.9, 0.1, 0.1, .9);
         animation-direction: alternate-reverse;
         
     }
     @keyframes Breath {
         from {
-            box-shadow: 0 0 .5em .2em $details;;
+            box-shadow: 0 0 .5em .2em $color2;;
         }
         to {
-            box-shadow: 0 0 3em .2em $details;;
+            box-shadow: 0 0 3em .2em $color2;;
         }
       }
 }
 
-
+.radioInputs {
+    background-color: $color1;
+}
 
 
 .boxLogin{
@@ -55,15 +57,16 @@
     padding: .7em;
     margin-bottom: 1em;
     width: 12em;
-    background-color: cyan;
-    color: white;
+    background-color: $color1;
+    color: $base;
     transition: .5s cubic-bezier(0.1, 0.5, 0.75, .9);
 
     &:hover{
-        background-color: $cards;
-        border-right: .35em solid $details;
-        border-bottom: .35em solid $details;
-        box-shadow: -.3em -.3em 0em 0 cyan;
+        background-color: $base;
+        border-right: .35em solid $color2;
+        border-bottom: .35em solid $color2;
+        box-shadow: -.3em -.3em 0em 0 $color1;
+        color: white;
     }
     &:last-child {
         margin-bottom: 0;
@@ -84,13 +87,13 @@
     font-family: $subtitle;
     transition: .5s cubic-bezier(0.075, 0.82, 0.165, 1);
     &:hover{
-        background-color: cyan; 
-        color: $cards; 
-        box-shadow: .3em .3em 0 0 $details;
+        background-color: $color1; 
+        color: $base; 
+        box-shadow: .3em .3em 0 0 $color2;
     }
     &:active{
-        background-color: $cards;
-        border: .3em solid $details;
+        background-color: $base;
+        border: .3em solid $color2;
         box-shadow: none;
         color: white;
     }
@@ -99,7 +102,7 @@
 .barra {
     display: flex;
     align-self: center;
-    border-bottom: .3em dotted $details;
+    border-bottom: .3em dotted $color2;
     width: 12em;
     margin: 1.5em 0;
 }
