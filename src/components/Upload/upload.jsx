@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import {connect} from 'react-redux';
-import imageUploadr from 'react-images-upload'
+// import imageUpload from 'react-images-upload'
 import axios from 'axios';
 
 const Upload = (props) => {

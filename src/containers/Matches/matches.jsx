@@ -92,7 +92,6 @@ const Matches = (props) => {
                 for (let i=0; i<array1.length; i++){
                     if (array1[i].user_from_id==props.logData.user.id){
                         array1[i].classes = "from";
-                        
                     } else {
                         array1[i].classes = "to";
                     }
@@ -173,8 +172,8 @@ const Matches = (props) => {
                                 </div>
                                 ))}
                         </div>
-                        <input className="messageText" onChange={getText} type="text" placeholder="your message"></input>
-                        <div className="buttonMessage" onClick={()=>newmessage()}>SEND</div>
+                        <input className="messageText" onChange={getText} type="text" placeholder="new message"></input>
+                        <div className="button" onClick={()=>newmessage()}>SEND</div>
                     </div>
                     
 

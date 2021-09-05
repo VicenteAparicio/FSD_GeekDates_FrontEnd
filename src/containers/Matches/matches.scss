@@ -5,6 +5,7 @@
     justify-content: center;
     align-items: flex-start;
     width: 100%;
+    padding: 8em 0 0 0;
     
 }
 
@@ -13,31 +14,27 @@
     flex-direction: column;
     align-items: center;
     margin: 2em 2em 0 0;
-    padding: 2em;
-    background-color: $base;
-    
-    border-radius: 1em 1em;
-    box-shadow: .5em .5em .5em 0 $darkShadow;
-
-
-
 
     .listMatches{
         display: flex;
         flex-direction: column;
 
-
         .loverCard{
             display: flex;
             flex-direction: row;
             justify-content: space-between;
-            background-color: $darkShadow;
+            background-color: $color1;
             width: 10em;
-            padding: 1em;
-            border-radius: 1em 1em;
+            padding: 1em .7em .7em .7em;
+            border-radius: .1em;
             margin-bottom: 1em;
-            
-            box-shadow: .15em .15em .5em 0 $color2;
+            font-family: $subtitle;
+            color: $base;
+            transition: .5s cubic-bezier(0.075, 0.82, 0.165, 1);
+
+            &:hover{
+                box-shadow: .3em .3em .0em 0 $color2;
+            }
 
             &:last-child{
                 margin-bottom: 0;
@@ -73,68 +70,60 @@
     .containerMessages{
         display: flex;
         flex-direction: column;
-        background-color: $base;
-        margin-top: 2em;
-        padding:2em;
-        border-radius: 1em 1em;
-        box-shadow: .5em .5em .5em 0 $darkShadow;
+        justify-content: center;
+        align-items: center;
+        border-right: .35em solid $color2;
+        border-bottom: .35em solid $color2;
+        box-shadow: -.3em -.3em 0em 0 $color1;
+        padding: 2em;
     }
 
     .messageText{
         all: unset;
         margin-top: 1em;
-        padding: 1em;
+        padding: .5em;
         margin-bottom: 1em;
-        color: $darkShadow;
-        box-shadow: inset .15em .15em .5em 0 $darkShadow;
-        background-color: white;
-        border-radius: 1em 1em;
-    }
-
-    .buttonMessage {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        cursor: pointer;
-        background-color: $darkShadow;
-        
-        
-        padding: 1em;
-        border-radius: 1em 1em;
-        &:hover{
-            background-color: $base;
-            box-shadow: .5em .5em .5em 0 $darkShadow;
+        color: white;
+        border-bottom: .15em solid $color2;
+        transition: .5s cubic-bezier(0.075, 0.82, 0.165, 1);
+        &:hover, &:focus{
+            padding: .8em;
+            border-bottom: .15em solid $color1;
         }
+
     }
 
     .messageBox{
-        background-color: white;
-        padding: 2em 2em 4em 2em;
-        border-radius: 1em;
-        box-shadow: inset .15em .15em .5em 0 $darkShadow;
+        
+        padding: 1em 1em 3em 1em;
         
         .messageCard{
             display: flex;
             justify-content: center;
             width: 100%;
-            margin-bottom: .8em;
+            margin-bottom: .5em;
             font-family:Verdana, Geneva, Tahoma, sans-serif;
+            font-size: .9em;
 
             .to {
-                
                 display: flex;
-                flex-direction: row;
-                justify-content: flex-end;
+                justify-content: flex-start;
                 width: 90%;
-                color:$darkShadow;
+                color: $color1;
+                text-align: left;
+                padding-left: 1em;
+                border-left: .15em solid $color1;
                 
             }
             .from {
                 display: flex;
-                flex-direction: row;
-                justify-content: flex-start;
+                justify-content: flex-end;
+                text-align: right;
                 width: 90%;
-                color:$base;
+                color: $color2;
+                padding-right: 1em;
+                border-right: .15em solid $color2;
+                
             }
         }
     }
