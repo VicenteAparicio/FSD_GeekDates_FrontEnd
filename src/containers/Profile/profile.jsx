@@ -3,11 +3,14 @@ import React, {useState, useEffect} from 'react';
 import {connect} from 'react-redux';
 import {useHistory} from 'react-router-dom';
 import axios from 'axios';
+// IMPORT COMPONENTS
+import Upload from '../../components/Upload/upload';
 // IMPORT ACTIONS
 import {GETINFO} from '../../redux/types';
 // IMPORT ICONS
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faMinusSquare, faPen, faSave, faTimesCircle } from '@fortawesome/free-solid-svg-icons';
+
 
 
 const Profile = (props) => {
@@ -36,6 +39,10 @@ const Profile = (props) => {
         setAllowEdit(false)
     }
 
+    const updatePassw = (e) => {
+        setPassw(e.target.value)
+    }
+
 
     const saveEdit = async () => {
         
@@ -43,6 +50,7 @@ const Profile = (props) => {
 
             let body = {
                 "user_id": props.logData.user.id,
+                "nick": userEdit.nick,
                 "name": userEdit.name,
                 "surname": userEdit.surname,
                 "email": userEdit.email,
@@ -50,14 +58,16 @@ const Profile = (props) => {
                 "city": userEdit.city,
                 "cp": userEdit.cp
             }
+            console.log(body)
 
             if (passw !== ''){
+                console.log("pasamos pass")
                 let newPass = {
                     password: passw
                 }
                 await axios.post(`${connection}/updatePass`, newPass, {headers: {'Authorization': `Bearer ${props.logData.token}`}})
             }
-
+            console.log("updateamos info")
             let res = await axios.post(`${connection}/updateinfo`, body, {headers: {'Authorization': `Bearer ${props.logData.token}`}})
 
             if (res){
@@ -116,7 +126,7 @@ const Profile = (props) => {
     } else if (props.logData.token && allowEdit === true) {
         return (
             <div className="profileContainer">
-                
+                <Upload/>
                 <div className="profileBox">
                     <div className="profileCard">
                         <div className="titleSection">EDIT ACCOUNT</div>
@@ -124,7 +134,7 @@ const Profile = (props) => {
                         <input className="upDataInfo" onChange={updateUser} type="text" name="name" placeholder={userEdit.name}></input>
                         <input className="upDataInfo" onChange={updateUser} type="text" name="surname" placeholder={userEdit.surname}></input>
                         <input className="upDataInfo" onChange={updateUser} type="text" name="email" placeholder={userEdit.email}></input>
-                        {/* <input className="upDataInfo" onChange={updateUser} type="password" name="password" placeholder="Password" required></input> */}
+                        <input className="upDataInfo" onChange={updatePassw} type="password" name="password" placeholder="Password" required></input>
                         <input className="upDataInfo" onChange={updateUser} type="text" name="country" placeholder={userEdit.country}></input>
                         <input className="upDataInfo" onChange={updateUser} type="text" name="city" placeholder={userEdit.city}></input>
                         <input className="upDataInfo" onChange={updateUser} type="text" name="cp" placeholder={userEdit.cp}></input>
