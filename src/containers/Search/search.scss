@@ -21,13 +21,13 @@
     
     padding: 2em;
     border-radius: .15em;
-    border: .35em solid $color1;
-    background-color: $base;
-    
+    // border: .35em solid $color1;
+    background-color: $color1;
+    color: $base;
     margin: 0 1em 1em 0;
     transition: .5s cubic-bezier(0.165, 0.84, 0.44, 1);
     &:hover{
-        border: .35em solid $color2;
+        box-shadow: .3em .3em 0 0 $color2;
     }
 
 }
@@ -44,7 +44,7 @@
         justify-content: center;
         align-items: center;
         cursor: pointer;
-        color: white;
+        color: $base;
         font-size: 1.2em;
         height: 2em;
         width: 2em;

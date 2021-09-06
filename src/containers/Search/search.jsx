@@ -153,15 +153,13 @@ const Search = (props) => {
                     {filtPlayers.map((player, index)=>(
                         
                             <div className="playerCard" key={index} >
-                                <div className="cardInfo">{player.user_id}</div>
-                                <div className="cardInfo">{player.nick}</div>
-                                <div className="cardInfo">Level {player.age}</div>
+                                <div className="cardInfo">{player.nick}, {player.age}</div>
                                 <div className="cardInfo">{player.city}</div>
-                                <div className="cardInfo">tablegames {player.tablegames}</div>
+                                {/* <div className="cardInfo">tablegames {player.tablegames}</div>
                                 <div className="cardInfo">rolegames {player.rolegames}</div>
                                 <div className="cardInfo">videogames {player.videogames}</div>
                                 <div className="cardInfo">cosplay {player.cosplay}</div>
-                                <div className="cardInfo">anime {player.anime}</div>
+                                <div className="cardInfo">anime {player.anime}</div> */}
                                 <div className="boxCardButtons">
                                     <div className="cardButtons"><FontAwesomeIcon className="faIcons" icon={faHeart} onClick={()=>Like(player.user_id)}/></div>
                                 </div>

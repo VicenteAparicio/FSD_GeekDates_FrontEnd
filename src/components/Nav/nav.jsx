@@ -21,7 +21,7 @@ const Nav = (props) => {
         props.dispatch({type:LOGOUT})
     }
 
-    if (props.logData.token && props.logData.user.name && props.logData.user.sexuality){
+    if (props.logData.token && props.logData.user.isComplete){
 
         return (
             <div className="containerNav">

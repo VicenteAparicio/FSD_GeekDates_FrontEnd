@@ -12,6 +12,7 @@ const UpdateInfo = (props) => {
     let history = useHistory();
 
     // Hooks
+    const [prev, setPrev] = useState({name:props.logData.user?.name,surname:props.logData.user?.surname,country:props.logData.user?.country,city:props.logData.user?.city, cp:props.logData.user?.cp});
     const [credentials, setCredentials] = useState({name:'',surname:'',country:'',city:'', cp:''});
 
     const [errors, setErrors] = useState({eName:'',eSurname:'',eCountry:'',eCity:'', eCP:''});
@@ -79,11 +80,11 @@ const UpdateInfo = (props) => {
                 cp: credentials.cp
             }
             let res = await axios.post(`${connection}/updateinfo`, body, {headers: {'Authorization': `Bearer ${props.logData.token}`}})
-            if(res){
-                console.log(res.data.user)
-                
+            if(res && !props.logData.user.sexuality){
                 alert("Datos guardados");
                 history.push('/updatesexualinfo');
+            } else if (res && props.logData.user.sexuality) {
+                history.push('/profile');
             }
         } catch (error) {
             console.log(error);
@@ -113,8 +114,12 @@ const UpdateInfo = (props) => {
                 <input className="inputs" type="text" name="cp" onChange={updateCredentials} onBlur={()=>checkError("cp")} placeholder="C.P."/>
                 <div className="validateError">{errors.eCP}</div>
 
-                <div className="button" onClick={()=>UpInfo()}>CONTINUE</div>
-                            
+                <div className="button" onClick={()=>UpInfo()}>SAVE</div>
+
+                {props.logData.user.isComplete && (
+                    <div className="button" onClick={()=>history.push("/profile")}>CANCEL</div>
+                )}
+
             </div>
 
         </div>

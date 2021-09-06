@@ -9,7 +9,8 @@ import Upload from '../../components/Upload/upload';
 import {GETINFO} from '../../redux/types';
 // IMPORT ICONS
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faMinusSquare, faPen, faSave, faTimesCircle } from '@fortawesome/free-solid-svg-icons';
+import { faMinusSquare, faTimes, faPen, faSave, faTimesCircle } from '@fortawesome/free-solid-svg-icons';
+import { faArrowAltCircleRight } from '@fortawesome/free-regular-svg-icons';
 
 
 
@@ -112,12 +113,16 @@ const Profile = (props) => {
                         <div className="profileInfo"><div className="info">COUNTRY:</div>{userEdit.country}</div>
                         <div className="profileInfo"><div className="info">CITY:</div> {userEdit.city}</div>
                         <div className="profileInfo"><div className="info">C.P.:</div> {userEdit.cp}</div>
-                        
-                        <div className="boxButton">
-                            <div className="buttonProfile" onClick={()=>edit()}><FontAwesomeIcon className="faIcons" icon={faPen}/></div>
-                            <div className="buttonProfile" onClick={()=>deleteUser(props.logData.user.id)}><FontAwesomeIcon className="faIcons" icon={faMinusSquare}/></div>
-                        </div>
                     </div>
+                    <div className="boxButton">
+                        {/* <div className="buttonProfile" onClick={()=>edit()}><FontAwesomeIcon className="faIcons" icon={faPen}/></div>
+                        <div className="buttonProfile" onClick={()=>deleteUser(props.logData.user.id)}><FontAwesomeIcon className="faIcons" icon={faTimes}/></div> */}
+                        <div className="button" onClick={()=>edit()}>EDIT</div>
+                        <div className="button" onClick={()=>history.push("/updateSexualInfo")}>PREFERENCES</div>
+                        <div className="button" onClick={()=>history.push("/hobbies")}>HOBBIES</div>
+                        <div className="button" onClick={()=>deleteUser(props.logData.user.id)}>DELETE</div>
+                    </div>
+                    
                 
                     
                 </div>
@@ -131,8 +136,8 @@ const Profile = (props) => {
                     <div className="profileCard">
                         <div className="titleSection">EDIT ACCOUNT</div>
                         <input className="upDataInfo" onChange={updateUser} type="text" name="nick" placeholder={userEdit.nick}></input>
-                        <input className="upDataInfo" onChange={updateUser} type="text" name="name" placeholder={userEdit.name}></input>
-                        <input className="upDataInfo" onChange={updateUser} type="text" name="surname" placeholder={userEdit.surname}></input>
+                        {/* <input className="upDataInfo" onChange={updateUser} type="text" name="name" placeholder={userEdit.name}></input>
+                        <input className="upDataInfo" onChange={updateUser} type="text" name="surname" placeholder={userEdit.surname}></input> */}
                         <input className="upDataInfo" onChange={updateUser} type="text" name="email" placeholder={userEdit.email}></input>
                         <input className="upDataInfo" onChange={updatePassw} type="password" name="password" placeholder="Password" required></input>
                         <input className="upDataInfo" onChange={updateUser} type="text" name="country" placeholder={userEdit.country}></input>
@@ -140,8 +145,10 @@ const Profile = (props) => {
                         <input className="upDataInfo" onChange={updateUser} type="text" name="cp" placeholder={userEdit.cp}></input>
                     </div>
                     <div className="boxButton">
-                        <div className="buttonProfile" onClick={()=>saveEdit()}><FontAwesomeIcon className="faIcons" icon={faSave}/></div>
-                        <div className="buttonProfile" onClick={()=>cancelEdit()}><FontAwesomeIcon className="faIcons" icon={faTimesCircle}/></div>
+                        {/* <div className="buttonProfile" onClick={()=>saveEdit()}><FontAwesomeIcon className="faIcons" icon={faSave}/></div>
+                        <div className="buttonProfile" onClick={()=>cancelEdit()}><FontAwesomeIcon className="faIcons" icon={faTimesCircle}/></div> */}
+                        <div className="button" onClick={()=>saveEdit()}>SAVE</div>
+                        <div className="button" onClick={()=>cancelEdit()}>CANCEL</div>
                     </div>
                 </div>
             </div>

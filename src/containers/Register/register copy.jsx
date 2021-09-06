@@ -285,7 +285,7 @@ const Register = () => {
                         
                             
                             {genderOptions.map((option)=>(
-                                <div class="checkOpt">
+                                <div className="checkOpt" key={index}>
                                     <input className="radioInputs" type="radio" name="gender" value={option.value} onChange={updateGender}/>
                                     <label for={option.value}>{option.label}</label>
                                 </div>
@@ -300,7 +300,7 @@ const Register = () => {
                             <div className="preferenceLabels">ORIENTATION</div> 
                              
                             {sexualOrientation.map((option)=>(
-                                <div class="checkOpt">
+                                <div className="checkOpt" key={index}>
                                     <input className="radioInputs" type="radio" name="orientation" value={option.value} onClick={updateOrientation}/>
                                     <label for={option.value}>{option.label}</label>
                                 </div>
@@ -315,7 +315,7 @@ const Register = () => {
                             <div className="preferenceLabels">LOOK FOR</div> 
                         
                             {lookForOptions.map((option)=>(
-                                <div class="checkOpt">
+                                <div className="checkOpt" key={index}>
                                     <input className="radioInputs" type="radio" name="lookingFor" value={option.value} onClick={updateLookingFor}/>
                                     <label for={option.value}>{option.label}</label>
                                 </div>

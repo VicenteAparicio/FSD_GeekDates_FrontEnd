@@ -3,6 +3,8 @@ import React, {useState} from 'react';
 import { useHistory } from 'react-router-dom';
 import {connect} from 'react-redux';
 import axios from 'axios';
+// IMPORT ACTIONS
+import { LOGOUT } from '../../redux/types';
 
 const Hobbies = (props) => {
 
@@ -33,8 +35,24 @@ const Hobbies = (props) => {
                 anime: hobbies.anime
             }
             let res = await axios.post(`${connection}/hobbies`, body, {headers: {'Authorization': `Bearer ${props.logData.token}`}})
-            if (res) {
-                alert("Rellenaste tus hobbies");
+            
+            if (res && !props.logData.user.isComplete) {
+                let body = {
+                    user_id: props.logData.user.id,
+                    isComplete: true
+                }
+                await axios.post(`${connection}/updateinfo`, body, {headers: {'Authorization': `Bearer ${props.logData.token}`}})
+            
+                alert("Gracias por rellenar tus hobbies");
+
+                props.dispatch({type:LOGOUT});
+
+                history.push('/');
+                
+            } else if (res && props.logData) {
+
+                alert("Actualizaste tus hobbies");
+
                 history.push('/profile');
             }
         } catch (error) {
@@ -59,9 +77,9 @@ const Hobbies = (props) => {
                             <span>NO</span>
                         </div>
 
-                        {hobbieOptions.map((option)=>(
+                        {hobbieOptions.map((option, index)=>(
 
-                            <div class="checkOptHobbies">
+                            <div className="checkOptHobbies" key={index}>
                                 <input className="radioInputs" type="radio" name={option} value="1" onChange={updateHobbies}/>
                                 <label for={option}>{option}</label>
                                 <input className="radioInputs" type="radio" name={option} value="0" onChange={updateHobbies}/>
@@ -72,7 +90,9 @@ const Hobbies = (props) => {
                     </div>
                 
                 <div className="button" onClick={()=>hobbieFill()}>FINISH</div>
-            
+                {props.logData.user.isComplete && (
+                    <div className="button" onClick={()=>history.push("/profile")}>CANCEL</div>
+                )}
             </div>
 
         </div>

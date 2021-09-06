@@ -75,7 +75,7 @@ const Login = (props) => {
 
             <div className="barra"></div>
 
-            <NavLink className="button" to="/register">NEW GAME</NavLink>
+            <NavLink className="button" to="/register">NEW PLAYER</NavLink>
 
             </div>
             

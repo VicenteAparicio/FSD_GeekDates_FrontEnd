@@ -83,10 +83,14 @@ const UpdateSexualInfo = (props) => {
                 lookingfor: lookingFor
             }
             let res = await axios.post(`${connection}/updateinfo`, body, {headers: {'Authorization': `Bearer ${props.logData.token}`}})
-            if(res.data){
+            if(res.data && !res.data.user.isComplete){
                 props.dispatch({type:GETINFO,payload:res.data.user});
-                alert("Gracias por completar tu registro");
+                alert("Preferencias actualizadas");
                 history.push('/hobbies');
+            } else if (res.data && res.data.user.isComplete){
+                alert("Preferencias actualizadas");
+                history.push('/profile');
+
             }
         } catch (error) {
             console.log(error);
@@ -108,7 +112,7 @@ const UpdateSexualInfo = (props) => {
                             <div className="preferenceLabels">YOU ARE</div>
                         
                             {genderOptions.map((option, index)=>(
-                                <div class="checkOpt" key={index}>
+                                <div className="checkOpt" key={index}>
                                     <input className="radioInputs" type="radio" name="gender" value={option.value} onChange={updateGender}/>
                                     <label for={option.value}>{option.label}</label>
                                 </div>
@@ -142,7 +146,7 @@ const UpdateSexualInfo = (props) => {
                             <div className="preferenceLabels">LOOK FOR</div> 
                         
                             {lookForOptions.map((option, index)=>(
-                                <div class="checkOpt" key={index}>
+                                <div className="checkOpt" key={index}>
                                     <input className="radioInputs" type="radio" name="lookingFor" value={option.value} onClick={updateLookingFor}/>
                                     <label for={option.value}>{option.label}</label>
                                 </div>
@@ -151,7 +155,14 @@ const UpdateSexualInfo = (props) => {
                         </div>
                     
                     {/* </div> */}
-                    <div className="button" onClick={()=>updateSexInfo()}>CONTINUE</div>
+                    {/* <div className="button" onClick={()=>updateSexInfo()}>CONTINUE</div> */}
+
+                    
+                    <div className="button" onClick={()=>updateSexInfo()}>SAVE</div>
+                   
+                    {props.logData.user.isComplete && (
+                        <div className="button" onClick={()=>history.push("/profile")}>CANCEL</div>
+                    )}
                 </div>
                 
             </div>

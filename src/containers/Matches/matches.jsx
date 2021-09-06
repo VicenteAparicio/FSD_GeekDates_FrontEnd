@@ -126,7 +126,7 @@ const Matches = (props) => {
             "match_id": matchId,
             "text": textM
         }
-        console.log(body)
+        
         try{
             let res = await axios.post(`${connection}/newmessage`, body, {headers: {'Authorization': `Bearer ${props.logData.token}`}});
             if (res) {

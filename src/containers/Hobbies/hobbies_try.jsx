@@ -78,7 +78,7 @@ const Hobbies = (props) => {
 
                     <div className="checkerBox">
                         {hobbieOptions.map((option, index)=>(
-                            // <div class="checkOptHobbies" key={index}>
+                            // <div className="checkOptHobbies" key={index}>
                                 <ButtonOpt name={option} key={index} onClick={()=>saveOpt()}/>
                             // </div>
                         ))}
