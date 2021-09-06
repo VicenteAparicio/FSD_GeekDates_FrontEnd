@@ -19,6 +19,7 @@ const Matches = (props) => {
     
     const [lovers, setLovers] = useState([]);
     const [matchId, setMatchId] = useState('');
+    const [matchName, setMatchName] = useState('');
     const [argsTotal, setArgsTotal] = useState(['']);
     const [textM, setTextM] = useState(' ');
     const [otherId, setOtherId] = useState(' ');
@@ -27,8 +28,6 @@ const Matches = (props) => {
         Lovers();
     }, []);
 
-    
-    
     // DEFAULT SEARCH BASED ON USER PREFERENCES
     const Lovers = async () => {
 
@@ -63,7 +62,7 @@ const Matches = (props) => {
     }
 
     // SET MATCH ID AND CHECK FOR MESSAGES
-    const setMatch = async (value, aId, bId) => {
+    const setMatch = async (lovName, value, aId, bId) => {
         
         if (aId == props.logData.user.id){
             setOtherId(bId)
@@ -92,11 +91,16 @@ const Matches = (props) => {
                 for (let i=0; i<array1.length; i++){
                     if (array1[i].user_from_id==props.logData.user.id){
                         array1[i].classes = "from";
+                        
                     } else {
                         array1[i].classes = "to";
+                        array1[i].name = lovName;
                     }
                     
                 }
+
+                // SAVE NAME OF THE MATCH
+                setMatchName(lovName);
 
                 // SAVE CONVERSATION TO PRINT 
                 setArgsTotal(array1);
@@ -154,7 +158,7 @@ const Matches = (props) => {
                                 <div className="loverInfo">{lover.name}</div>
 
                                 <div className="message"><FontAwesomeIcon className="faIcons" icon={faArrowAltCircleRight}
-                                    onClick={()=>setMatch(lover.id, lover.user_a_id, lover.user_b_id)}/></div>
+                                    onClick={()=>setMatch(lover.name, lover.id, lover.user_a_id, lover.user_b_id)}/></div>
                                 
                             </div>
                         
@@ -162,20 +166,24 @@ const Matches = (props) => {
                     </div>
                 </div>
                 <div className="rightSide">
-
-                    <div className="containerMessages">
-                        {/* <div className="matchId">Lover row: {matchId}</div> */}
+                    {matchName && (
+                        <div className="containerMessages">
+                        
+                        <div className="matchName">{matchName.toLocaleUpperCase()}</div>
                         <div className="messageBox">
                             {argsTotal.map((item, index)=>(
                                 <div className="messageCard" key={index}>
-                                    <div className={item.classes}>{item.name, item.text}</div>
+                                    <div className={item.classes}>{item.name}
+                                    {(item.classes === 'to') && (": ")}
+                                    {item.text}</div>
                                 </div>
                                 ))}
                         </div>
                         <input className="messageText" onChange={getText} type="text" placeholder="new message"></input>
                         <div className="button" onClick={()=>newmessage()}>SEND</div>
+                        
                     </div>
-                    
+                    )}
 
                 </div>
                 
