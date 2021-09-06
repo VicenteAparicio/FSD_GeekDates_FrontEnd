@@ -1,6 +1,6 @@
 // IMPORT MOTORS
 import React, {useState} from 'react';
-import { useHistory } from 'react-router-dom';
+import { NavLink, useHistory } from 'react-router-dom';
 import {connect} from 'react-redux';
 import axios from 'axios';
 // IMPORT ACTIONS
@@ -161,7 +161,7 @@ const UpdateSexualInfo = (props) => {
                     <div className="button" onClick={()=>updateSexInfo()}>SAVE</div>
                    
                     {props.logData.user.isComplete && (
-                        <div className="button" onClick={()=>history.push("/profile")}>CANCEL</div>
+                        <NavLink className="button" to="/profile">CANCEL</NavLink>
                     )}
                 </div>
                 

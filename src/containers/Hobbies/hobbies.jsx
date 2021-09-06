@@ -1,6 +1,6 @@
 // IMPORT MOTORS
 import React, {useState} from 'react';
-import { useHistory } from 'react-router-dom';
+import {NavLink, useHistory} from 'react-router-dom';
 import {connect} from 'react-redux';
 import axios from 'axios';
 // IMPORT ACTIONS
@@ -24,8 +24,6 @@ const Hobbies = (props) => {
     const hobbieFill = async () => {
         
         try {
-            
-            // A continuación generamos el body de datos
             let body = {
                 user_id: props.logData.user.id,
                 tablegames: hobbies.tablegames,
@@ -36,6 +34,7 @@ const Hobbies = (props) => {
             }
             let res = await axios.post(`${connection}/hobbies`, body, {headers: {'Authorization': `Bearer ${props.logData.token}`}})
             
+            // ONLY FIRST TIME
             if (res && !props.logData.user.isComplete) {
                 let body = {
                     user_id: props.logData.user.id,
@@ -91,7 +90,7 @@ const Hobbies = (props) => {
                 
                 <div className="button" onClick={()=>hobbieFill()}>FINISH</div>
                 {props.logData.user.isComplete && (
-                    <div className="button" onClick={()=>history.push("/profile")}>CANCEL</div>
+                    <NavLink className="button" to="/profile">CANCEL</NavLink>
                 )}
             </div>
 

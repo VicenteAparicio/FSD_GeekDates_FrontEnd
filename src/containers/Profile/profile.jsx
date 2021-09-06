@@ -1,7 +1,7 @@
 // IMPORT MOTORS
 import React, {useState, useEffect} from 'react';
 import {connect} from 'react-redux';
-import {useHistory} from 'react-router-dom';
+import {NavLink, useHistory} from 'react-router-dom';
 import axios from 'axios';
 // IMPORT COMPONENTS
 import Upload from '../../components/Upload/upload';
@@ -118,8 +118,8 @@ const Profile = (props) => {
                         {/* <div className="buttonProfile" onClick={()=>edit()}><FontAwesomeIcon className="faIcons" icon={faPen}/></div>
                         <div className="buttonProfile" onClick={()=>deleteUser(props.logData.user.id)}><FontAwesomeIcon className="faIcons" icon={faTimes}/></div> */}
                         <div className="button" onClick={()=>edit()}>EDIT</div>
-                        <div className="button" onClick={()=>history.push("/updateSexualInfo")}>PREFERENCES</div>
-                        <div className="button" onClick={()=>history.push("/hobbies")}>HOBBIES</div>
+                        <NavLink className="button" to="/updateSexualInfo">PREFERENCES</NavLink>
+                        <NavLink className="button" to="/hobbies">HOBBIES</NavLink>
                         <div className="button" onClick={()=>deleteUser(props.logData.user.id)}>DELETE</div>
                     </div>
                     

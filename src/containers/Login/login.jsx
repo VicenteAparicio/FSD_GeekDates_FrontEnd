@@ -41,6 +41,7 @@ const Login = (props) => {
             //Guardo en RDX
             props.dispatch({type:LOGIN,payload:res.data});
             props.dispatch({type:GETINFO,payload:res.data.user});
+            
             alert("Gracias por loguearte")
 
             if(!res.data.token){
