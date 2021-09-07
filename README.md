@@ -1,3 +1,5 @@
+<img src="./src/assets/readmeImg/img13.png" style="width: 100%"><br><br>
+
 # GEEKS DATE FRONT END
 
 ## Project details
@@ -20,23 +22,21 @@ Geeks Date is an webapp like tinder or adoptauntio but focused on freak people. 
 
 ## TECHNOLOGY
 
-- REACT<br>
-- PHP LARAVEL<br>
-- SEQUELIZE<br>
-- REDUX<br>
-- AXIOS<br>
-- GIT FLOW<br>
-- SCSS<br
-- POSTMAN<br>
-- DBeaver<br>
-- FONT-AWESOME<br>
-
+- REACT
+- PHP LARAVEL
+- SEQUELIZE
+- REDUX
+- AXIOS
+- GIT FLOW
+- SCSS
+- POSTMAN
+- DBEAVER
+- FONT-AWESOME
 <br>
 <br>
 
-## Access to Heroku deploy
-https://geeksdatefront.herokuapp.com/
-
+## App
+<a href="https://dev.d3w0cb2207bqet.amplifyapp.com/">GEEK DATES</a>
 <br>
 <br>
 
