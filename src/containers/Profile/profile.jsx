@@ -7,10 +7,6 @@ import axios from 'axios';
 import Upload from '../../components/Upload/upload';
 // IMPORT ACTIONS
 import {GETINFO} from '../../redux/types';
-// IMPORT ICONS
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faMinusSquare, faTimes, faPen, faSave, faTimesCircle } from '@fortawesome/free-solid-svg-icons';
-import { faArrowAltCircleRight } from '@fortawesome/free-regular-svg-icons';
 
 
 
@@ -22,7 +18,7 @@ const Profile = (props) => {
     let history = useHistory();
 
     // HOOKS
-    const [userEdit, setUserEdit] = useState({nick:props.getInfo.nick,name:props.getInfo.name,surname:props.getInfo.surname,age:props.getInfo.age,email:props.getInfo.email,country:props.getInfo.country,city:props.getInfo.city,cp:props.getInfo.cp});
+    const [userEdit, setUserEdit] = useState({nick:props.getInfo.nick,name:props.getInfo.name,surname:props.getInfo.surname,age:props.getInfo.age,country:props.getInfo.country,city:props.getInfo.city,cp:props.getInfo.cp, description:props.getInfo.description});
     const [passw, setPassw] = useState('');
     const [allowEdit, setAllowEdit] = useState(false);
 
@@ -57,7 +53,8 @@ const Profile = (props) => {
                 "email": userEdit.email,
                 "country": userEdit.country,
                 "city": userEdit.city,
-                "cp": userEdit.cp
+                "cp": userEdit.cp,
+                "description": userEdit.description
             }
             console.log(body)
 
@@ -100,7 +97,7 @@ const Profile = (props) => {
 
     if (props.logData.token && allowEdit === false){
         return (
-            <div className="profileContainer">
+            <div className="container">
                      
                 <div className="profileBox">
                     <div className="profileCard">
@@ -113,10 +110,11 @@ const Profile = (props) => {
                         <div className="profileInfo"><div className="info">COUNTRY:</div>{userEdit.country}</div>
                         <div className="profileInfo"><div className="info">CITY:</div> {userEdit.city}</div>
                         <div className="profileInfo"><div className="info">C.P.:</div> {userEdit.cp}</div>
+                        <div className="infoText">DESCRIPTION:</div>
+                        <div className="profileInfoText">{userEdit.description}</div>
+
                     </div>
                     <div className="boxButton">
-                        {/* <div className="buttonProfile" onClick={()=>edit()}><FontAwesomeIcon className="faIcons" icon={faPen}/></div>
-                        <div className="buttonProfile" onClick={()=>deleteUser(props.logData.user.id)}><FontAwesomeIcon className="faIcons" icon={faTimes}/></div> */}
                         <div className="button" onClick={()=>edit()}>EDIT</div>
                         <NavLink className="button" to="/updateSexualInfo">PREFERENCES</NavLink>
                         <NavLink className="button" to="/hobbies">HOBBIES</NavLink>
@@ -131,22 +129,20 @@ const Profile = (props) => {
     } else if (props.logData.token && allowEdit === true) {
         return (
             <div className="profileContainer">
-                <Upload/>
+                {/* <Upload/> */}
                 <div className="profileBox">
                     <div className="profileCard">
                         <div className="titleSection">EDIT ACCOUNT</div>
                         <input className="upDataInfo" onChange={updateUser} type="text" name="nick" placeholder={userEdit.nick}></input>
-                        {/* <input className="upDataInfo" onChange={updateUser} type="text" name="name" placeholder={userEdit.name}></input>
-                        <input className="upDataInfo" onChange={updateUser} type="text" name="surname" placeholder={userEdit.surname}></input> */}
-                        <input className="upDataInfo" onChange={updateUser} type="text" name="email" placeholder={userEdit.email}></input>
+                        <input className="upDataInfo" onChange={updateUser} type="text" name="name" placeholder={userEdit.name}></input>
+                        <input className="upDataInfo" onChange={updateUser} type="text" name="surname" placeholder={userEdit.surname}></input>
                         <input className="upDataInfo" onChange={updatePassw} type="password" name="password" placeholder="Password" required></input>
                         <input className="upDataInfo" onChange={updateUser} type="text" name="country" placeholder={userEdit.country}></input>
                         <input className="upDataInfo" onChange={updateUser} type="text" name="city" placeholder={userEdit.city}></input>
                         <input className="upDataInfo" onChange={updateUser} type="text" name="cp" placeholder={userEdit.cp}></input>
+                        <input className="upDataInfo" onChange={updateUser} type="text" name="description" placeholder={userEdit.description}></input>
                     </div>
                     <div className="boxButton">
-                        {/* <div className="buttonProfile" onClick={()=>saveEdit()}><FontAwesomeIcon className="faIcons" icon={faSave}/></div>
-                        <div className="buttonProfile" onClick={()=>cancelEdit()}><FontAwesomeIcon className="faIcons" icon={faTimesCircle}/></div> */}
                         <div className="button" onClick={()=>saveEdit()}>SAVE</div>
                         <div className="button" onClick={()=>cancelEdit()}>CANCEL</div>
                     </div>

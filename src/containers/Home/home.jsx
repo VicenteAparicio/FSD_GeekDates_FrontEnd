@@ -2,17 +2,10 @@
 import React from 'react';
 import {NavLink} from 'react-router-dom';
 import {connect} from 'react-redux';
-import Logo from '../../assets/img/logo.png'
-import { useHistory } from 'react-router-dom';
 
 
 const Home = () => {
 
-    let history = useHistory();
-
-    // setTimeout(()=>{
-    //     history.push('/login');
-    // }, 5000)
     
     return (
         <div className="containerHome">

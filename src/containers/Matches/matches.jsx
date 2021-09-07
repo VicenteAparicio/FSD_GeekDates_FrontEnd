@@ -18,6 +18,7 @@ const Matches = (props) => {
     let history = useHistory();
     
     const [lovers, setLovers] = useState([]);
+    const [filt, setFilt] = useState([]);
     const [matchId, setMatchId] = useState('');
     const [matchName, setMatchName] = useState('');
     const [argsTotal, setArgsTotal] = useState(['']);
@@ -27,6 +28,12 @@ const Matches = (props) => {
     useEffect(()=>{
         Lovers();
     }, []);
+
+    // const filters = () =>{
+    //     setFilt(
+    //     lovers.filter((item)=>(item?.id !== arg))
+    //     )
+    // }
 
     // DEFAULT SEARCH BASED ON USER PREFERENCES
     const Lovers = async () => {
@@ -45,11 +52,26 @@ const Matches = (props) => {
     }
 
     // DESTROY LOVER ROW 
-    const Unmatch = async (a_id, b_id) => {
+    // const Unmatch = async (a_id, b_id) => {
 
+    //     let body = {
+    //         "user_a_id": a_id,
+    //         "user_b_id": b_id,
+    //     }
+    //     try{
+    //         let res = await axios.post(`${connection}/unmatch`, body, {headers: {'Authorization': `Bearer ${props.logData.token}`}});
+    //         if (res) {
+    //             alert(res.data.message);
+    //         }
+    //     } catch (err) {
+    //         console.log({message: err.message})
+    //     }
+    // }
+
+    const Unmatch = async (id) => {
+        console.log(id)
         let body = {
-            "user_a_id": a_id,
-            "user_b_id": b_id,
+            "id": id,
         }
         try{
             let res = await axios.post(`${connection}/unmatch`, body, {headers: {'Authorization': `Bearer ${props.logData.token}`}});
@@ -69,6 +91,9 @@ const Matches = (props) => {
         } else {
             setOtherId(aId)
         }
+
+        // SAVE NAME OF THE MATCH
+        setMatchName(lovName);
 
         // CLEAN MESSAGES
         setArgsTotal([]);
@@ -99,9 +124,6 @@ const Matches = (props) => {
                     
                 }
 
-                // SAVE NAME OF THE MATCH
-                setMatchName(lovName);
-
                 // SAVE CONVERSATION TO PRINT 
                 setArgsTotal(array1);
             }
@@ -130,7 +152,7 @@ const Matches = (props) => {
         try{
             let res = await axios.post(`${connection}/newmessage`, body, {headers: {'Authorization': `Bearer ${props.logData.token}`}});
             if (res) {
-                alert(res.data.message);
+                // document.getElementById("newMessage")
             }
         } catch (err) {
             console.log({message: err.message})
@@ -153,7 +175,8 @@ const Matches = (props) => {
                             <div className="loverCard" key={index}>
                                 
                                 <div className="unmatch"><FontAwesomeIcon className="faIcons" icon={faTimes}
-                                    onClick={()=>Unmatch(lover.user_a_id, lover.user_b_id)}/></div>
+                                    // onClick={()=>Unmatch(lover.matchIduser_a_id, lover.user_b_id)}/></div>
+                                    onClick={()=>Unmatch(lover.id)}/></div>
                                 
                                 <div className="loverInfo">{lover.name}</div>
 
@@ -166,7 +189,9 @@ const Matches = (props) => {
                     </div>
                 </div>
                 <div className="rightSide">
-                    {matchName && (
+                        
+                {matchName && (
+
                         <div className="containerMessages">
                         
                         <div className="matchName">{matchName.toLocaleUpperCase()}</div>
@@ -179,11 +204,12 @@ const Matches = (props) => {
                                 </div>
                                 ))}
                         </div>
-                        <input className="messageText" onChange={getText} type="text" placeholder="new message"></input>
+                        <input className="messageText" id="newMessage" onFocus={(e) => e.target.value=''} onChange={getText} type="text" placeholder="new message"></input>
                         <div className="button" onClick={()=>newmessage()}>SEND</div>
                         
                     </div>
-                    )}
+                    
+                )}
 
                 </div>
                 

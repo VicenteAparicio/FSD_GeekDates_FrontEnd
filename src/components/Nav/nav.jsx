@@ -15,10 +15,11 @@ const Nav = (props) => {
     let history = useHistory();
 
     const logOut = () =>{
+        props.dispatch({type:LOGOUT})
         setTimeout(()=>{
             history.push('/');
         }, 500)
-        props.dispatch({type:LOGOUT})
+        
     }
 
     if (props.logData.token && props.logData.user.isComplete){

@@ -116,7 +116,7 @@ const Register = (props) => {
             props.dispatch({type:LOGIN,payload:res.data});
             props.dispatch({type:GETINFO,payload:res.data.user});
 
-            history.push('/profile')
+            history.push('/updateInfo')
             
         }
     } catch (error) {

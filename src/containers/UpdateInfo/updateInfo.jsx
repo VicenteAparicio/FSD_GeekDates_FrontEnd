@@ -12,8 +12,8 @@ const UpdateInfo = (props) => {
     let history = useHistory();
 
     // Hooks
-    const [prev, setPrev] = useState({name:props.logData.user?.name,surname:props.logData.user?.surname,country:props.logData.user?.country,city:props.logData.user?.city, cp:props.logData.user?.cp});
-    const [credentials, setCredentials] = useState({name:'',surname:'',country:'',city:'', cp:''});
+    // const [prev, setPrev] = useState({name:props.logData.user?.name,surname:props.logData.user?.surname,country:props.logData.user?.country,city:props.logData.user?.city, cp:props.logData.user?.cp});
+    const [credentials, setCredentials] = useState({name:'',surname:'',country:'',city:'', cp:'', description:''});
 
     const [errors, setErrors] = useState({eName:'',eSurname:'',eCountry:'',eCity:'', eCP:''});
 
@@ -77,7 +77,8 @@ const UpdateInfo = (props) => {
                 surname: credentials.surname,           
                 country: credentials.country,
                 city: credentials.city,
-                cp: credentials.cp
+                cp: credentials.cp,
+                description: credentials.description
             }
             let res = await axios.post(`${connection}/updateinfo`, body, {headers: {'Authorization': `Bearer ${props.logData.token}`}})
             if(res && !props.logData.user.sexuality){
@@ -98,28 +99,31 @@ const UpdateInfo = (props) => {
                 <div className="boxOptions">
 
                 <div className="titleSection">PERSONAL INFO</div>
-                 
-                <input require="true" className="inputs" type="text" name="name" onChange={updateCredentials} onBlur={()=>checkError("name")} placeholder="Name"/>
-                <div className="validateError">{errors.eName}</div>
                 
-                <input require="true" className="inputs" type="text" name="surname" onChange={updateCredentials} onBlur={()=>checkError("surname")} placeholder="Surname"/>
-                <div className="validateError">{errors.eSurname}</div>
-                
-                <input className="inputs" type="text" name="country" onChange={updateCredentials} onBlur={()=>checkError("country")} placeholder="Country"/>
-                <div className="validateError">{errors.eCountry}</div>
-                
-                <input className="inputs" type="text" name="city" onChange={updateCredentials} onBlur={()=>checkError("city")} placeholder="City"/>
-                <div className="validateError">{errors.eCity}</div>
-                
-                <input className="inputs" type="text" name="cp" onChange={updateCredentials} onBlur={()=>checkError("cp")} placeholder="C.P."/>
-                <div className="validateError">{errors.eCP}</div>
+                    <input require="true" className="inputs" type="text" name="name" onChange={updateCredentials} onBlur={()=>checkError("name")} placeholder="Name"/>
+                    <div className="validateError">{errors.eName}</div>
 
-                <div className="button" onClick={()=>UpInfo()}>SAVE</div>
+                    <input require="true" className="inputs" type="text" name="surname" onChange={updateCredentials} onBlur={()=>checkError("surname")} placeholder="Surname"/>
+                    <div className="validateError">{errors.eSurname}</div>
 
-                {props.logData.user.isComplete && (
-                    <NavLink className="button" to="/profile">CANCEL</NavLink>
-                )}
+                    <input className="inputs" type="text" name="country" onChange={updateCredentials} onBlur={()=>checkError("country")} placeholder="Country"/>
+                    <div className="validateError">{errors.eCountry}</div>
 
+                    <input className="inputs" type="text" name="city" onChange={updateCredentials} onBlur={()=>checkError("city")} placeholder="City"/>
+                    <div className="validateError">{errors.eCity}</div>
+
+                    <input className="inputs" type="text" name="cp" onChange={updateCredentials} onBlur={()=>checkError("cp")} placeholder="C.P."/>
+                    <div className="validateError">{errors.eCP}</div>
+
+                    <input className="inputs" type="text" name="description" onChange={updateCredentials} placeholder="Description"/>
+
+                <div className="buttons">
+                    <div className="button" onClick={()=>UpInfo()}>SAVE</div>
+
+                    {props.logData.user.isComplete && (
+                        <NavLink className="button" to="/profile">CANCEL</NavLink>
+                    )}
+                </div>
             </div>
 
         </div>

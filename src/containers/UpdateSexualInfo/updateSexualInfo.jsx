@@ -163,6 +163,7 @@ const UpdateSexualInfo = (props) => {
                     {props.logData.user.isComplete && (
                         <NavLink className="button" to="/profile">CANCEL</NavLink>
                     )}
+                    
                 </div>
                 
             </div>
