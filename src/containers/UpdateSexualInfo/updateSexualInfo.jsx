@@ -1,14 +1,10 @@
 // IMPORT MOTORS
 import React, {useState} from 'react';
-import { useHistory } from 'react-router-dom';
+import { NavLink, useHistory } from 'react-router-dom';
 import {connect} from 'react-redux';
 import axios from 'axios';
 // IMPORT ACTIONS
 import {GETINFO} from '../../redux/types';
-// IMPORT ICONS
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faPaperPlane } from '@fortawesome/free-regular-svg-icons';
-import { useEffect } from 'react';
 
 const UpdateSexualInfo = (props) => {
 
@@ -87,10 +83,14 @@ const UpdateSexualInfo = (props) => {
                 lookingfor: lookingFor
             }
             let res = await axios.post(`${connection}/updateinfo`, body, {headers: {'Authorization': `Bearer ${props.logData.token}`}})
-            if(res.data){
+            if(res.data && !res.data.user.isComplete){
                 props.dispatch({type:GETINFO,payload:res.data.user});
-                alert("Gracias por completar tu registro");
+                alert("Preferencias actualizadas");
                 history.push('/hobbies');
+            } else if (res.data && res.data.user.isComplete){
+                alert("Preferencias actualizadas");
+                history.push('/profile');
+
             }
         } catch (error) {
             console.log(error);
@@ -99,22 +99,20 @@ const UpdateSexualInfo = (props) => {
 
     return (
 
-        <div className="containerRegister">
+        <div className="container">
 
-            <div className="containerBox">
+            <div className="boxOptions">
 
-                <div className="titleSection">DATA INFO</div>
+                {/* <div className="titleSection">DATA INFO</div> */}
 
-                <div className="boxRegister">
-                    
-                    <div className="regData">
+                    {/* <div className="regData"> */}
 
                         <div className="checkerBox">
 
                             <div className="preferenceLabels">YOU ARE</div>
                         
                             {genderOptions.map((option, index)=>(
-                                <div class="checkOpt" key={index}>
+                                <div className="checkOpt" key={index}>
                                     <input className="radioInputs" type="radio" name="gender" value={option.value} onChange={updateGender}/>
                                     <label for={option.value}>{option.label}</label>
                                 </div>
@@ -122,9 +120,9 @@ const UpdateSexualInfo = (props) => {
 
                         </div>
 
-                    </div>
+                    {/* </div> */}
                     
-                    <div className="regData">
+                    {/* <div className="regData"> */}
 
                         <div className="checkerBox"> 
 
@@ -139,16 +137,16 @@ const UpdateSexualInfo = (props) => {
 
                         </div>
 
-                    </div>
+                    {/* </div> */}
 
-                    <div className="regData">
+                    {/* <div className="regData"> */}
 
                         <div className="checkerBox">
 
                             <div className="preferenceLabels">LOOK FOR</div> 
                         
                             {lookForOptions.map((option, index)=>(
-                                <div class="checkOpt" key={index}>
+                                <div className="checkOpt" key={index}>
                                     <input className="radioInputs" type="radio" name="lookingFor" value={option.value} onClick={updateLookingFor}/>
                                     <label for={option.value}>{option.label}</label>
                                 </div>
@@ -156,13 +154,21 @@ const UpdateSexualInfo = (props) => {
 
                         </div>
                     
-                    </div>
+                    {/* </div> */}
+                    {/* <div className="button" onClick={()=>updateSexInfo()}>CONTINUE</div> */}
+
+                    
+                    <div className="button" onClick={()=>updateSexInfo()}>SAVE</div>
+                   
+                    {props.logData.user.isComplete ? 
+                        <NavLink className="button" to="/profile">CANCEL</NavLink> : ''
+                    }
                     
                 </div>
-                <div className="sendButton" onClick={()=>updateSexInfo()}><FontAwesomeIcon className="faLogin" icon={faPaperPlane}/></div>
+                
             </div>
 
-        </div>
+    
     )
 }
 

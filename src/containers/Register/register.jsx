@@ -3,9 +3,8 @@ import React, {useState} from 'react';
 import { useHistory } from 'react-router-dom';
 import {connect} from 'react-redux';
 import axios from 'axios';
-// IMPORT ICONS
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faPaperPlane } from '@fortawesome/free-regular-svg-icons';
+// IMPORT ACTIONS
+import {LOGIN, GETINFO} from '../../redux/types';
 
 const Register = (props) => {
 
@@ -75,7 +74,6 @@ const Register = (props) => {
         }
     }
 
-
     const Registration = async () => {
 
         try {
@@ -92,57 +90,71 @@ const Register = (props) => {
             }
             let res = await axios.post(`${connection}/register`, body)
             if(res){
-                console.log(res);
                 alert("Gracias por registrarte con nosotros");
-                history.push('/login');
+                SignIn();
             }
         }
         catch (error) {
                 console.log(error);
         }   
     }
+
+    // FUNCION LOGUEAR
+   const SignIn = async () => {
+
+    
+    try {
+        // A continuación genearmos el body de datos
+        let body = {
+            email: credentials.email.toLowerCase(),
+            password: credentials.password,
+        }
+
+        let res = await axios.post(`${connection}/login`, body)
+        if (res) {
+            //Guardo en RDX
+            props.dispatch({type:LOGIN,payload:res.data});
+            props.dispatch({type:GETINFO,payload:res.data.user});
+
+            history.push('/updateInfo')
+            
+        }
+    } catch (error) {
+        alert(error)
+    }  
+}
     
 
     
 
     return (
 
-        <div className="containerRegister">     
+        <div className="container">     
 
-            <div className="containerBox">
+            <div className="boxOptions">
 
-                <div className="titleSection">REGISTER</div>
+                <div className="titleSection">CREATE NEW PLAYER</div>
 
-                <div className="boxRegister">
+                    
 
-                    <div className="regData">
-
-                        <label className="labelsRegister" for="nick">NICK</label>
                         <input require="true" className="inputs" type="text" name="nick" onChange={updateCredentials} onBlur={()=>checkError("nick")} placeholder="Nick"/>
                         <div className="validateError">{errors.eNick}</div>
 
-                        <label className="labelsRegister" for="phone">PHONE</label>
                         <input require="true" className="inputs" type="number" name="phone" onChange={updateCredentials} onBlur={()=>checkError("phone")} placeholder="Phone"/>
                         <div className="validateError">{errors.ePhone}</div>
 
-                        <label className="labelsRegister" for="email">EMAIL</label>
                         <input require="true" className="inputs" type="email" name="email" onChange={updateCredentials} onBlur={()=>checkError("email")} placeholder="Email"/>
                         <div className="validateError">{errors.eEmail}</div>
 
-                        <label className="labelsRegister" for="password">PASSWORD</label>
                         <input require="true" className="inputs" type="password" name="password" onChange={updateCredentials} onBlur={()=>checkError("password")} placeholder="Password"/>
                         <div className="validateError">{errors.ePassword}</div>
 
-                        <label className="labelsRegister" for="age">AGE</label>
                         <input className="inputs" type="number" name="age" onChange={updateCredentials} onBlur={()=>checkError("age")} placeholder="Age"/>
                         <div className="validateError">{errors.eAge}</div>
 
-                    </div>
+                        <div className="button" onClick={()=>Registration()}>CONTINUE</div>
 
                 </div>
-                
-                <div className="sendButton" onClick={()=>Registration()}><FontAwesomeIcon className="faLogin" icon={faPaperPlane}/></div>
-            </div>
 
         </div>
     )

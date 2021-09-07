@@ -1,8 +1,7 @@
 // IMPORT MOTORS
 import React from 'react';
 import {connect} from 'react-redux';
-import {NavLink} from 'react-router-dom';
-import {useHistory} from 'react-router-dom';
+import {NavLink, useHistory} from 'react-router-dom';
 // IMPORT ACTIONS
 import { LOGOUT } from '../../redux/types';
 // IMPORT ICONS
@@ -16,13 +15,14 @@ const Nav = (props) => {
     let history = useHistory();
 
     const logOut = () =>{
+        props.dispatch({type:LOGOUT})
         setTimeout(()=>{
             history.push('/');
         }, 500)
-        props.dispatch({type:LOGOUT})
+        
     }
 
-    if (props.logData.token){
+    if (props.logData.token && props.logData.user.isComplete){
 
         return (
             <div className="containerNav">
@@ -38,9 +38,6 @@ const Nav = (props) => {
             </div>
         )
     } else {
-        setTimeout(()=>{
-            history.push('/');
-        }, 1000)
         return (
             <div></div>
         )

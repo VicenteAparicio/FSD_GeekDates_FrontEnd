@@ -1,11 +1,10 @@
 // IMPORT MOTORS
 import React, {useState} from 'react';
-import { useHistory } from 'react-router-dom';
+import {NavLink, useHistory} from 'react-router-dom';
 import {connect} from 'react-redux';
 import axios from 'axios';
-// IMPORT ICONS
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faPaperPlane } from '@fortawesome/free-regular-svg-icons';
+// IMPORT ACTIONS
+import { LOGOUT } from '../../redux/types';
 
 const Hobbies = (props) => {
 
@@ -25,8 +24,6 @@ const Hobbies = (props) => {
     const hobbieFill = async () => {
         
         try {
-            
-            // A continuación generamos el body de datos
             let body = {
                 user_id: props.logData.user.id,
                 tablegames: hobbies.tablegames,
@@ -36,8 +33,25 @@ const Hobbies = (props) => {
                 anime: hobbies.anime
             }
             let res = await axios.post(`${connection}/hobbies`, body, {headers: {'Authorization': `Bearer ${props.logData.token}`}})
-            if (res) {
-                alert("Rellenaste tus hobbies");
+            
+            // ONLY FIRST TIME
+            if (res && !props.logData.user.isComplete) {
+                let body = {
+                    user_id: props.logData.user.id,
+                    isComplete: true
+                }
+                await axios.post(`${connection}/updateinfo`, body, {headers: {'Authorization': `Bearer ${props.logData.token}`}})
+            
+                alert("Gracias por rellenar tus hobbies");
+
+                props.dispatch({type:LOGOUT});
+
+                history.push('/login');
+                
+            } else if (res && props.logData) {
+
+                alert("Actualizaste tus hobbies");
+
                 history.push('/profile');
             }
         } catch (error) {
@@ -49,37 +63,35 @@ const Hobbies = (props) => {
 
     return (
 
-        <div className="containerRegister">     
+        <div className="container">     
 
-            <div className="containerBox">
+            <div className="boxOptions">
 
-                <div className="titleSection">Hobbies</div>
+                <div className="titleSection">HOBBIES</div>
 
-                <div className="boxRegister">
+                    <div className="checkerBox">
 
-                    <div className="regData">
-
-                        <div className="checkerBox">
-                            <div className="radioOpt">
+                        <div className="radioOpt">
                             <span>YES</span>
                             <span>NO</span>
+                        </div>
+
+                        {hobbieOptions.map((option, index)=>(
+
+                            <div className="checkOptHobbies" key={index}>
+                                <input className="radioInputs" type="radio" name={option} value="1" onChange={updateHobbies}/>
+                                <label for={option}>{option}</label>
+                                <input className="radioInputs" type="radio" name={option} value="0" onChange={updateHobbies}/>
                             </div>
 
-                            {hobbieOptions.map((option)=>(
-                                <div class="checkOptHobbies">
-                                    <input className="radioInputs" type="radio" name={option} value="1" onChange={updateHobbies}/>
-                                    <label for={option}>{option}</label>
-                                    <input className="radioInputs" type="radio" name={option} value="0" onChange={updateHobbies}/>
-                                    
-                                </div>
-                            ))}
+                        ))}
 
-                        </div>
                     </div>
-
-                </div>
                 
-                <div className="sendButton" onClick={()=>hobbieFill()}><FontAwesomeIcon className="faLogin" icon={faPaperPlane}/></div>
+                <div className="button" onClick={()=>hobbieFill()}>FINISH</div>
+                {props.logData.user.isComplete ?
+                    <NavLink className="button" to="/profile">CANCEL</NavLink> : ''
+                }
             </div>
 
         </div>

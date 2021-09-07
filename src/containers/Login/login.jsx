@@ -1,15 +1,13 @@
 // IMPORT MOTORS
 import React, {useState} from 'react';
-import {useHistory} from 'react-router-dom';
+import {NavLink, useHistory} from 'react-router-dom';
 import {connect} from 'react-redux';
 import axios from 'axios';
 // IMPORT COMPONENTS
-import ButtonLog from '../../components/ButtonLog/buttonLog';
+// import BtLink from '../../components/BtLink/btlink';
 // IMPORT ACTIONS
 import {LOGIN, GETINFO} from '../../redux/types';
-// IMPORT ICONS
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faPaperPlane } from '@fortawesome/free-regular-svg-icons';
+
 
 
 const Login = (props) => {
@@ -43,6 +41,7 @@ const Login = (props) => {
             //Guardo en RDX
             props.dispatch({type:LOGIN,payload:res.data});
             props.dispatch({type:GETINFO,payload:res.data.user});
+            
             alert("Gracias por loguearte")
 
             if(!res.data.token){
@@ -63,7 +62,7 @@ const Login = (props) => {
 
 
     return (
-        <div className="containerLogin">
+        <div className="container">
             <div className="boxOptions">
                 <div className="boxLogin">
                     
@@ -71,13 +70,13 @@ const Login = (props) => {
                     
                     <input className="inputs" type="password" name="password" onChange={updateCredentials} placeholder="Password"></input>
 
-                    <div className="loginButton" onClick={()=>SignIn()}>PLAY</div>
+                    <div className="button" onClick={()=>SignIn()}>PLAY</div>
                     
                 </div>
 
             <div className="barra"></div>
 
-            <ButtonLog name="register"></ButtonLog>
+            <NavLink className="button" to="/register">NEW PLAYER</NavLink>
 
             </div>
             

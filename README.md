@@ -1,3 +1,5 @@
+<img src="./src/assets/readmeImg/img13.png" style="width: 100%"><br><br>
+
 # GEEKS DATE FRONT END
 
 ## Project details
@@ -20,23 +22,21 @@ Geeks Date is an webapp like tinder or adoptauntio but focused on freak people. 
 
 ## TECHNOLOGY
 
-- REACT<br>
-- PHP LARAVEL<br>
-- SEQUELIZE<br>
-- REDUX<br>
-- AXIOS<br>
-- GIT FLOW<br>
-- SCSS<br
-- POSTMAN<br>
-- DBeaver<br>
-- FONT-AWESOME<br>
-
+- REACT
+- PHP LARAVEL
+- SEQUELIZE
+- REDUX
+- AXIOS
+- GIT FLOW
+- SCSS
+- POSTMAN
+- DBEAVER
+- FONT-AWESOME
 <br>
 <br>
 
-## Access to Heroku deploy
-https://geeksdatefront.herokuapp.com/
-
+## App
+<a href="https://dev.d3w0cb2207bqet.amplifyapp.com/">GEEK DATES</a>
 <br>
 <br>
 
@@ -125,16 +125,10 @@ Was a nice ride, hard but nice. I learned a lot of new stuff and thousand of way
 ## THINGS I LEFT TO DO... FOR NOW
 
 <br>
-1.- Good landing page<br>
-2.- Good logo on landing page<br>
-3.- Redesign chat<br>
-4.- Add an upload image section<br>
-5.- Improve the edition of the user and hobbies<br>
-6.- Redesign a lot of buttons<br>
-7.- Redesign chat distribution for mobile view version<br>
-8.- Improve hobbie filters<br>
-9.- Add city filter<br>
-10.- Add country filter<br>
+1.- Add an upload image section<br>
+2.- Improve hobbie filters<br>
+3.- Add city filter<br>
+4.- Add country filter<br>
 
 
 

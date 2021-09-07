@@ -18,7 +18,9 @@ const Matches = (props) => {
     let history = useHistory();
     
     const [lovers, setLovers] = useState([]);
+    const [filt, setFilt] = useState([]);
     const [matchId, setMatchId] = useState('');
+    const [matchName, setMatchName] = useState('');
     const [argsTotal, setArgsTotal] = useState(['']);
     const [textM, setTextM] = useState(' ');
     const [otherId, setOtherId] = useState(' ');
@@ -27,8 +29,12 @@ const Matches = (props) => {
         Lovers();
     }, []);
 
-    
-    
+    // const filters = () =>{
+    //     setFilt(
+    //     lovers.filter((item)=>(item?.id !== arg))
+    //     )
+    // }
+
     // DEFAULT SEARCH BASED ON USER PREFERENCES
     const Lovers = async () => {
 
@@ -46,11 +52,26 @@ const Matches = (props) => {
     }
 
     // DESTROY LOVER ROW 
-    const Unmatch = async (a_id, b_id) => {
+    // const Unmatch = async (a_id, b_id) => {
 
+    //     let body = {
+    //         "user_a_id": a_id,
+    //         "user_b_id": b_id,
+    //     }
+    //     try{
+    //         let res = await axios.post(`${connection}/unmatch`, body, {headers: {'Authorization': `Bearer ${props.logData.token}`}});
+    //         if (res) {
+    //             alert(res.data.message);
+    //         }
+    //     } catch (err) {
+    //         console.log({message: err.message})
+    //     }
+    // }
+
+    const Unmatch = async (id) => {
+        console.log(id)
         let body = {
-            "user_a_id": a_id,
-            "user_b_id": b_id,
+            "id": id,
         }
         try{
             let res = await axios.post(`${connection}/unmatch`, body, {headers: {'Authorization': `Bearer ${props.logData.token}`}});
@@ -63,13 +84,16 @@ const Matches = (props) => {
     }
 
     // SET MATCH ID AND CHECK FOR MESSAGES
-    const setMatch = async (value, aId, bId) => {
+    const setMatch = async (lovName, value, aId, bId) => {
         
         if (aId == props.logData.user.id){
             setOtherId(bId)
         } else {
             setOtherId(aId)
         }
+
+        // SAVE NAME OF THE MATCH
+        setMatchName(lovName);
 
         // CLEAN MESSAGES
         setArgsTotal([]);
@@ -95,6 +119,7 @@ const Matches = (props) => {
                         
                     } else {
                         array1[i].classes = "to";
+                        array1[i].name = lovName;
                     }
                     
                 }
@@ -123,11 +148,11 @@ const Matches = (props) => {
             "match_id": matchId,
             "text": textM
         }
-        console.log(body)
+        
         try{
             let res = await axios.post(`${connection}/newmessage`, body, {headers: {'Authorization': `Bearer ${props.logData.token}`}});
             if (res) {
-                alert(res.data.message);
+                // document.getElementById("newMessage")
             }
         } catch (err) {
             console.log({message: err.message})
@@ -150,12 +175,13 @@ const Matches = (props) => {
                             <div className="loverCard" key={index}>
                                 
                                 <div className="unmatch"><FontAwesomeIcon className="faIcons" icon={faTimes}
-                                    onClick={()=>Unmatch(lover.user_a_id, lover.user_b_id)}/></div>
+                                    // onClick={()=>Unmatch(lover.matchIduser_a_id, lover.user_b_id)}/></div>
+                                    onClick={()=>Unmatch(lover.id)}/></div>
                                 
                                 <div className="loverInfo">{lover.name}</div>
 
                                 <div className="message"><FontAwesomeIcon className="faIcons" icon={faArrowAltCircleRight}
-                                    onClick={()=>setMatch(lover.id, lover.user_a_id, lover.user_b_id)}/></div>
+                                    onClick={()=>setMatch(lover.name, lover.id, lover.user_a_id, lover.user_b_id)}/></div>
                                 
                             </div>
                         
@@ -163,20 +189,27 @@ const Matches = (props) => {
                     </div>
                 </div>
                 <div className="rightSide">
+                        
+                {matchName && (
 
-                    <div className="containerMessages">
-                        {/* <div className="matchId">Lover row: {matchId}</div> */}
+                        <div className="containerMessages">
+                        
+                        <div className="matchName">{matchName.toLocaleUpperCase()}</div>
                         <div className="messageBox">
                             {argsTotal.map((item, index)=>(
                                 <div className="messageCard" key={index}>
-                                    <div className={item.classes}>{item.name, item.text}</div>
+                                    <div className={item.classes}>{item.name}
+                                    {(item.classes === 'to') && (": ")}
+                                    {item.text}</div>
                                 </div>
                                 ))}
                         </div>
-                        <input className="messageText" onChange={getText} type="text" placeholder="your message"></input>
-                        <div className="buttonMessage" onClick={()=>newmessage()}>SEND</div>
+                        <input className="messageText" id="newMessage" onFocus={(e) => e.target.value=''} onChange={getText} type="text" placeholder="new message"></input>
+                        <div className="button" onClick={()=>newmessage()}>SEND</div>
+                        
                     </div>
                     
+                )}
 
                 </div>
                 

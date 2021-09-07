@@ -5,39 +5,38 @@
     justify-content: center;
     align-items: flex-start;
     width: 100%;
+    padding: 8em 0 0 0;
     
 }
 
 .leftSide {
     display: flex;
     flex-direction: column;
-    align-items: center;
-    margin: 2em 2em 0 0;
-    padding: 2em;
-    background-color: $cards;
-    
-    border-radius: 1em 1em;
-    box-shadow: .5em .5em .5em 0 $darkShadow;
-
-
-
+    background-color: $color1;
+    padding: 4em 2em;
+    margin: 0 2em 0 0;
+    box-shadow: .3em .3em .0em 0 $color2;
 
     .listMatches{
         display: flex;
         flex-direction: column;
 
-
         .loverCard{
             display: flex;
             flex-direction: row;
             justify-content: space-between;
-            background-color: $darkShadow;
+            background-color: white;
             width: 10em;
-            padding: 1em;
-            border-radius: 1em 1em;
+            padding: 1em .7em .7em .7em;
+            border-radius: .1em;
             margin-bottom: 1em;
-            
-            box-shadow: .15em .15em .5em 0 $bg1;
+            font-family: $subtitle;
+            color: $base;
+            transition: .5s cubic-bezier(0.075, 0.82, 0.165, 1);
+
+            &:hover{
+                box-shadow: .3em .3em .0em 0 $color2;
+            }
 
             &:last-child{
                 margin-bottom: 0;
@@ -47,7 +46,7 @@
                 margin-right: 1em;
                 
                 &:hover{
-                    color:$bg1;
+                    color:$color2;
                 }
             }
 
@@ -56,7 +55,7 @@
                 margin-left: 1em;
                 
                 &:hover{
-                    color:$bg1;
+                    color: $color2;
                 }
             }
             
@@ -73,71 +72,66 @@
     .containerMessages{
         display: flex;
         flex-direction: column;
-        background-color: $cards;
-        margin-top: 2em;
-        padding:2em;
-        border-radius: 1em 1em;
-        box-shadow: .5em .5em .5em 0 $darkShadow;
+        justify-content: center;
+        align-items: center;
+        border-right: .35em solid $color2;
+        border-bottom: .35em solid $color2;
+        box-shadow: -.3em -.3em 0em 0 $color1;
+        padding: 2em;
     }
 
     .messageText{
         all: unset;
-        margin-top: 1em;
-        padding: 1em;
-        margin-bottom: 1em;
-        color: $shadow;
-        box-shadow: inset .15em .15em .5em 0 $darkShadow;
-        background-color: white;
-        border-radius: 1em 1em;
-    }
-
-    .buttonMessage {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        cursor: pointer;
-        background-color: $darkShadow;
-        
-        
-        padding: 1em;
-        border-radius: 1em 1em;
-        &:hover{
-            background-color: $bg1;
-            box-shadow: .5em .5em .5em 0 $darkShadow;
+        margin: 2em 0 2.5em 0;
+        padding: .5em;
+        color: white;
+        border-bottom: .15em solid $color2;
+        transition: .5s cubic-bezier(0.075, 0.82, 0.165, 1);
+        &:hover, &:focus{
+            padding: .8em;
         }
+
     }
 
     .messageBox{
-        background-color: white;
-        padding: 2em 2em 4em 2em;
-        border-radius: 1em;
-        box-shadow: inset .15em .15em .5em 0 $darkShadow;
+        display: flex;
+        flex-direction: column;
+        width: 20em;
         
         .messageCard{
             display: flex;
-            justify-content: center;
-            width: 100%;
-            margin-bottom: .8em;
+            margin-bottom: .5em;
             font-family:Verdana, Geneva, Tahoma, sans-serif;
+            font-size: .8em;
 
             .to {
-                
-                display: flex;
-                flex-direction: row;
-                justify-content: flex-end;
-                width: 90%;
-                color:$darkShadow;
+                margin-right: 20%;
+                justify-content: flex-start;
+                width: 100%;
+                color: $base;
+                text-align: left;
+                background-color: $color1;
+                padding: .7em 1em;
+                border-radius: .7em .7em .7em .1em;
                 
             }
+
             .from {
-                display: flex;
-                flex-direction: row;
-                justify-content: flex-start;
-                width: 90%;
-                color:$cards;
+                margin-left: 20%;
+                width: 100%;
+                justify-content: flex-end;
+                text-align: right;
+                color: white;
+                background-color: $color2;
+                padding: .7em 1em .9em .7em;
+                border-radius: .7em .7em .1em .7em;
             }
         }
     }
     
+    .matchName{
+        font-family: $subtitle;
+        margin-bottom: 1em;
+    }
 
 }

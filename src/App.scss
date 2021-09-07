@@ -3,23 +3,23 @@
 @import 'containers/Register/register.scss';
 @import 'containers/Login/login.scss';
 @import 'containers/Profile/profile.scss';
-@import 'components/ButtonLog/buttonLog.scss';
+@import 'components/BtLink/btlink.scss';
 @import 'components/ButtonOpt/buttonOpt.scss';
+@import 'components/Upload/upload.scss';
 @import 'containers/UpdateInfo/updateInfo.scss';
+@import 'containers/UpdateSexualInfo/updateSexualInfo.scss';
 @import 'components/Nav/nav.scss';
 @import 'containers/Hobbies/hobbies.scss';
 @import 'containers/Search/search.scss';
 @import 'containers/Matches/matches.scss';
 
-// @import url('http://fonts.cdnfonts.com/css/green-screen');
 
 .font{
-  // font-family: 'Green Screen', sans-serif;
   color: white;
 }
 
 body{
-  background-color: $bg1;
+  background-color: $base;
   height: 100%;
 }
 

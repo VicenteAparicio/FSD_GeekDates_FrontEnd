@@ -1,11 +1,8 @@
 // IMPORT MOTORS
 import React, {useState} from 'react';
-import { useHistory } from 'react-router-dom';
+import {NavLink, useHistory} from 'react-router-dom';
 import {connect} from 'react-redux';
 import axios from 'axios';
-// IMPORT ICONS
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faPaperPlane } from '@fortawesome/free-regular-svg-icons';
 
 const UpdateInfo = (props) => {
 
@@ -15,7 +12,8 @@ const UpdateInfo = (props) => {
     let history = useHistory();
 
     // Hooks
-    const [credentials, setCredentials] = useState({name:'',surname:'',country:'',city:'', cp:''});
+    // const [prev, setPrev] = useState({name:props.logData.user?.name,surname:props.logData.user?.surname,country:props.logData.user?.country,city:props.logData.user?.city, cp:props.logData.user?.cp});
+    const [credentials, setCredentials] = useState({name:'',surname:'',country:'',city:'', cp:'', description:''});
 
     const [errors, setErrors] = useState({eName:'',eSurname:'',eCountry:'',eCity:'', eCP:''});
 
@@ -79,61 +77,53 @@ const UpdateInfo = (props) => {
                 surname: credentials.surname,           
                 country: credentials.country,
                 city: credentials.city,
-                cp: credentials.cp
+                cp: credentials.cp,
+                description: credentials.description
             }
             let res = await axios.post(`${connection}/updateinfo`, body, {headers: {'Authorization': `Bearer ${props.logData.token}`}})
-            if(res){
-                console.log(res.data.user)
-                
+            if(res && !props.logData.user.sexuality){
                 alert("Datos guardados");
                 history.push('/updatesexualinfo');
+            } else if (res && props.logData.user.sexuality) {
+                history.push('/profile');
             }
         } catch (error) {
             console.log(error);
         };   
     }
     
-
-    
-
     return (
 
-        <div className="containerRegister">
+        <div className="container">
 
-            <div className="containerBox">
+                <div className="boxOptions">
 
                 <div className="titleSection">PERSONAL INFO</div>
-
-                <div className="boxRegister">
                 
-                    <div className="regData">
+                    <input require="true" className="inputs" type="text" name="name" onChange={updateCredentials} onBlur={()=>checkError("name")} placeholder="Name"/>
+                    <div className="validateError">{errors.eName}</div>
 
-                        <label className="labelsRegister" for="name">NAME</label>
-                        <input require="true" className="inputs" type="text" name="name" onChange={updateCredentials} onBlur={()=>checkError("name")} placeholder="Name"/>
-                        <div className="validateError">{errors.eName}</div>
+                    <input require="true" className="inputs" type="text" name="surname" onChange={updateCredentials} onBlur={()=>checkError("surname")} placeholder="Surname"/>
+                    <div className="validateError">{errors.eSurname}</div>
 
-                        <label className="labelsRegister" for="surname">SURNAME</label>
-                        <input require="true" className="inputs" type="text" name="surname" onChange={updateCredentials} onBlur={()=>checkError("surname")} placeholder="Surname"/>
-                        <div className="validateError">{errors.eSurname}</div>
-                            
-                        <label className="labelsRegister" for="country">COUNTRY</label>
-                        <input className="inputs" type="text" name="country" onChange={updateCredentials} onBlur={()=>checkError("country")} placeholder="Country"/>
-                        <div className="validateError">{errors.eCountry}</div>
-                            
-                        <label className="labelsRegister" for="city">CITY</label>
-                        <input className="inputs" type="text" name="city" onChange={updateCredentials} onBlur={()=>checkError("city")} placeholder="City"/>
-                        <div className="validateError">{errors.eCity}</div>
-                            
-                        <label className="labelsRegister" for="cp">CP</label>
-                        <input className="inputs" type="text" name="cp" onChange={updateCredentials} onBlur={()=>checkError("cp")} placeholder="C.P."/>
-                        <div className="validateError">{errors.eCP}</div>
-                            
-                    </div>
+                    <input className="inputs" type="text" name="country" onChange={updateCredentials} onBlur={()=>checkError("country")} placeholder="Country"/>
+                    <div className="validateError">{errors.eCountry}</div>
 
+                    <input className="inputs" type="text" name="city" onChange={updateCredentials} onBlur={()=>checkError("city")} placeholder="City"/>
+                    <div className="validateError">{errors.eCity}</div>
+
+                    <input className="inputs" type="text" name="cp" onChange={updateCredentials} onBlur={()=>checkError("cp")} placeholder="C.P."/>
+                    <div className="validateError">{errors.eCP}</div>
+
+                    <input className="inputs" type="text" name="description" onChange={updateCredentials} placeholder="Description"/>
+
+                <div className="buttons">
+                    <div className="button" onClick={()=>UpInfo()}>SAVE</div>
+
+                    {props.logData.user.isComplete ? 
+                        <NavLink className="button" to="/profile">CANCEL</NavLink> : ''
+                    }
                 </div>
-                
-    
-                <div className="sendButton" onClick={()=>UpInfo()}><FontAwesomeIcon className="faLogin" icon={faPaperPlane}/></div>
             </div>
 
         </div>
