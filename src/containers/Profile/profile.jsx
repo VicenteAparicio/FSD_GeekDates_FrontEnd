@@ -129,7 +129,7 @@ const Profile = (props) => {
     } else if (props.logData.token && allowEdit === true) {
         return (
             <div className="profileContainer">
-                <Upload/>
+                {/* <Upload/> */}
                 <div className="profileBox">
                     <div className="profileCard">
                         <div className="titleSection">EDIT ACCOUNT</div>
