@@ -12,8 +12,10 @@
 .leftSide {
     display: flex;
     flex-direction: column;
-    align-items: center;
-    margin: 2em 2em 0 0;
+    background-color: $color1;
+    padding: 4em 2em;
+    margin: 0 2em 0 0;
+    box-shadow: .3em .3em .0em 0 $color2;
 
     .listMatches{
         display: flex;
@@ -23,7 +25,7 @@
             display: flex;
             flex-direction: row;
             justify-content: space-between;
-            background-color: $color1;
+            background-color: white;
             width: 10em;
             padding: 1em .7em .7em .7em;
             border-radius: .1em;
@@ -76,7 +78,6 @@
         border-bottom: .35em solid $color2;
         box-shadow: -.3em -.3em 0em 0 $color1;
         padding: 2em;
-        background-color: #3333;
     }
 
     .messageText{

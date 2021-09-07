@@ -54,11 +54,16 @@
 .inputs {
     all: unset;
     padding: .7em;
+    margin-bottom: .5em;
     width: 12em;
     border-radius: .1em;
     background-color: $color1;
     color: $base;
     transition: .3s cubic-bezier(0.1, 0.5, 0.75, .9);
+
+    &:last-child {
+        margin-bottom: 0;
+    }
 
     &:hover{
         background-color: $base;
@@ -75,7 +80,7 @@
     justify-content: center;
     align-items: center;
     margin-bottom: .5em;
-    color: $darkShadow;
+    color: $base;
     padding: .7em .7em .5em .7em;
     border-radius: .1em;
     background-color: white;

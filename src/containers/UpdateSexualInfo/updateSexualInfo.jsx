@@ -160,9 +160,9 @@ const UpdateSexualInfo = (props) => {
                     
                     <div className="button" onClick={()=>updateSexInfo()}>SAVE</div>
                    
-                    {props.logData.user.isComplete && (
-                        <NavLink className="button" to="/profile">CANCEL</NavLink>
-                    )}
+                    {props.logData.user.isComplete ? 
+                        <NavLink className="button" to="/profile">CANCEL</NavLink> : ''
+                    }
                     
                 </div>
                 

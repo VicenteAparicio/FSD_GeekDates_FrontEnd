@@ -46,7 +46,7 @@ const Hobbies = (props) => {
 
                 props.dispatch({type:LOGOUT});
 
-                history.push('/');
+                history.push('/login');
                 
             } else if (res && props.logData) {
 
@@ -89,9 +89,9 @@ const Hobbies = (props) => {
                     </div>
                 
                 <div className="button" onClick={()=>hobbieFill()}>FINISH</div>
-                {props.logData.user.isComplete && (
-                    <NavLink className="button" to="/profile">CANCEL</NavLink>
-                )}
+                {props.logData.user.isComplete ?
+                    <NavLink className="button" to="/profile">CANCEL</NavLink> : ''
+                }
             </div>
 
         </div>

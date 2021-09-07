@@ -18,7 +18,7 @@ const Profile = (props) => {
     let history = useHistory();
 
     // HOOKS
-    const [userEdit, setUserEdit] = useState({nick:props.getInfo.nick,name:props.getInfo.name,surname:props.getInfo.surname,age:props.getInfo.age,country:props.getInfo.country,city:props.getInfo.city,cp:props.getInfo.cp, description:props.getInfo.description});
+    const [userEdit, setUserEdit] = useState({nick:props.getInfo.nick,name:props.getInfo.name,surname:props.getInfo.surname,email: props.getInfo.email,age:props.getInfo.age,country:props.getInfo.country,city:props.getInfo.city,cp:props.getInfo.cp, description:props.getInfo.description});
     const [passw, setPassw] = useState('');
     const [allowEdit, setAllowEdit] = useState(false);
 

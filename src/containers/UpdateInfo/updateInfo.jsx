@@ -120,9 +120,9 @@ const UpdateInfo = (props) => {
                 <div className="buttons">
                     <div className="button" onClick={()=>UpInfo()}>SAVE</div>
 
-                    {props.logData.user.isComplete && (
-                        <NavLink className="button" to="/profile">CANCEL</NavLink>
-                    )}
+                    {props.logData.user.isComplete ? 
+                        <NavLink className="button" to="/profile">CANCEL</NavLink> : ''
+                    }
                 </div>
             </div>
 

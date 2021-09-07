@@ -2,7 +2,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 2em;
+    padding: 2em 0;
 }
 
 .boxSearch{
@@ -10,24 +10,58 @@
     flex-direction: row;
     justify-content: center;
     flex-wrap: wrap;
-    width: 90%;
+    width: 100%;
 }
 
 .playerCard {
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
-    align-items: center;
-    
+    width: 12em;
     padding: 2em;
     border-radius: .15em;
-    // border: .35em solid $color1;
-    background-color: $color1;
-    color: $base;
+    box-shadow: .3em .3em 0 0 $color1;
+    background-color: white;
     margin: 0 1em 1em 0;
     transition: .5s cubic-bezier(0.165, 0.84, 0.44, 1);
+
     &:hover{
+        border: .35em solid $color2;
+        border-radius: 1.5em;
+        
         box-shadow: .3em .3em 0 0 $color2;
+
+        .textInfo{
+            border-top: .15em solid $color2;
+            border-bottom: .15em solid $color2;
+            
+        }
+    }
+
+    .hobbies {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        margin-bottom: 1em;
+    }
+
+    .cardInfo{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        font-family: $subtitle;
+        color: $base;
+        margin-bottom: .5em;
+        
+    }
+
+    .textInfo {
+        color: $base;
+        margin: 1.5em 0 2em;
+        padding: 1em 0;
+        border-top: .15em solid $base;
+        border-bottom: .15em solid $base;
     }
 
 }
@@ -38,7 +72,7 @@
     justify-content: space-around;
     align-items: center;
     height: 3em;
-    width: 90%;
+
     .cardButtons{
         display: flex;
         justify-content: center;
@@ -69,7 +103,7 @@
     padding: 2em;
     border-radius: .1em;
     margin-bottom: 2em;
-
+    
     .ageFilters{
         display: flex;
         flex-direction: row;
@@ -113,28 +147,14 @@
             flex-direction: row;
             align-items: center;
             margin: 0 .4em 0 1em;
+
+            
+        }
+        .filterLabels {
+            margin-top: -.3em;
         }
         
     }
 
-    .buttonAge{
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        border-radius: 1em;
-        padding: 1em;
-        margin-right: 1em;
-        background-color: $darkShadow;
-        color: white;
-        cursor: pointer;
-        transition: .5s cubic-bezier(0.165, 0.84, 0.44, 1);
-        &:hover{
-            background-color: $base;
-            box-shadow: .15em .15em .5em 0 $darkShadow;
-        }
-        &:last-child{
-            margin-right: 0;
-        }
-    }
-
 }
+
