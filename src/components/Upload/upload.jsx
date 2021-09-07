@@ -14,11 +14,11 @@ const Upload = (props) => {
 
   // S3 CONFIG
   const config = {
-    bucketName: 'geekdates-user-img',
+    bucketName: '',
     // dirName: 'photos', /* optional */
-    region: 'eu-west-3',
-    accessKeyId: "AKIA33TBNO6SZXG6ZTXF",
-    secretAccessKey: "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",
+    region: '',
+    accessKeyId:"",
+    secretAccessKey: "",
 }
 
   const [image, setImage] = useState([]);
