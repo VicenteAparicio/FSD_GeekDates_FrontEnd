@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import {connect} from 'react-redux';
-import dotenv from 'dotenv';
 // import imageUpload from 'react-images-upload'
 import axios from 'axios';
 
@@ -9,8 +8,6 @@ import S3FileUpload from 'react-s3';
 import { uploadFile } from 'react-s3';
 
 const Upload = (props) => {
-
-  dotenv.config();
 
   // S3 CONFIG
   const config = {
