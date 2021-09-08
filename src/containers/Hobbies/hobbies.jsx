@@ -18,7 +18,11 @@ const Hobbies = (props) => {
 
     // Handler
     const updateHobbies = (e) => {
-        setHobbies({...hobbies, [e.target.name]: e.target.value});
+        if (e.target.value == 0) {
+        setHobbies({...hobbies, [e.target.name]: 1});
+        } else {
+        setHobbies({...hobbies, [e.target.name]: 0});
+        }
     }
 
     const hobbieFill = async () => {
@@ -71,17 +75,16 @@ const Hobbies = (props) => {
 
                     <div className="checkerBox">
 
-                        <div className="radioOpt">
-                            <span>YES</span>
-                            <span>NO</span>
-                        </div>
-
                         {hobbieOptions.map((option, index)=>(
 
                             <div className="checkOptHobbies" key={index}>
-                                <input className="radioInputs" type="radio" name={option} value="1" onChange={updateHobbies}/>
-                                <label for={option}>{option}</label>
-                                <input className="radioInputs" type="radio" name={option} value="0" onChange={updateHobbies}/>
+                                <label className="switch">
+                                    <input className="radioInputs" type="checkbox" name={option} value={hobbies[option]} onChange={updateHobbies}/>
+                                    <span className="slider"/>
+                                </label>
+                                
+                                <div className="hobbieOpt">{option.toLocaleUpperCase()}</div>
+
                             </div>
 
                         ))}
