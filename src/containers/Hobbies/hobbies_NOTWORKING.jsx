@@ -3,6 +3,8 @@ import React, {useState} from 'react';
 import {NavLink, useHistory} from 'react-router-dom';
 import {connect} from 'react-redux';
 import axios from 'axios';
+// import useToggle from "../../components/ButtonOpt/buttonOpt";
+
 // IMPORT ACTIONS
 import { LOGOUT } from '../../redux/types';
 
@@ -16,13 +18,15 @@ const Hobbies = (props) => {
     // Hooks
     const [hobbies, setHobbies] = useState({tablegames:0, rolegames:0, videogames:0, cosplay:0, anime:0});
 
+    const toggleValue = (value) => {
+        
+            typeof value === "boolean" ? value : !currentValue
+        
+    }
+
     // Handler
     const updateHobbies = (e) => {
-        if (e.target.value == 0) {
-        setHobbies({...hobbies, [e.target.name]: 1});
-        } else {
-        setHobbies({...hobbies, [e.target.name]: 0});
-        }
+        setHobbies({...hobbies, [e.target.name]: e.target.value});
     }
 
     const hobbieFill = async () => {
@@ -75,19 +79,20 @@ const Hobbies = (props) => {
 
                     <div className="checkerBox">
 
+
                         {hobbieOptions.map((option, index)=>(
 
                             <div className="checkOptHobbies" key={index}>
-                                <label className="switch">
-                                    <input className="radioInputs" type="checkbox" name={option} value={hobbies[option]} onChange={updateHobbies}/>
-                                    <span className="slider"/>
+                                <label onClick={toggleValue} name={option} className="switch">
+                                    <input type="checkbox"/>
+                                    <span className="slider" />
+                                    
                                 </label>
-                                
-                                <div className="hobbieOpt">{option.toLocaleUpperCase()}</div>
-
+                                <div className="prest">{option} : {value.tablegames}</div>
                             </div>
 
                         ))}
+                        
 
                     </div>
                 
