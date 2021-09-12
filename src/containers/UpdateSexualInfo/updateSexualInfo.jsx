@@ -114,7 +114,7 @@ const UpdateSexualInfo = (props) => {
                             {genderOptions.map((option, index)=>(
                                 <div className="checkOpt" key={index}>
                                     <input className="radioInputs" type="radio" name="gender" value={option.value} onChange={updateGender}/>
-                                    <label for={option.value}>{option.label}</label>
+                                    <label for={option.value}>{option.label.toLocaleUpperCase()}</label>
                                 </div>
                             ))}
 
@@ -131,7 +131,7 @@ const UpdateSexualInfo = (props) => {
                             {sexualOrientation.map((option, index)=>(
                                 <div className="checkOpt" key={index}>
                                     <input className="radioInputs" type="radio" name="orientation" value={option.value} onClick={updateOrientation}/>
-                                    <label for={option.value}>{option.label}</label>
+                                    <label for={option.value}>{option.label.toLocaleUpperCase()}</label>
                                 </div>
                             ))}
 
@@ -143,12 +143,12 @@ const UpdateSexualInfo = (props) => {
 
                         <div className="checkerBox">
 
-                            <div className="preferenceLabels">LOOK FOR</div> 
+                            <div className="preferenceLabels">LOOKING FOR</div> 
                         
                             {lookForOptions.map((option, index)=>(
                                 <div className="checkOpt" key={index}>
                                     <input className="radioInputs" type="radio" name="lookingFor" value={option.value} onClick={updateLookingFor}/>
-                                    <label for={option.value}>{option.label}</label>
+                                    <label for={option.value}>{option.label.toLocaleUpperCase()}</label>
                                 </div>
                             ))}
 

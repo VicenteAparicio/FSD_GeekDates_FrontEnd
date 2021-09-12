@@ -1,47 +1,90 @@
-.checkerBox{
+// .checkerBox{
+//     display: flex;
+//     flex-direction: column;
+//     align-items: center;
+//     width: 12em;
+//     padding: 1em;
+//     margin-bottom: 1em;
+//     color: white;
+//     border-radius: $border_l;
+
+//     .preferenceLabels{
+//         // align-self: center;
+//         text-align: center;
+//         font-size: 1.2em;
+//         font-family: $newF;
+//         border-bottom: .3em dotted white;
+//         width: 80%;
+//         padding-bottom: .7em;
+//         margin-bottom: 1em;
+//         color: white;
+//     }
+
+//     .radioInputs{
+//         all:unset;
+//         width: 2em;
+//         height: 2em;
+//         margin: .2em .5em 0 0;
+//         border-radius: $border_m;
+//         border: $border_m solid $color3;
+//         box-shadow: inset 0 0 0 0 $color3;
+//         transition: .5s cubic-bezier(0.165, 0.84, 0.44, 1);
+//         &:hover, &:checked{
+//             box-shadow: inset 4em 0 0 0 $color3;
+//         }
+        
+//     }
+
+//     .checkOpt{
+//         display: flex;
+//         flex-direction: row;
+//         align-items: center;
+//         width: 10em;
+//         margin-bottom: .3em;
+//     }
+    
+// }
+
+.checkerBox {
     display: flex;
+    align-items: center;
     flex-direction: column;
+    padding: 1.5em .5em 1.5em;
+    border-radius: $border_m;
+    margin-bottom: 2em;
+    width: 14.5em;
+    background-color: $color3;
+    // box-shadow: .3em .3em .3em 0 $color3;
+}
+
+.checkOpt{
+    display: flex;
+    flex-direction: row;
     align-items: center;
     width: 12em;
-    padding: 1em;
-    margin-bottom: 1em;
-    color: white;
-    border-radius: .1em;
-
-    .preferenceLabels{
-        // align-self: center;
-        text-align: center;
-        font-size: 1.2em;
-        font-family: $subtitle;
-        border-bottom: .3em dotted white;
-        width: 80%;
-        padding-bottom: .7em;
-        margin-bottom: 1em;
-        color: white;
-    }
-
+    margin-bottom: .3em;
+    
     .radioInputs{
         all:unset;
-        width: 2em;
-        height: 2em;
+        width: 1.5em;
+        height: 1.5em;
         margin: .2em .5em 0 0;
-        border-radius: .1em;
-        background-color: $color2;
+        border-radius: $border_m;
+        border: $border_m solid $color2;
+        box-shadow: inset 0 0 0 0 $color2;
         transition: .5s cubic-bezier(0.165, 0.84, 0.44, 1);
-        &:hover{
-            background-color: $color1;
-        }
-        &:checked{
-            background-color: $color1;
+        &:hover, &:checked{
+            box-shadow: inset 4em 0 0 0 $color2;
         }
     }
 
-    .checkOpt{
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-        width: 10em;
-        margin-bottom: .3em;
+    label {
+        margin-left: .5em;
     }
-    
+}
+
+.preferenceLabels {
+    font-family: $newF;
+    font-size: 1.5em;
+    margin-bottom: .5em;
 }

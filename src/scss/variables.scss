@@ -12,8 +12,12 @@ $base : #170044;
 
 
 
-$color1 : cyan;
-$color2 : #ff00ff;
+// $color1 : cyan;
+// $color2 : #ff00ff;
+
+$color1: #535353;
+$color2: darkorange;
+$color3: #0c0c0c;
 
 
 @font-face {
@@ -36,8 +40,17 @@ $color2 : #ff00ff;
     src: url('../assets/fonts/arcadeclassic.TTF');
 }
 
+@font-face {
+    font-family: square;
+    src: url('../assets/fonts/Square\ One.ttf');
+}
 
 $title : pixel1;
 $subtitle : minecraft;
 $font03 : pixeloid;
 $font04 : arcadeclassic;
+$newF: square;
+
+$border_s: .1em;
+$border_m: .3em;
+$border_l: .5em;

@@ -1,80 +1,119 @@
-.profileContainer {
+// .upDataInfo{
+//     all:unset;
+//     padding: .7em;
+//     background-color: white;
+//     margin-bottom: .5em;
+//     color: $base;
+// }
+
+// .profileBox{
+//     display: flex;
+//     flex-direction: column;
+//     justify-content: center;
+//     width: 13em;
+//     border-right: .35em solid $color2;
+//     border-bottom: .35em solid $color2;
+//     box-shadow: -.3em -.3em 0em 0 $color1;
+//     padding: 3em 3em 4em 3em;
+
+//     .profileCard{
+//         display: flex;
+//         flex-direction: column;
+//         color: white;
+//     }
+
+//     .profileInfo{
+//         display: flex;
+//         flex-direction: row;
+//         align-items: center;
+
+//         .info{
+//             margin: .4em .4em 0 0;
+//             font-family: $subtitle;
+//             color: $color1;
+//         }
+//     }
+
+//     .profileInfoText {
+//         margin-bottom: 2em;
+//     }
+//     .infoText{
+//         margin-top: 1em;
+//         font-family: $subtitle;
+//         color: $color1;
+//     }
+    
+//     .boxButton{
+//         display: flex;
+//         flex-direction: column;
+//         align-items: center;
+//         margin-top: 2em;
+
+//         .buttonProfile{
+//             margin-right: 1em;
+//             cursor: pointer;
+//             &:hover{
+//                 font-size: 1.4em;
+//                 color: $base;
+//             }
+//             &:last-child{
+//                 margin-right: 0;
+//             }
+//         }
+//     }
+// }
+
+// .buttons{
+//     margin-top: 2em;
+// }
+
+.profileBox  {
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
-    height: 90vh;
+    background-color: darkorange;
+    border-radius: $border_l;
+    padding: 2em 2em 3em 2em;
 }
 
-.upDataInfo{
-    all:unset;
-    padding: .7em;
-    background-color: white;
-    margin-bottom: .5em;
-    color: $base;
-}
-
-.profileBox{
+.profileCard{
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    width: 13em;
-    border-right: .35em solid $color2;
-    border-bottom: .35em solid $color2;
-    box-shadow: -.3em -.3em 0em 0 $color1;
-    padding: 3em 3em 4em 3em;
-
-    .profileCard{
-        display: flex;
-        flex-direction: column;
-        color: white;
-    }
 
     .profileInfo{
         display: flex;
         flex-direction: row;
-        align-items: center;
-
-        .info{
-            margin: .4em .4em 0 0;
-            font-family: $subtitle;
-            color: $color1;
-        }
+        justify-content: space-between;
+        color: $color3;
+        border-bottom: $border_s*1.5 dashed $color3;
+        padding-bottom: .3em;
+        margin-bottom: .5em;
     }
-
-    .profileInfoText {
-        margin-bottom: 2em;
+    .info{
+        font-family: $newF;
+        color: white;
     }
     .infoText{
         margin-top: 1em;
-        font-family: $subtitle;
-        color: $color1;
-    }
-
-   
-    
-
-    
-    .boxButton{
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        margin-top: 2em;
-
-        .buttonProfile{
-            margin-right: 1em;
-            cursor: pointer;
-            &:hover{
-                font-size: 1.4em;
-                color: $base;
-            }
-            &:last-child{
-                margin-right: 0;
-            }
-        }
     }
 }
 
-.buttons{
-    margin-top: 2em;
+.boxButton {
+    display: flex;
+    flex-direction: column;
 }
+
+.profileInfoText{
+    margin-bottom: 4em;
+}
+
+.upDataInfo{
+    all:unset;
+    background-color: white;
+    padding: .5em;
+    margin-bottom: .3em;
+    color: $color3;
+    width: 14.5em;
+    border-radius: $border_s;
+}
+

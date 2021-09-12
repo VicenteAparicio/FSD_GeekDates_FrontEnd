@@ -134,18 +134,18 @@ const Search = (props) => {
 
             <div className="containerSearch">
 
-                <div className="filters ">
+                <div className="filters">
                     <div className="ageFilters">
                         <input className="ageRange" defaultValue="18" type="number" name="from" placeholder="from" onChange={ageRange}></input>
                         <input className="ageRange" defaultValue="99" type="number" name="to" placeholder="to" onChange={ageRange}></input>
                         <div className="button" onClick={()=>updateAge()}>SEARCH</div>
                     </div>
                     <div className="hobbieFilters">
-                        <input className="buttonHobbies" type="radio" placeholder="option" onChange={()=>hobbieFn("tablegames")} name="hobbies"/><label className="filterLabels" for="tablegames">TABLEGAMES</label>
-                        <input className="buttonHobbies" type="radio" placeholder="option" onChange={()=>hobbieFn("rolegames")}  name="hobbies"/><label className="filterLabels" for="rolegames">ROLEGAMES</label>
-                        <input className="buttonHobbies" type="radio" placeholder="option" onChange={()=>hobbieFn("videogames")} name="hobbies"/><label className="filterLabels" for="videogames">VIDEOGAMES</label>
-                        <input className="buttonHobbies" type="radio" placeholder="option" onChange={()=>hobbieFn("cosplay")}    name="hobbies"/><label className="filterLabels" for="cosplay">COSPLAY</label>
-                        <input className="buttonHobbies" type="radio" placeholder="option" onChange={()=>hobbieFn("anime")}      name="hobbies"/><label className="filterLabels" for="anime">ANIME</label>
+                        <input className="buttonHobbies" type="radio" onChange={()=>hobbieFn("tablegames")} name="hobbies"/><label className="filterLabels" for="tablegames">TABLEGAMES</label>
+                        <input className="buttonHobbies" type="radio" onChange={()=>hobbieFn("rolegames")}  name="hobbies"/><label className="filterLabels" for="rolegames">ROLEGAMES</label>
+                        <input className="buttonHobbies" type="radio" onChange={()=>hobbieFn("videogames")} name="hobbies"/><label className="filterLabels" for="videogames">VIDEOGAMES</label>
+                        <input className="buttonHobbies" type="radio" onChange={()=>hobbieFn("cosplay")}    name="hobbies"/><label className="filterLabels" for="cosplay">COSPLAY</label>
+                        <input className="buttonHobbies" type="radio" onChange={()=>hobbieFn("anime")}      name="hobbies"/><label className="filterLabels" for="anime">ANIME</label>
                     </div>
                     
                 </div>
@@ -154,17 +154,17 @@ const Search = (props) => {
                         
                             <div className="playerCard" key={index} >
                                 <div className="cardInfo">
-                                    <div>{player.nick}, {player.age}</div>
+                                    <div>{player.nick.toUpperCase()}, {player.age}</div>
                                     <div>{player.city} </div>
                                 </div>
                                 <div className="textInfo">{player.description}</div>
 
                                 <div className="hobbies">
-                                    {player.tablegames ? <div className="cardInfo">tablegames</div> : ''}
-                                    {player.rolegames ? <div className="cardInfo">rolegames</div> : ''}
-                                    {player.videogames ? <div className="cardInfo">videogames</div> : ''}
-                                    {player.cosplay ? <div className="cardInfo">cosplay</div> : ''}
-                                    {player.anime ? <div className="cardInfo">anime</div> : ''}
+                                    {player.tablegames ? <div className="cardInfo">TABLEGAMES</div> : ''}
+                                    {player.rolegames ? <div className="cardInfo">ROLEGAMES</div> : ''}
+                                    {player.videogames ? <div className="cardInfo">VIDEOGAMES</div> : ''}
+                                    {player.cosplay ? <div className="cardInfo">COSPLAY</div> : ''}
+                                    {player.anime ? <div className="cardInfo">ANIME</div> : ''}
                                 </div>
                                 <div className="boxCardButtons">
                                     <div className="cardButtons"><FontAwesomeIcon className="faIcons" icon={faHeart} onClick={()=>Like(player.user_id)}/></div>
