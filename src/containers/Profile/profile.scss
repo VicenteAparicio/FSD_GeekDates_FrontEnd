@@ -70,15 +70,15 @@
 .profileBox  {
     display: flex;
     flex-direction: column;
-    align-items: center;
     background-color: darkorange;
     border-radius: $border_l;
-    padding: 2em 2em 3em 2em;
+    padding: 2em 2em 6em 2em;
 }
 
 .profileCard{
     display: flex;
     flex-direction: column;
+    
 
     .profileInfo{
         display: flex;
@@ -101,10 +101,12 @@
 .boxButton {
     display: flex;
     flex-direction: column;
+    margin-top: 3em;
 }
 
 .profileInfoText{
     margin-bottom: 4em;
+    color: $color3;
 }
 
 .upDataInfo{

@@ -1,10 +1,17 @@
-.containerUpload {
+.containerUpload{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    height: 20em;
+    padding: 4em 0;
+}
+.uploadForm{
     display: flex;
     flex-direction: column;
-    margin: 2em 0;
+    height: 20em;
 }
-
 .photo{
-    width: 20em;
-    height: auto;
+    width: 10em;
+    height: 10em;
 }

@@ -118,6 +118,7 @@ const Profile = (props) => {
                         <div className="button" onClick={()=>edit()}>EDIT</div>
                         <NavLink className="button" to="/updateSexualInfo">PREFERENCES</NavLink>
                         <NavLink className="button" to="/hobbies">HOBBIES</NavLink>
+                        <NavLink className="button" to="/upload">PHOTO</NavLink>
                         <div className="button" onClick={()=>deleteUser(props.logData.user.id)}>DELETE</div>
                     </div>
                     
@@ -129,7 +130,7 @@ const Profile = (props) => {
     } else if (props.logData.token && allowEdit === true) {
         return (
             <div className="containerHome">
-                {/* <Upload/> */}
+                <Upload/>
                 <div className="profileBox">
                     <div className="titleSection">EDIT ACCOUNT</div>
                     <div className="profileCard">
@@ -147,6 +148,7 @@ const Profile = (props) => {
                         <div className="button" onClick={()=>cancelEdit()}>CANCEL</div>
                     </div>
                 </div>
+                
             </div>
         )
     
