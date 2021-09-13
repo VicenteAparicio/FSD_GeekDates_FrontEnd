@@ -27,6 +27,7 @@
 
     .ageRange{
         all: unset;
+        cursor: pointer;
         padding: .7em;
         border-radius: $border_s*2;
         margin-right: .5em;
@@ -49,6 +50,7 @@
 
     .buttonHobbies{
         all:unset;
+        cursor: pointer;
         width: 1.5em;
         height: 1.5em;
         margin: .2em .5em 0 0;

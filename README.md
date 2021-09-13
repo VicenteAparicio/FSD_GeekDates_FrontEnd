@@ -141,8 +141,9 @@ Was a nice ride, hard but nice. I learned a lot of new stuff and thousand of way
 3.- Add city filter<br>
 4.- Add country filter<br>
 
+<br><br>
 
 
-
-
+## THANKS
+Thank to all my teachers and classmates to become part of my learning. 
 
