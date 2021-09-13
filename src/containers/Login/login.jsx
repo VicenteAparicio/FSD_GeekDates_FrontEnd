@@ -62,22 +62,26 @@ const Login = (props) => {
 
 
     return (
-        <div className="container">
-            <div className="boxOptions">
-                <div className="boxLogin">
-                    
-                    <input className="inputs" type="email" name="email" onChange={updateCredentials} placeholder="Email"></input>
-                    
-                    <input className="inputs" type="password" name="password" onChange={updateCredentials} placeholder="Password"></input>
+        <div className="containerHome">
 
-                    <div className="button" onClick={()=>SignIn()}>PLAY</div>
+            <div className="boxOptions">
+
+                <div className="boxLogin">
+
+                    <div className="inputBox">
+                        <input className="inputs" type="email" name="email" onChange={updateCredentials} placeholder="Email"></input>
+                    </div>
+                    
+                    <div className="inputBox">
+                        <input className="inputs" type="password" name="password" onChange={updateCredentials} placeholder="Password"></input>
+                    </div>
                     
                 </div>
-
-            <div className="barra"></div>
-
-            <NavLink className="button" to="/register">NEW PLAYER</NavLink>
-
+                
+                <div className="button" onClick={()=>SignIn()}>PLAY</div>
+            
+                <NavLink className="button" to="/register">NEW PLAYER</NavLink>
+                
             </div>
             
         </div>

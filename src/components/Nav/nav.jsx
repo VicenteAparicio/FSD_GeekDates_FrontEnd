@@ -47,3 +47,4 @@ const Nav = (props) => {
 export default connect((state)=>(
     {logData:state.credentials}
 ))(Nav);
+

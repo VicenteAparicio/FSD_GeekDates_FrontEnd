@@ -178,7 +178,7 @@ const Matches = (props) => {
                                     // onClick={()=>Unmatch(lover.matchIduser_a_id, lover.user_b_id)}/></div>
                                     onClick={()=>Unmatch(lover.id)}/></div>
                                 
-                                <div className="loverInfo">{lover.name}</div>
+                                <div className="loverInfo">{lover.name.toLocaleUpperCase()}</div>
 
                                 <div className="message"><FontAwesomeIcon className="faIcons" icon={faArrowAltCircleRight}
                                     onClick={()=>setMatch(lover.name, lover.id, lover.user_a_id, lover.user_b_id)}/></div>
@@ -204,8 +204,10 @@ const Matches = (props) => {
                                 </div>
                                 ))}
                         </div>
-                        <input className="messageText" id="newMessage" onFocus={(e) => e.target.value=''} onChange={getText} type="text" placeholder="new message"></input>
-                        <div className="button" onClick={()=>newmessage()}>SEND</div>
+                        <div className="senderBox">
+                            <input className="messageText" id="newMessage" onFocus={(e) => e.target.value=''} onChange={getText} type="text" placeholder="new message"></input>
+                            <div className="buttonMatch" onClick={()=>newmessage()}>SEND</div>
+                        </div>
                         
                     </div>
                     

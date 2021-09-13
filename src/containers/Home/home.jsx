@@ -9,10 +9,14 @@ const Home = () => {
     
     return (
         <div className="containerHome">
-            <div className="title topTitle">Geek</div>
-            <div className="title">Dates</div>
-            {/* <NavLink to="/login"><img className="logo" alt="Logo" title="Logo de la app" src={Logo}/></NavLink> */}
-            <NavLink to="/login" className="startButton">start</NavLink>
+            <div className="boxTitle">
+                <div className="title topTitle">GEEK</div>
+                <div className="title">DATES</div>
+            </div>
+            
+            <div className="boxButton">
+                <NavLink to="/login" className="startButton">START</NavLink>
+            </div>
             
         </div>
     )

@@ -6,108 +6,183 @@
     padding-top: 4em;
 }
 
-.boxOptions{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    width: 90vw;
-    padding: 4em 0;
-    max-height: 70em;
-    max-width: 24em;
-    margin-bottom: 2em;
-    background-color: $base;
-    border-right: .25em solid $color2;
-    border-bottom: .25em solid $color2;
-    box-shadow: -.25em -.25em 0em 0 $color1;
+// .boxOptions{
+//     display: flex;
+//     flex-direction: column;
+//     justify-content: center;
+//     align-items: center;
+//     width: 90vw;
+//     padding: 4em 0;
+//     max-height: 70em;
+//     max-width: 24em;
+//     margin-bottom: 2em;
+//     background-color: $base;
+//     border-right: .25em solid $color2;
+//     border-bottom: .25em solid $color2;
+//     box-shadow: -.25em -.25em 0em 0 $color1;
     
-    transition: .5s cubic-bezier(0.075, 0.82, 0.165, 1);
+//     transition: .5s cubic-bezier(0.075, 0.82, 0.165, 1);
 
-    &:hover{
-        border: .2em solid $color1;
-        border-radius: 1em;
-        box-shadow: 0 0 1em .2em $color2;
-        animation: Breath infinite 1.5s cubic-bezier(0.9, 0.1, 0.1, .9);
-        animation-direction: alternate-reverse;
+//     &:hover{
+//         border: .2em solid $color1;
+//         border-radius: 1em;
+//         box-shadow: 0 0 1em .2em $color2;
+//         animation: Breath infinite 1.5s cubic-bezier(0.9, 0.1, 0.1, .9);
+//         animation-direction: alternate-reverse;
         
-    }
-    @keyframes Breath {
-        from {
-            box-shadow: 0 0 .5em .2em $color2;;
-        }
-        to {
-            box-shadow: 0 0 3em .2em $color2;;
-        }
-      }
-}
+//     }
+//     @keyframes Breath {
+//         from {
+//             box-shadow: 0 0 .5em .2em $color2;;
+//         }
+//         to {
+//             box-shadow: 0 0 3em .2em $color2;;
+//         }
+//       }
+// }
 
-.radioInputs {
-    background-color: $color1;
-}
+// .radioInputs {
+//     background-color: $color1;
+// }
 
-.boxLogin{
+// .boxLogin{
+//     display: flex;
+//     flex-direction: column;
+//     align-items: center;
+// }
+
+// .inputs {
+//     all: unset;
+//     padding: .7em;
+//     margin-bottom: .5em;
+//     width: 12em;
+//     border-radius: .1em;
+//     background-color: $color1;
+//     color: $base;
+//     transition: .3s cubic-bezier(0.1, 0.5, 0.75, .9);
+
+//     &:last-child {
+//         margin-bottom: 0;
+//     }
+
+//     &:hover{
+//         background-color: $base;
+//         padding-bottom: 1em ;
+//         border-bottom: .15em solid $color1;
+//         color: white;
+//     }
+
+// }
+
+// .button{
+//     display: flex;
+//     text-decoration: none;
+//     justify-content: center;
+//     align-items: center;
+//     margin-bottom: .5em;
+//     color: $base;
+//     padding: .7em .7em .5em .7em;
+//     border-radius: .1em;
+//     background-color: white;
+//     cursor: pointer;
+//     width: 12em;
+//     font-family: $subtitle;
+//     transition: .5s cubic-bezier(0.075, 0.82, 0.165, 1);
+//     &:hover{
+//         background-color: $color1; 
+//         color: $base; 
+//         box-shadow: .3em .3em 0 0 $color2;
+//     }
+//     &:last-child{
+//         margin-bottom: 0;
+//     }
+//     &:active{
+//         background-color: $base;
+//         border: .3em solid $color2;
+//         box-shadow: none;
+//         color: white;
+//     }
+// }
+
+// .barra {
+//     display: flex;
+//     align-self: center;
+//     border-bottom: .3em dotted $color2;
+//     width: 12em;
+//     margin: 1.5em 0;
+// }
+
+.boxOptions {
     display: flex;
     flex-direction: column;
     align-items: center;
-}
-
-.inputs {
-    all: unset;
-    padding: .7em;
-    margin-bottom: .5em;
-    width: 12em;
-    border-radius: .1em;
-    background-color: $color1;
-    color: $base;
-    transition: .3s cubic-bezier(0.1, 0.5, 0.75, .9);
-
-    &:last-child {
-        margin-bottom: 0;
-    }
-
-    &:hover{
-        background-color: $base;
-        padding-bottom: 1em ;
-        border-bottom: .15em solid $color1;
-        color: white;
-    }
-
-}
-
-.button{
-    display: flex;
-    text-decoration: none;
     justify-content: center;
-    align-items: center;
+    background-color: $color2;
+    padding: 2em 2em 3em 2em;
+    border-radius: $border_l;
+    width: 20em;
+    
+}
+
+.boxLogin {
+    display: flex;
+    flex-direction: column;
+    width: 15em;
+    margin-bottom: 1em;
+}
+.inputBox {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    height: 3em;
     margin-bottom: .5em;
-    color: $base;
-    padding: .7em .7em .5em .7em;
-    border-radius: .1em;
-    background-color: white;
-    cursor: pointer;
-    width: 12em;
-    font-family: $subtitle;
+}
+.inputs {
+    all:unset;
+    border-bottom: $border_s*2 dashed $color3;
+    padding-bottom: .3em;
     transition: .5s cubic-bezier(0.075, 0.82, 0.165, 1);
-    &:hover{
-        background-color: $color1; 
-        color: $base; 
-        box-shadow: .3em .3em 0 0 $color2;
-    }
-    &:last-child{
-        margin-bottom: 0;
-    }
-    &:active{
-        background-color: $base;
-        border: .3em solid $color2;
-        box-shadow: none;
-        color: white;
+    &:hover, &:focus {
+        padding-bottom: .8em;
+        border-bottom: $border_s*2 solid $color3;
+        background-color: white;
+        padding: .5em;
+        color: $color3;
     }
 }
 
-.barra {
-    display: flex;
-    align-self: center;
-    border-bottom: .3em dotted $color2;
-    width: 12em;
-    margin: 1.5em 0;
-}
+// .buttonBox {
+//     display: flex;
+//     justify-content: center;
+//     align-items: center;
+//     height: 3em;
+//     margin-bottom: .5em;
+//     &:last-child{
+//         margin-bottom: 0;
+//     }
+// }
+    .button {
+        all: unset;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-family: $newF;
+        padding: .5em 0;
+        width: 15em;
+        margin-bottom: .5em;
+        box-shadow: inset 0 0 0 0 $color2;
+        background-color: $color3;
+        transition: 1s cubic-bezier(0.075, 0.82, 0.165, 1);
+        cursor: pointer;
+        border: $border_m solid $color3;
+        border-radius: $border_m;
+        &:hover{
+            // background-color: $color2;
+            // border: $border_m solid $color3;
+            box-shadow: inset 20em 0 0 0 $color2;
+        }
+        &:last-child{
+            margin-bottom: 0;
+        }
+    }
+
