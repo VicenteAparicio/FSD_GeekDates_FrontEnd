@@ -30,13 +30,32 @@
     padding: 3em 4em;
     border-radius: $border_l;
     background-color: $color2;
+    cursor: pointer;
+    transition: .5s cubic-bezier(0.075, 0.82, 0.165, 1);
+
+    &:hover{   
+        animation-name: shadow;
+        animation-duration: 1s;
+        animation-timing-function: cubic-bezier(0.075, 0.82, 0.165, 1);
+        animation-direction: alternate;
+        animation-iteration-count: infinite;
+        .title{
+            color:white;
+        }
+    }
+}
+
+@keyframes shadow {
+    0% {box-shadow: 0 0 .3em .1em $color2;}
+    100% {box-shadow: 0 0 1.5em .5em $color2;}
+    
 }
 
 .boxButton{
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 10em;
+    height: 4em;
 }
 
 .title{
