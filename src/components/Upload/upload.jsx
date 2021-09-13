@@ -13,9 +13,9 @@ const Upload = (props) => {
   const config = {
     bucketName: 'geekdatesstore',
     // dirName: 'photos', /* optional */
-    region: 'eu-west-3',
-    accessKeyId:"AKIA33TBNO6SQ6BGZSZC",
-    secretAccessKey: "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",
+    region: '',
+    accessKeyId:"",
+    secretAccessKey: "",
 }
 
 

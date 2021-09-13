@@ -92,8 +92,8 @@ const UpdateSexualInfo = (props) => {
                 history.push('/profile');
 
             }
-        } catch (error) {
-            console.log(error);
+        } catch (err) {
+            console.log({message: err.message});
         };   
     }
 

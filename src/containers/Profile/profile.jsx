@@ -54,25 +54,22 @@ const Profile = (props) => {
                 "cp": userEdit.cp,
                 "description": userEdit.description
             }
-            console.log(body)
 
             if (passw !== ''){
-                console.log("pasamos pass")
                 let newPass = {
                     password: passw
                 }
                 await axios.post(`${connection}/updatePass`, newPass, {headers: {'Authorization': `Bearer ${props.logData.token}`}})
             }
             
-            console.log("updateamos info")
             let res = await axios.post(`${connection}/updateinfo`, body, {headers: {'Authorization': `Bearer ${props.logData.token}`}})
 
             if (res){
                 props.dispatch({type:GETINFO,payload:res.data.user});
             }
         
-        } catch (error) {
-            console.log(error);
+        } catch (err) {
+            console.log({message: err.message});
         }
         setAllowEdit(false);
     }

@@ -19,7 +19,6 @@ const Upload = (props) => {
 
     const getPreURL = async (e) => {
       const f = e.target.files[0];
-      console.log("Prepared file: ", f);
 
       // Get the presigned URL
       const response = await axios({
@@ -33,7 +32,6 @@ const Upload = (props) => {
 
     const putAndSaveURL = async () => {
 
-    
       // PUT request
       const result = await fetch(preURL.data.uploadURL, {
         method: 'PUT',
@@ -42,17 +40,15 @@ const Upload = (props) => {
         },
         body: pic
       })
-      console.log('Result: ', result)
+
       let photo = preURL.data.uploadURL.split('?')[0]
       
       setImage(photo);
-
 
       let body = {
         "user_id": props.logData.user.id,
         "urlpic": photo,
       }
-      console.log(body.urlpic)
 
       let res = await axios.post(`${connection}/updateinfo`, body, {headers: {'Authorization': `Bearer ${props.logData.token}`}})
 

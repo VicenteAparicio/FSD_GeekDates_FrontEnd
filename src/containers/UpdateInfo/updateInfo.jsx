@@ -84,8 +84,8 @@ const UpdateInfo = (props) => {
             } else if (res && props.logData.user.sexuality) {
                 history.push('/profile');
             }
-        } catch (error) {
-            console.log(error);
+        } catch (err) {
+            console.log({message: err.message});
         };   
     }
     

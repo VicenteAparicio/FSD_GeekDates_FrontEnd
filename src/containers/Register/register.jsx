@@ -94,8 +94,8 @@ const Register = (props) => {
                 SignIn();
             }
         }
-        catch (error) {
-                console.log(error);
+        catch (err) {
+            console.log({message: err.message});
         }   
     }
 
