@@ -3,8 +3,6 @@ import React, {useState, useEffect} from 'react';
 import {connect} from 'react-redux';
 import {NavLink, useHistory} from 'react-router-dom';
 import axios from 'axios';
-// IMPORT COMPONENTS
-import Upload from '../../components/Upload/upload';
 // IMPORT ACTIONS
 import {GETINFO} from '../../redux/types';
 
@@ -18,7 +16,7 @@ const Profile = (props) => {
     let history = useHistory();
 
     // HOOKS
-    const [userEdit, setUserEdit] = useState({nick:props.getInfo.nick, name:props.getInfo.name, surname:props.getInfo.surname, email: props.getInfo.email, age:props.getInfo.age, country:props.getInfo.country, city:props.getInfo.city, cp:props.getInfo.cp, description:props.getInfo.description});
+    const [userEdit, setUserEdit] = useState({nick:props.getInfo.nick, urlpic:props.getInfo.urlpic, name:props.getInfo.name, surname:props.getInfo.surname, email: props.getInfo.email, age:props.getInfo.age, country:props.getInfo.country, city:props.getInfo.city, cp:props.getInfo.cp, description:props.getInfo.description});
     const [passw, setPassw] = useState('');
     const [allowEdit, setAllowEdit] = useState(false);
 
@@ -65,6 +63,7 @@ const Profile = (props) => {
                 }
                 await axios.post(`${connection}/updatePass`, newPass, {headers: {'Authorization': `Bearer ${props.logData.token}`}})
             }
+            
             console.log("updateamos info")
             let res = await axios.post(`${connection}/updateinfo`, body, {headers: {'Authorization': `Bearer ${props.logData.token}`}})
 
@@ -97,9 +96,15 @@ const Profile = (props) => {
 
     if (props.logData.token && allowEdit === false){
         return (
-            <div className="containerHome">
-                     
+            <div className="containerProfile">
+                <div className="boxPhoto">
+                    <div className="portrait">
+                        <img className="photo" src={userEdit.urlpic}/>
+                    </div>
+                </div>
+
                 <div className="profileBox">
+                
                     <div className="profileCard">
                         
                         <div className="profileInfo"><div className="info">NICK:</div>{userEdit.nick}</div>
@@ -110,7 +115,7 @@ const Profile = (props) => {
                         <div className="profileInfo"><div className="info">COUNTRY:</div>{userEdit.country}</div>
                         <div className="profileInfo"><div className="info">CITY:</div> {userEdit.city}</div>
                         <div className="profileInfo"><div className="info">C.P.:</div> {userEdit.cp}</div>
-                        <div className="infoText info">DESCRIPTION:</div>
+                        <div className="profileInfo infoText info">DESCRIPTION:</div>
                         <div className="profileInfoText">{userEdit.description}</div>
 
                     </div>
@@ -130,7 +135,7 @@ const Profile = (props) => {
     } else if (props.logData.token && allowEdit === true) {
         return (
             <div className="containerHome">
-                <Upload/>
+                
                 <div className="profileBox">
                     <div className="titleSection">EDIT ACCOUNT</div>
                     <div className="profileCard">

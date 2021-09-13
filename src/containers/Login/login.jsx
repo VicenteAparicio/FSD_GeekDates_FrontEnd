@@ -3,8 +3,6 @@ import React, {useState} from 'react';
 import {NavLink, useHistory} from 'react-router-dom';
 import {connect} from 'react-redux';
 import axios from 'axios';
-// IMPORT COMPONENTS
-// import BtLink from '../../components/BtLink/btlink';
 // IMPORT ACTIONS
 import {LOGIN, GETINFO} from '../../redux/types';
 
@@ -12,7 +10,6 @@ import {LOGIN, GETINFO} from '../../redux/types';
 
 const Login = (props) => {
 
-    // let connection = "http://127.0.0.1:8000/api";
     let connection = "https://geeksdateback.herokuapp.com/api";
 
     let history = useHistory();
@@ -28,20 +25,19 @@ const Login = (props) => {
    // FUNCION LOGUEAR
    const SignIn = async () => {
 
-    
     try {
-        // A continuación genearmos el body de datos
         let body = {
             email: credentials.email.toLowerCase(),
             password: credentials.password,
         }
 
         let res = await axios.post(`${connection}/login`, body)
+        
         if (res) {
-            //Guardo en RDX
+            //SAVE ON REDUX USER AND TOKEN
             props.dispatch({type:LOGIN,payload:res.data});
             props.dispatch({type:GETINFO,payload:res.data.user});
-            
+
             alert("Gracias por loguearte")
 
             if(!res.data.token){
@@ -54,12 +50,11 @@ const Login = (props) => {
                 history.push('/profile')
             }
         }
+
     } catch (error) {
         alert(error)
     }  
 }
-
-
 
     return (
         <div className="containerHome">

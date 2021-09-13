@@ -51,23 +51,6 @@ const Matches = (props) => {
         }
     }
 
-    // DESTROY LOVER ROW 
-    // const Unmatch = async (a_id, b_id) => {
-
-    //     let body = {
-    //         "user_a_id": a_id,
-    //         "user_b_id": b_id,
-    //     }
-    //     try{
-    //         let res = await axios.post(`${connection}/unmatch`, body, {headers: {'Authorization': `Bearer ${props.logData.token}`}});
-    //         if (res) {
-    //             alert(res.data.message);
-    //         }
-    //     } catch (err) {
-    //         console.log({message: err.message})
-    //     }
-    // }
-
     const Unmatch = async (id) => {
         console.log(id)
         let body = {
@@ -138,8 +121,6 @@ const Matches = (props) => {
         setTextM(e.target.value);
     }
 
-
-
     // CREATE MESSAGE ROW
     const newmessage = async () =>{
         let body = {
@@ -158,10 +139,6 @@ const Matches = (props) => {
             console.log({message: err.message})
         }
     }
-
-
-    
-    
 
     if (props.logData.token){
 

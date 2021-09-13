@@ -1,0 +1,43 @@
+.containerUpload{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 90vh;
+    padding: 4em 0;
+}
+.boxForm{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 2em 2em 3em 2em;
+    border-radius: $border_l;
+    background-color: $color2;
+}
+.photoInput{
+    margin-bottom: 2em;
+}
+
+.boxPhoto{
+    padding: 2em;
+    border-radius: $border_l;
+    background-color: $color2;
+}
+.portrait{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 20em;
+    height: 20em;
+    box-shadow: .3em .3em .3em 0 $color3;
+    border-radius: $border_l;
+    overflow: hidden;
+}
+.photo{
+    background-color: $color3;
+    padding: 3em .5em;
+    border-radius: $border_l;
+    width: 20em;
+    height: auto;
+    box-shadow: .3em .3em .3em 0 $color3;
+}

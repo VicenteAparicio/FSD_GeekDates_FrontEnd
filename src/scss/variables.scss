@@ -1,54 +1,13 @@
-$bg1 : #f26d63;
-$cards : #f0291a;
-$shadows : #70403d;
-
-
-// $bg1 : #a3106e;
-// $cards : #f3009b;
-
-// $details : #ca00f0;
-$base : #170044;
-// $shadow: #770cf0;
-
-
-
-// $color1 : cyan;
-// $color2 : #ff00ff;
 
 $color1: #535353;
 $color2: darkorange;
 $color3: #0c0c0c;
-
-
-@font-face {
-    font-family: pixel1;
-    src: url('../assets/fonts/pix.TTF');
-}
-  
-@font-face {
-    font-family: minecraft;
-    src: url('../assets/fonts/minecraft.ttf');
-}
-
-@font-face {
-    font-family: pixeloid;
-    src: url('../assets/fonts/PixeloidSans.ttf');
-}
-
-@font-face {
-    font-family: arcadeclassic;
-    src: url('../assets/fonts/arcadeclassic.TTF');
-}
 
 @font-face {
     font-family: square;
     src: url('../assets/fonts/Square\ One.ttf');
 }
 
-$title : pixel1;
-$subtitle : minecraft;
-$font03 : pixeloid;
-$font04 : arcadeclassic;
 $newF: square;
 
 $border_s: .1em;
