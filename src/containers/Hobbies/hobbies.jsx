@@ -8,7 +8,6 @@ import { LOGOUT } from '../../redux/types';
 
 const Hobbies = (props) => {
 
-    // let connection = "http://127.0.0.1:8000/api";
     let connection = "https://geeksdateback.herokuapp.com/api";
     
     let history = useHistory();
@@ -58,8 +57,8 @@ const Hobbies = (props) => {
 
                 history.push('/profile');
             }
-        } catch (error) {
-            console.log(error);
+        } catch (err) {
+            console.log({message: err.message});
         }; 
     }
     

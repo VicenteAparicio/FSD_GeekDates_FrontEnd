@@ -94,8 +94,8 @@ const Register = (props) => {
                 SignIn();
             }
         }
-        catch (error) {
-                console.log(error);
+        catch (err) {
+            console.log({message: err.message});
         }   
     }
 
@@ -104,7 +104,6 @@ const Register = (props) => {
 
     
     try {
-        // A continuación genearmos el body de datos
         let body = {
             email: credentials.email.toLowerCase(),
             password: credentials.password,
@@ -112,19 +111,18 @@ const Register = (props) => {
 
         let res = await axios.post(`${connection}/login`, body)
         if (res) {
-            //Guardo en RDX
+            // SAVE ON REDUX USER AND TOKEN
             props.dispatch({type:LOGIN,payload:res.data});
             props.dispatch({type:GETINFO,payload:res.data.user});
 
             history.push('/updateInfo')
             
         }
+
     } catch (error) {
         alert(error)
     }  
 }
-    
-
     
 
     return (
@@ -134,8 +132,6 @@ const Register = (props) => {
             <div className="boxOptions">
 
                 <div className="titleSection">CREATE NEW PLAYER</div>
-
-                    
 
                         <input require="true" className="inputs" type="text" name="nick" onChange={updateCredentials} onBlur={()=>checkError("nick")} placeholder="Nick"/>
                         <div className="validateError">{errors.eNick}</div>

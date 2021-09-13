@@ -6,13 +6,11 @@ import axios from 'axios';
 
 const UpdateInfo = (props) => {
 
-    // let connection = "http://127.0.0.1:8000/api";
     let connection = "https://geeksdateback.herokuapp.com/api";
     
     let history = useHistory();
 
     // Hooks
-    // const [prev, setPrev] = useState({name:props.logData.user?.name,surname:props.logData.user?.surname,country:props.logData.user?.country,city:props.logData.user?.city, cp:props.logData.user?.cp});
     const [credentials, setCredentials] = useState({name:'',surname:'',country:'',city:'', cp:'', description:''});
 
     const [errors, setErrors] = useState({eName:'',eSurname:'',eCountry:'',eCity:'', eCP:''});
@@ -22,7 +20,6 @@ const UpdateInfo = (props) => {
     const updateCredentials = (e) => {
         setCredentials({...credentials, [e.target.name]: e.target.value});
     }
-
 
     // FUNCTION ERROR CHECK
     const checkError = (arg) => {
@@ -87,8 +84,8 @@ const UpdateInfo = (props) => {
             } else if (res && props.logData.user.sexuality) {
                 history.push('/profile');
             }
-        } catch (error) {
-            console.log(error);
+        } catch (err) {
+            console.log({message: err.message});
         };   
     }
     

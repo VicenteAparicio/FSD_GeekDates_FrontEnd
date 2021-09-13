@@ -10,7 +10,6 @@ import { faHeart} from '@fortawesome/free-regular-svg-icons';
 
 const Search = (props) => {
 
-    // let connection = "http://127.0.0.1:8000/api";
     let connection = "https://geeksdateback.herokuapp.com/api";
     
     let history = useHistory();
@@ -153,6 +152,9 @@ const Search = (props) => {
                     {filtPlayers.map((player, index)=>(
                         
                             <div className="playerCard" key={index} >
+                                <div className="playerPic">
+                                    <img className="profilePhoto" src={player.urlpic}/>
+                                </div>
                                 <div className="cardInfo">
                                     <div>{player.nick.toUpperCase()}, {player.age}</div>
                                     <div>{player.city} </div>

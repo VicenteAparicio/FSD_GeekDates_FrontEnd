@@ -74,8 +74,8 @@ const UpdateSexualInfo = (props) => {
 
     // UPDATE USER INFO
     const updateSexInfo = async () => {
+        
         try {
-            //A continuación generamos el body de datos
             let body = {
                 user_id: props.logData.user.id,
                 gender: gender,
@@ -92,8 +92,8 @@ const UpdateSexualInfo = (props) => {
                 history.push('/profile');
 
             }
-        } catch (error) {
-            console.log(error);
+        } catch (err) {
+            console.log({message: err.message});
         };   
     }
 
@@ -102,10 +102,6 @@ const UpdateSexualInfo = (props) => {
         <div className="container">
 
             <div className="boxOptions">
-
-                {/* <div className="titleSection">DATA INFO</div> */}
-
-                    {/* <div className="regData"> */}
 
                         <div className="checkerBox">
 
@@ -120,10 +116,6 @@ const UpdateSexualInfo = (props) => {
 
                         </div>
 
-                    {/* </div> */}
-                    
-                    {/* <div className="regData"> */}
-
                         <div className="checkerBox"> 
 
                             <div className="preferenceLabels">HOW YOU FEEL</div> 
@@ -137,10 +129,6 @@ const UpdateSexualInfo = (props) => {
 
                         </div>
 
-                    {/* </div> */}
-
-                    {/* <div className="regData"> */}
-
                         <div className="checkerBox">
 
                             <div className="preferenceLabels">LOOKING FOR</div> 
@@ -153,10 +141,6 @@ const UpdateSexualInfo = (props) => {
                             ))}
 
                         </div>
-                    
-                    {/* </div> */}
-                    {/* <div className="button" onClick={()=>updateSexInfo()}>CONTINUE</div> */}
-
                     
                     <div className="button" onClick={()=>updateSexInfo()}>SAVE</div>
                    

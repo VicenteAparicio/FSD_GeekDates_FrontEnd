@@ -5,159 +5,6 @@
     padding: 2em 0;
 }
 
-// .boxSearch{
-//     display: flex;
-//     flex-direction: row;
-//     justify-content: center;
-//     flex-wrap: wrap;
-//     width: 100%;
-// }
-
-// .playerCard {
-//     display: flex;
-//     flex-direction: column;
-//     justify-content: flex-end;
-//     width: 12em;
-//     padding: 2em;
-//     border-radius: .15em;
-//     box-shadow: .3em .3em 0 0 $color1;
-//     background-color: white;
-//     margin: 0 1em 1em 0;
-//     transition: .5s cubic-bezier(0.165, 0.84, 0.44, 1);
-
-//     &:hover{
-//         border: .35em solid $color2;
-//         border-radius: 1.5em;
-        
-//         box-shadow: .3em .3em 0 0 $color2;
-
-//         .textInfo{
-//             border-top: .15em solid $color2;
-//             border-bottom: .15em solid $color2;
-            
-//         }
-//     }
-
-//     .hobbies {
-//         display: flex;
-//         flex-direction: column;
-//         justify-content: center;
-//         align-items: center;
-//         margin-bottom: 1em;
-//     }
-
-//     .cardInfo{
-//         display: flex;
-//         flex-direction: row;
-//         justify-content: space-between;
-//         font-family: $subtitle;
-//         color: $base;
-//         margin-bottom: .5em;
-        
-//     }
-
-//     .textInfo {
-//         color: $base;
-//         margin: 1.5em 0 2em;
-//         padding: 1em 0;
-//         border-top: .15em solid $base;
-//         border-bottom: .15em solid $base;
-//     }
-
-// }
-
-// .boxCardButtons{
-//     display: flex;
-//     flex-direction: row;
-//     justify-content: space-around;
-//     align-items: center;
-//     height: 3em;
-
-//     .cardButtons{
-//         display: flex;
-//         justify-content: center;
-//         align-items: center;
-//         cursor: pointer;
-//         color: $base;
-//         font-size: 1.2em;
-//         height: 2em;
-//         width: 2em;
-//         transition: .5s cubic-bezier(0.165, 0.84, 0.44, 1);
-//         &:hover{
-//             color: $color2;
-//             font-size: 1.6em;
-//             transition: .5s cubic-bezier(0.165, 0.84, 0.44, 1);
-//         }
- 
-//     } 
-// }
-
-// .filters {
-//     display: flex;
-//     flex-direction: column;
-//     flex-wrap: wrap;
-//     align-items: center;
-//     box-shadow: -.3em -.3em 0em 0 $color1;
-//     border-right: .35em solid $color2;
-//     border-bottom: .35em solid $color2;
-//     padding: 2em;
-//     border-radius: .1em;
-//     margin-bottom: 2em;
-    
-//     .ageFilters{
-//         display: flex;
-//         flex-direction: row;
-//         margin-bottom: 1em;
-
-    
-//         .ageRange{
-//             all: unset;
-//             padding: 0 .5em;
-//             border-radius: .1em;
-//             margin-right:  1em;
-//             width: 3em;
-//             background-color: $color1;
-//             color: $base;
-//             transition: .5s cubic-bezier(0.1, 0.5, 0.75, .9);
-//             &:hover{
-//                 background-color: $base;
-//                 border-right: .35em solid $color2;
-//                 border-bottom: .35em solid $color2;
-//                 box-shadow: -.3em -.3em 0em 0 $color1;
-//                 color: white;
-//             }
-//             &:last-child {
-//                 margin-bottom: 0;
-//             }
-//         }
-//     }
-
-    
-
-
-
-
-//     .hobbieFilters{
-//         display: flex;
-//         flex-direction: row;
-//         flex-wrap: wrap;
-        
-//         .buttonHobbies{
-//             display: flex;
-//             flex-direction: row;
-//             align-items: center;
-//             margin: 0 .4em 0 1em;
-
-            
-//         }
-//         .filterLabels {
-//             margin-top: -.3em;
-//         }
-        
-//     }
-
-// }
-
 .filters {
     display: flex;
     flex-direction: column;
@@ -230,9 +77,6 @@
     padding: 2em;
     border-radius: $border_l;
 
-
-
-
     .playerCard {
         color: white;
         display: flex;
@@ -244,6 +88,20 @@
         border-radius: $border_l;
         transition: .5s cubic-bezier(0.165, 0.84, 0.44, 1);
         margin: 0 1em 1em 0;
+
+        .playerPic{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 15em;
+            overflow: hidden;
+        }
+
+        .profilePhoto{
+            width: 100%;
+            height: auto;
+            margin-bottom: 2em;
+        }
 
         .textInfo{
             color: white;

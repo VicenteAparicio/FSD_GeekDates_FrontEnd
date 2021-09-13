@@ -13,6 +13,7 @@ import Hobbies from './containers/Hobbies/hobbies';
 import Search from './containers/Search/search';
 import Nav from './components/Nav/nav.jsx';
 import Matches from './containers/Matches/matches';
+import Upload from './containers/Upload/upload';
 
 
 
@@ -32,6 +33,7 @@ function App() {
           <Route path="/hobbies" exact component={Hobbies}/>
           <Route path="/search" exact component={Search}/>
           <Route path="/matches" exact component={Matches}/>
+          <Route path="/upload" exact component={Upload}/>
         </Switch>
 
       </BrowserRouter>

@@ -6,7 +6,6 @@ import {connect} from 'react-redux';
 
 const Home = () => {
 
-    
     return (
         <div className="containerHome">
             <div className="boxTitle">
