@@ -15,8 +15,8 @@ Geeks Date is an webapp like tinder or adoptauntio but focused on freak people. 
 <br>
 
 - Start date: 20 July 2021
-- Delivery date: 23 August 2021
-- Dedicated time: > 60 hours 
+- Delivery date: 13 September 2021
+- Dedicated time: > 100 hours 
 
 <br>
 
@@ -25,6 +25,8 @@ Geeks Date is an webapp like tinder or adoptauntio but focused on freak people. 
 - REACT
 - PHP LARAVEL
 - SEQUELIZE
+- AWS AMPLIFY
+- S3 BUCKET
 - REDUX
 - AXIOS
 - GIT FLOW
@@ -89,6 +91,15 @@ You need to fill this to complete your sexual info on the database
 You need to fill this to complete your hobbies info on the database, without hobbies the users can't not see you on their searchs.
 <br><br>
 
+## UPLOAD YOUR PHOTO
+
+<br>
+
+<img src="./src/assets/readmeImg/img16.png" style="width: 100%"><br><br>
+
+Everybody wants to see the face of their future love, let's them discover the beautyfull person you are!!
+<br><br>
+
 ## START YOUR SEARCH!!
 
 <br>
@@ -125,7 +136,7 @@ Was a nice ride, hard but nice. I learned a lot of new stuff and thousand of way
 ## THINGS I LEFT TO DO... FOR NOW
 
 <br>
-1.- Add an upload image section<br>
+1.- Add custom alert messages<br>
 2.- Improve hobbie filters<br>
 3.- Add city filter<br>
 4.- Add country filter<br>
