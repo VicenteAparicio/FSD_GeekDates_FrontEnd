@@ -20,6 +20,9 @@ Geeks Date is an webapp like tinder or adoptauntio but focused on freak people. 
 
 <br>
 
+## DEPLOY
+<a href="https://geeksdatefront.herokuapp.com/">GeekDates</a>
+
 ## TECHNOLOGY
 
 - REACT
