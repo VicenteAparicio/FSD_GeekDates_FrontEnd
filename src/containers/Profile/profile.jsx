@@ -113,11 +113,11 @@ const Profile = (props) => {
                         <div className="profileInfo"><div className="info">C.P.:</div> {userEdit.cp}</div>
                         <div className="profileInfo"><div className="info">HOBBIES:</div>
                         <div className="hobbiesInfo">
-                                    {props.hobby?.data[0].tablegames ? <div className="hobInfo">Tablegames</div> : ''}
-                                    {props.hobby?.data[0].rolegames ? <div className="hobInfo">Rolegames</div> : ''}
-                                    {props.hobby?.data[0].videogames ? <div className="hobInfo">Videogames</div> : ''}
-                                    {props.hobby?.data[0].cosplay ? <div className="hobInfo">Cosplay</div> : ''}
-                                    {props.hobby?.data[0].anime ? <div className="hobInfo">Anime</div> : ''}
+                                    {props.hobby.tablegames ? <div className="hobInfo">Tablegames</div> : ''}
+                                    {props.hobby.rolegames ? <div className="hobInfo">Rolegames</div> : ''}
+                                    {props.hobby.videogames ? <div className="hobInfo">Videogames</div> : ''}
+                                    {props.hobby.cosplay ? <div className="hobInfo">Cosplay</div> : ''}
+                                    {props.hobby.anime ? <div className="hobInfo">Anime</div> : ''}
                                 </div></div>
                         <div className="profileInfo infoText info">DESCRIPTION:</div>
                         <div className="profileInfoText">{userEdit.description}</div>

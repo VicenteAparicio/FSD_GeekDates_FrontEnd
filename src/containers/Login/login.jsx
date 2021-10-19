@@ -4,7 +4,7 @@ import {NavLink, useHistory} from 'react-router-dom';
 import {connect} from 'react-redux';
 import axios from 'axios';
 // IMPORT ACTIONS
-import {LOGIN, GETINFO} from '../../redux/types';
+import {LOGIN, GETINFO, GETHOBBIES} from '../../redux/types';
 
 
 
@@ -32,13 +32,23 @@ const Login = (props) => {
         }
 
         let res = await axios.post(`${connection}/login`, body)
-        
         if (res) {
+            
+
             //SAVE ON REDUX USER AND TOKEN
             props.dispatch({type:LOGIN,payload:res.data});
             props.dispatch({type:GETINFO,payload:res.data.user});
 
             alert("Gracias por loguearte")
+
+            let bodyHobbie = {
+                user_id: res.data.user.id
+            }
+
+            let reso = await axios.post(`${connection}/gethobbies`, bodyHobbie, {headers: {'Authorization': `Bearer ${res.data.token}`}})
+            props.dispatch({type:GETHOBBIES,payload:reso.data.data[0]});
+
+            
 
             if(!res.data.token){
                 history.push('/register')
@@ -49,6 +59,8 @@ const Login = (props) => {
             } else {
                 history.push('/profile')
             }
+
+            
         }
 
     } catch (error) {

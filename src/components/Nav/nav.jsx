@@ -3,7 +3,7 @@ import React from 'react';
 import {connect} from 'react-redux';
 import {NavLink, useHistory} from 'react-router-dom';
 // IMPORT ACTIONS
-import { LOGOUT } from '../../redux/types';
+import { CLEANHOBBIES, LOGOUT } from '../../redux/types';
 // IMPORT ICONS
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {  faUser, faHeart, faEye, faExternalLinkSquareAlt } from '@fortawesome/free-solid-svg-icons';
@@ -16,6 +16,7 @@ const Nav = (props) => {
 
     const logOut = () =>{
         props.dispatch({type:LOGOUT})
+        props.dispatch({type:CLEANHOBBIES})
         setTimeout(()=>{
             history.push('/');
         }, 500)

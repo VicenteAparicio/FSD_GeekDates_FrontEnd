@@ -7,5 +7,6 @@ export const HOBBIEOPTIONCLEAN = 'optionclean';
 export const GETINFO = 'getinfo';
 export const CLEANINFO = 'cleaninfo';
 export const GETHOBBIES = 'gethobbies';
+export const CLEANHOBBIES = 'cleanhobbies';
 
 

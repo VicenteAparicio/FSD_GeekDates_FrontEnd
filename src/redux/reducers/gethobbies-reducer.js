@@ -1,4 +1,4 @@
-import {GETHOBBIES} from '../types';
+import {CLEANHOBBIES, GETHOBBIES} from '../types';
 
 const initialState = {
     hobbies:{},
@@ -9,6 +9,10 @@ const getHobbies = (state = initialState, action) => {
         // SAVE ACTION
         case GETHOBBIES :
             return action.payload;
+
+        // CLEAN USER LOG
+        case CLEANHOBBIES : 
+            return initialState;
 
         default : 
             return state

@@ -35,9 +35,10 @@ const Hobbies = (props) => {
                 cosplay: hobbies.cosplay,
                 anime: hobbies.anime
             }
+
             let res = await axios.post(`${connection}/hobbies`, body, {headers: {'Authorization': `Bearer ${props.logData.token}`}})
-            console.log(res.data)
-            props.dispatch({type:GETHOBBIES,payload:res.data});
+            props.dispatch({type:GETHOBBIES,payload:res.data.data[0]});
+            
             // ONLY FIRST TIME
             if (res && !props.logData.user.isComplete) {
                 let body = {
