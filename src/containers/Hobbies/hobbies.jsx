@@ -4,7 +4,7 @@ import {NavLink, useHistory} from 'react-router-dom';
 import {connect} from 'react-redux';
 import axios from 'axios';
 // IMPORT ACTIONS
-import { LOGOUT } from '../../redux/types';
+import { LOGOUT, GETHOBBIES } from '../../redux/types';
 
 const Hobbies = (props) => {
 
@@ -36,7 +36,8 @@ const Hobbies = (props) => {
                 anime: hobbies.anime
             }
             let res = await axios.post(`${connection}/hobbies`, body, {headers: {'Authorization': `Bearer ${props.logData.token}`}})
-            
+            console.log(res.data)
+            props.dispatch({type:GETHOBBIES,payload:res.data});
             // ONLY FIRST TIME
             if (res && !props.logData.user.isComplete) {
                 let body = {
@@ -46,7 +47,7 @@ const Hobbies = (props) => {
                 await axios.post(`${connection}/updateinfo`, body, {headers: {'Authorization': `Bearer ${props.logData.token}`}})
             
                 alert("Gracias por rellenar tus hobbies");
-
+                
                 props.dispatch({type:LOGOUT});
 
                 history.push('/login');

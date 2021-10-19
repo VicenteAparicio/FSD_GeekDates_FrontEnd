@@ -90,6 +90,7 @@ const Profile = (props) => {
         }, 1000)
     }
 
+    console.log("Este es mi props", props.hobby.data[0])
 
     if (props.logData.token && allowEdit === false){
         return (
@@ -112,8 +113,17 @@ const Profile = (props) => {
                         <div className="profileInfo"><div className="info">COUNTRY:</div>{userEdit.country}</div>
                         <div className="profileInfo"><div className="info">CITY:</div> {userEdit.city}</div>
                         <div className="profileInfo"><div className="info">C.P.:</div> {userEdit.cp}</div>
+                        <div className="profileInfo"><div className="info">HOBBIES:</div>
+                        <div className="hobbiesInfo">
+                                    {props.hobby.data[0].tablegames ? <div className="hobInfo">Tablegames</div> : ''}
+                                    {props.hobby.data[0].rolegames ? <div className="hobInfo">Rolegames</div> : ''}
+                                    {props.hobby.data[0].videogames ? <div className="hobInfo">Videogames</div> : ''}
+                                    {props.hobby.data[0].cosplay ? <div className="hobInfo">Cosplay</div> : ''}
+                                    {props.hobby.data[0].anime ? <div className="hobInfo">Anime</div> : ''}
+                                </div></div>
                         <div className="profileInfo infoText info">DESCRIPTION:</div>
                         <div className="profileInfoText">{userEdit.description}</div>
+                        
 
                     </div>
                     <div className="boxButton">
@@ -166,5 +176,6 @@ const Profile = (props) => {
 
 export default connect((state)=>(
     {logData:state.credentials,
-    getInfo:state.getinfo}
+    getInfo:state.getinfo,
+    hobby:state.gethobbies}
 ))(Profile);
